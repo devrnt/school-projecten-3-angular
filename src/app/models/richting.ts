@@ -1,10 +1,12 @@
 import { User } from './user';
+import { Activiteit } from './activiteit.model';
 
 export class Richting {
   private _naam: string;
   private _desc: string;
   private _icon: string;
   private _leerkrachten: User[];
+  private _competenties: Activiteit[];
 
   /**
    * Getter naam
@@ -68,5 +70,13 @@ export class Richting {
    */
   public set leerkrachten(value: User[]) {
     this._leerkrachten = value;
+  }
+
+  /**
+   * Getter competenties
+   * @return {Activiteit[]}
+   */
+  public get competenties(): Activiteit[] {
+    return this._competenties;
   }
 }

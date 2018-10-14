@@ -23,8 +23,10 @@ export class Activiteit {
    * voegt eenzelfde beoordeling toe aan alle deelcompetenties, zet indien nodig behaald op true
    */
   public kenAlleCompetentiesToe(beoordeling: Beoordeling): void {
+    if (!this._behaald) {
     this._competenties.forEach(c => c.kenBeoordelingToe(beoordeling));
     this.controlleerBehaald();
+    }
   }
 
    /**
@@ -33,11 +35,18 @@ export class Activiteit {
    * voegt beoordeling toe aan een deelcompetentie,
    * zet indien nodig behaald op true, kiest competentie met parameter index
    */
-  public kenCompetentiesToe(index: number, beoordeling: Beoordeling): void {
+  public kenCompetentieToe(index: number, beoordeling: Beoordeling): void {
+    if (!this._behaald) {
     this._competenties[index].kenBeoordelingToe(beoordeling);
     this.controlleerBehaald();
+    }
   }
 
+    /**
+   * Method controlleerBehaald
+   * @return {void}
+   * zet behaald op true als alle deelcompetenties behaald zijn
+   */
   private controlleerBehaald(): void {
     this._behaald = this._competenties.every(c => c.behaald);
   }
