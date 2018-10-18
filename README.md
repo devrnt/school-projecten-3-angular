@@ -6,6 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Dependencies
 
 npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save font-awesome angular-font-awesome
 
 ## Development server
 

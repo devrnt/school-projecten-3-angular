@@ -1,7 +1,7 @@
 import { Competentie } from './competentie.model';
 import { Beoordeling } from './beoordeling.model';
 
-// activity == hoofdcompetentie
+// activiteit == hoofdcompetentie
 export class Activiteit {
   private _id;
   private _description: string;
@@ -11,44 +11,11 @@ export class Activiteit {
   private _dateMade: Date;
   private _behaald: boolean;
 
-  constructor(description: string, icon: string, color: string) {
+  constructor(id: string, description: string, icon: string, color: string) {
+    this._id = id;
     this._competenties = [];
     this._dateMade = new Date();
     this._behaald = false;
-  }
-
-  /**
-   * Method kenAlleCompetentiesToe
-   * @return {void}
-   * voegt eenzelfde beoordeling toe aan alle deelcompetenties, zet indien nodig behaald op true
-   */
-  public kenAlleCompetentiesToe(beoordeling: Beoordeling): void {
-    if (!this._behaald) {
-    this._competenties.forEach(c => c.kenBeoordelingToe(beoordeling));
-    this.controlleerBehaald();
-    }
-  }
-
-   /**
-   * Method kenCompetentiesToe
-   * @return {void}
-   * voegt beoordeling toe aan een deelcompetentie,
-   * zet indien nodig behaald op true, kiest competentie met parameter index
-   */
-  public kenCompetentieToe(index: number, beoordeling: Beoordeling): void {
-    if (!this._behaald) {
-    this._competenties[index].kenBeoordelingToe(beoordeling);
-    this.controlleerBehaald();
-    }
-  }
-
-    /**
-   * Method controlleerBehaald
-   * @return {void}
-   * zet behaald op true als alle deelcompetenties behaald zijn
-   */
-  private controlleerBehaald(): void {
-    this._behaald = this._competenties.every(c => c.behaald);
   }
 
   /**
@@ -130,4 +97,13 @@ export class Activiteit {
   public set competenties(value: Competentie[]) {
     this._competenties = value;
   }
+
+  /**
+   * Setter behaald
+   * @param {boolean} value
+   */
+  public set behaald(value: boolean) {
+    this._behaald = value;
+  }
+
 }

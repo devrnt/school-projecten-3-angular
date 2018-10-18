@@ -3,6 +3,7 @@ import { User } from './user';
 import { Richting } from './richting';
 
 export class Leerling {
+  private _id: string;
   private _voornaam: string;
   private _achternaam: string;
   private _competenties: Activiteit[];
@@ -12,6 +13,17 @@ export class Leerling {
   private _geslacht: Geslacht;
   private _stage: User;
   private _werkgever: User;
+
+  constructor(id: string) {
+    this._id = id;
+  }
+  /**
+   * Getter voornaam
+   * @return {string}
+   */
+  public get id(): string {
+    return this._id;
+  }
 
   /**
    * Getter voornaam

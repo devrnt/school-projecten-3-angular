@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.full{
+width: 100%
+}
+
+.half{
+    width: 50%
+}
+
+.third{
+    width: 33.3333%
+}

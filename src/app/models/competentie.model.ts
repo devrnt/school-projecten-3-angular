@@ -2,11 +2,13 @@ import { Beoordeling } from './beoordeling.model';
 
 // competentie == deelcompetentie
 export class Competentie {
+  private _id: string;
   private _description: string;
   private _behaald: boolean;
   private _beoordeling: Beoordeling;
 
-  constructor(description: string) {
+  constructor(id: string, description: string) {
+    this._id = id;
     this._description = description;
     this._beoordeling = Beoordeling['N/A'];
     this._behaald = false;
@@ -37,16 +39,21 @@ export class Competentie {
   }
 
   /**
-   * Method kenBeoordelingToe
-   * @return {void}
-   * voegt beoordeling toe en zet indien nodig behaald op true
+   * Setter beoordeling
+   * @param {Beoordeling} value
    */
-  public kenBeoordelingToe(beoordeling: Beoordeling): void {
-    if (!this._behaald) {
-        this._beoordeling = beoordeling;
-        if (beoordeling !== Beoordeling.O && beoordeling !== Beoordeling['N/A']) {
-            this._behaald = true;
-        }
-    }
+  public set beoordeling(value: Beoordeling) {
+    this._beoordeling = value;
   }
+
+
+  /**
+   * Setter behaald
+   * @param {boolean} value
+   */
+  public set behaald(value: boolean) {
+    this._behaald = value;
+  }
+
+
 }
