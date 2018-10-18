@@ -6,11 +6,13 @@ import { LeerlingComponent } from './components/leerling/leerling.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { LeerlingService } from './services/leerling.service';
+import { RichtingComponent } from './components/richting/richting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LeerlingComponent
+    LeerlingComponent,
+    RichtingComponent
   ],
   imports: [
     BrowserModule,
