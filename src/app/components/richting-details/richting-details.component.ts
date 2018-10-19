@@ -1,21 +1,16 @@
-<<<<<<< HEAD
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RichtingService } from 'src/app/services/richting.service';
 import { Richting } from '../../models/richting';
 import { User, UserType } from '../../models/user';
 import { LeerkrachtService } from '../../services/leerkracht.service';
-=======
-import { Component, OnInit } from '@angular/core';
->>>>>>> 1635ea9080573b3b3cbf03c32320ae9af7de8d12
 
 @Component({
-  selector: 'app-richting',
-  templateUrl: './richting.component.html',
-  styleUrls: ['./richting.component.css']
+  selector: 'app-richting-details',
+  templateUrl: './richting-details.component.html',
+  styleUrls: ['./richting-details.component.css']
 })
-export class RichtingComponent implements OnInit {
+export class RichtingDetailsComponent implements OnInit {
 
-<<<<<<< HEAD
   public _richting: Richting;
   public _alleLeerkrachten: User[];
 
@@ -46,11 +41,6 @@ export class RichtingComponent implements OnInit {
 
   deleteLeerkracht(i: number) {
     this.richting.leerkrachten.splice(i, 1);
-=======
-  constructor() { }
-
-  ngOnInit() {
->>>>>>> 1635ea9080573b3b3cbf03c32320ae9af7de8d12
   }
 
 }
