@@ -1,0 +1,157 @@
+<<<<<<< HEAD
+.richting-details {
+    width: 300px;
+    margin-left: 10vw;
+    margin-top: 3vw;
+    /* border: 1px solid black; */
+    padding: 2em;
+
+    border-radius: 1vw;
+
+    -webkit-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+    -moz-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+    box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+}
+
+.icon {
+    width: 150px;
+    margin: 0px 75px 20px 75px;
+}
+
+.input {
+    width: 100%;
+}
+
+.fullWidth {
+    width: 100%;
+    display: flex;
+}
+
+.addButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.selectLeerkracht {
+    flex: 1 0 auto;
+}
+
+.addButton {
+    flex: 0 0 auto;
+    margin-left: 1em;
+    font-size: 1.5em;
+    color: rgb(131, 212, 131);
+}
+
+.listitem {
+    flex: 1 0 auto;
+}
+
+.listitem:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.deleteButton {
+    visibility: hidden;
+    color: rgb(255,105,97);
+    font-size: 20px;
+    /* flex: 0 0 auto; */
+    margin-left: auto;
+    order: 2;
+}
+
+.listitem:hover .deleteButton {
+    visibility: visible;
+}
+
+.leerkrachtDiv {
+    width: 100%;
+    display: flex;
+}
+
+::ng-deep .mat-list .mat-list-item .mat-list-item-content {
+    padding-right: 0px !important;
+=======
+.icon{
+    vertical-align:middle;
+    color: #fff;
+    height: 66px;
+    width: 60px;
+    padding: 10px;
+    background-color: rgb(0, 132, 255)
+}
+
+.inner {
+  height: 60px;
+
+  text-align: center;
+  padding-top: 15px;
+}
+.center{
+    vertical-align: middle;
+    text-align: center;
+}
+
+.card_border{
+    box-shadow: 0 4px 8px 0 rgba(234, 233, 233, 0.01), 0 6px 20px 0 rgb(228, 228, 228);
+    font-family: Raleway;
+}
+
+.card_main{
+    display: flex;
+}
+
+.card_slider{
+    display: flex;
+    border-top: 0px;
+    font-size: 12px;
+}
+
+.text{
+    width: calc(100% - 80px);
+    height: 85px;
+    text-align: center;
+    border-bottom: 1px solid rgba(199, 199, 199, 0.363)
+}
+
+h3 {
+    margin: auto;
+    margin-top: 32px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+h4{
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.slide_open_button{
+    color: grey;
+    margin-top: 20px;
+}
+
+/* animation */
+
+body { font-family: sans-serif;} 
+#content { margin: 50px; } 
+a { text-decoration: none; }  
+ 
+.expandable {
+  background: #fff;
+  overflow: hidden;
+  color: #000;   
+  line-height: 16px;
+
+  transition: all .5s ease-in-out;
+  height: 0;
+ }
+ 
+ .expandable:target {
+  height: 120px;
+>>>>>>> 1635ea9080573b3b3cbf03c32320ae9af7de8d12
+}

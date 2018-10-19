@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RichtingComponent } from './richting.component';
+import { RichtingComponent } from './richting-details.component';
 
 describe('RichtingComponent', () => {
   let component: RichtingComponent;

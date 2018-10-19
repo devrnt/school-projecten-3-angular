@@ -4,8 +4,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ## Dependencies
+angular material
+
+font awesome icons
+
+bootstrap
+
+poppper
+
+jquery
+
+how to manually install:
 
 npm install --save @angular/material @angular/cdk @angular/animations
+
 npm install --save font-awesome angular-font-awesome
 
 ## Development server
