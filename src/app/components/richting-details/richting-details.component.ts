@@ -23,7 +23,7 @@ export class RichtingDetailsComponent implements OnInit {
 
   ngOnInit() {
     this._richting = this._richtingService.getRichting();
-    this._alleLeerkrachten = this._leerkrachtService.getAlleLeerkrachten();
+    this._alleLeerkrachten = this._leerkrachtService.leerkachten;
   }
 
   get richting(): Richting {

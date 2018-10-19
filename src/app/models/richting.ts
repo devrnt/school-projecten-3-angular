@@ -1,5 +1,6 @@
 import { User } from './user';
 import { Activiteit } from './activiteit.model';
+import { Leerling } from './leerling.model';
 
 export class Richting {
   private _naam: string;
@@ -10,11 +11,15 @@ export class Richting {
 
   constructor(
     naam: string,
-    leerkrachten: User[]
-) {
+    leerkrachten: User[],
+    leerlingen: Leerling[],
+    competenties: Activiteit[],
+    werkgevers: User[],
+    diploma: Diploma.TSO
+  ) {
     this._naam = naam;
     this._leerkrachten = leerkrachten;
-}
+  }
 
   /**
    * Getter naam
@@ -87,4 +92,8 @@ export class Richting {
   public get competenties(): Activiteit[] {
     return this._competenties;
   }
+}
+
+export enum Diploma {
+  'BSO', 'TSO', 'ASO', 'Duaal Leren', 'Geen'
 }
