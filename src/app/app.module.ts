@@ -7,12 +7,14 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { LeerlingService } from './services/leerling.service';
 import { RichtingComponent } from './components/richting/richting.component';
+import { RichtingenViewComponent } from './components/richtingen-view/richtingen-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeerlingComponent,
-    RichtingComponent
+    RichtingComponent,
+    RichtingenViewComponent
   ],
   imports: [
     BrowserModule,
