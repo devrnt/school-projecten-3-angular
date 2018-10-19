@@ -8,6 +8,14 @@ export class Richting {
   private _leerkrachten: User[];
   private _competenties: Activiteit[];
 
+  constructor(
+    naam: string,
+    leerkrachten: User[]
+) {
+    this._naam = naam;
+    this._leerkrachten = leerkrachten;
+}
+
   /**
    * Getter naam
    * @return {string}

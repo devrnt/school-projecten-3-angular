@@ -6,17 +6,27 @@ import { LeerlingComponent } from './components/leerling/leerling.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { LeerlingService } from './services/leerling.service';
+import { RichtingComponent } from './components/richting/richting.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LeerlingComponent
+    LeerlingComponent,
+    RichtingComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AngularFontAwesomeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatInputModule,
+    MatListModule,
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [ LeerlingService],
   bootstrap: [AppComponent]

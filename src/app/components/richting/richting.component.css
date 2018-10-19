@@ -1,0 +1,74 @@
+.richting-details {
+    width: 300px;
+    margin-left: 10vw;
+    margin-top: 3vw;
+    /* border: 1px solid black; */
+    padding: 2em;
+
+    border-radius: 1vw;
+
+    -webkit-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+    -moz-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+    box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+}
+
+.icon {
+    width: 150px;
+    margin: 0px 75px 20px 75px;
+}
+
+.input {
+    width: 100%;
+}
+
+.fullWidth {
+    width: 100%;
+    display: flex;
+}
+
+.addButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.selectLeerkracht {
+    flex: 1 0 auto;
+}
+
+.addButton {
+    flex: 0 0 auto;
+    margin-left: 1em;
+    font-size: 1.5em;
+    color: rgb(131, 212, 131);
+}
+
+.listitem {
+    flex: 1 0 auto;
+}
+
+.listitem:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.deleteButton {
+    visibility: hidden;
+    color: rgb(255,105,97);
+    font-size: 20px;
+    /* flex: 0 0 auto; */
+    margin-left: auto;
+    order: 2;
+}
+
+.listitem:hover .deleteButton {
+    visibility: visible;
+}
+
+.leerkrachtDiv {
+    width: 100%;
+    display: flex;
+}
+
+::ng-deep .mat-list .mat-list-item .mat-list-item-content {
+    padding-right: 0px !important;
+}
