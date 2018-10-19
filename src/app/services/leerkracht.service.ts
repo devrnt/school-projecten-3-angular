@@ -9,7 +9,7 @@ export class LeerkrachtService {
   constructor() {
   }
 
-  getAlleLeerkrachten() {
+  public getAlleLeerkrachten() {
     return [
       new User('Tom', 'De Barman', 'tom@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
       new User('An', 'De Temmerman', 'an@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
