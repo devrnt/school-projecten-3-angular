@@ -1,25 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { RichtingComponent } from './richting.component';
-
-describe('RichtingComponent', () => {
+ import { RichtingComponent } from './richting.component';
+ describe('RichtingComponent', () => {
   let component: RichtingComponent;
   let fixture: ComponentFixture<RichtingComponent>;
-
-  beforeEach(async(() => {
+   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RichtingComponent ]
     })
     .compileComponents();
   }));
-
-  beforeEach(() => {
+   beforeEach(() => {
     fixture = TestBed.createComponent(RichtingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+   it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

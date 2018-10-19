@@ -1,0 +1,41 @@
+<div class="richting-details">
+  <img src="assets/images/pc.png" class="icon">
+    <form class="richtingNaamForm">
+      <mat-form-field class="input">
+        <input matInput placeholder="Naam van de richting" value="{{richting.naam}}">
+      </mat-form-field>
+    </form>
+    <mat-list>
+      <h2 mat-subheader>Leerkrachten</h2>
+      <div *ngFor='let leerkracht of richting.leerkrachten; let i = index;' class="leerkrachtDiv">
+        <mat-list-item role="listitem" class="listitem">
+            <i class="fas fa-genderless"></i>
+          &nbsp;&nbsp;&nbsp;&nbsp;{{leerkracht.voornaam}} {{leerkracht.achternaam}}
+          <button mat-icon-button type="button"
+            class="deleteButton"
+            (click)="deleteLeerkracht(i)">
+            <i class="deleteIcon fas fa-trash-alt"></i>
+          </button>
+        </mat-list-item>
+      </div>
+    </mat-list>
+
+    <div class="fullWidth">
+      <mat-form-field class="selectLeerkracht">
+        <mat-select placeholder="Leerkracht toevoegen" [(value)]="selected" #selectLeerkracht>
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let leerkracht of alleLeerkrachten" [value]="leerkracht">
+            {{leerkracht.voornaam}} {{leerkracht.achternaam}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="addButtonWrapper">
+        <button mat-icon-button (click)="addLeerkracht(selected)"
+          class="addButton" [disabled]='!selected' #addButton>
+            <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+</div>
+
+
