@@ -8,7 +8,7 @@ import { RichtingModule } from './modules/richting/richting.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

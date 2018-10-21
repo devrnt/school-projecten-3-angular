@@ -1,0 +1,31 @@
+.container {
+    flex: 1;
+}
+
+.headerContainer {
+    width: inherit;
+    display: flex;
+    margin-bottom: 1em;
+    /* margin: 0.7em 0.7em 0 0.7em; */
+}
+
+.competentiesHeader {
+    flex: 0;
+    font-family: "roboto";
+    font-weight: 300;
+    font-size: 1.7em;
+    margin: 16px 1em 0 0;
+}
+
+.competentieNaamFilter {
+    flex: 1;
+}
+
+.filterInput {
+    width: 100%;
+}
+
+.moduleSelect {
+    flex: 0;
+    margin-left: 1em;
+}
