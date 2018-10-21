@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User, UserType } from '../models/user';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LeerkrachtService {
   private _leerkachten: User[];
   constructor() {
@@ -15,7 +13,6 @@ export class LeerkrachtService {
       new User('Sofie', 'De Juf', 'jan.dejuf@gmail.com', 'WACHTWOORD2', UserType.Leerkracht)
     ];
   }
-
 
   /**
    * Getter leerkachten

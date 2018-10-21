@@ -1,32 +1,31 @@
 <div class="card_border">
-<div class="card_main" id="nav">
-  <img src="assets/images/boy.png" class="icon">
+<div class="card_main" id="{{leerling.id}} expandable">
+  <img src="assets/images/{{geslacht}}.png" class="icon">
   <div class="text" href="#nav">
-    <h3>Ocean Li</h3>
-    <h4>Informatica</h4>
-    <a *ngIf="isOpen"  (click)="toggle()" href="#nav"><fa class="slide_open_button" name="angle-down" size="1x"></fa></a>
-    <a *ngIf="(!isOpen)" (click)="toggle()" href="#nav2"><fa class="slide_open_button" name="angle-up" size="1x"></fa></a>
+    <h3>{{leerling.voornaam}} {{leerling.achternaam}}</h3>
+    <h4>{{leerling.richting.naam}}</h4>
+    <a (click)="toggle()"><fa class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa></a>
   </div>
 </div>
-<div id="nav2" class="card_slider expandable">
+<div id="#{{id}}pannel" class="card_slider" [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
     <ul class="full">
       <li>
-        Naam: Li
+        Naam: {{leerling.achternaam}}
       </li>
       <li>
-        Voornaam: Hu Ocean
+        Voornaam: {{leerling.voornaam}}
       </li>
       <li>
-        Richting: Informatica
+        Richting: {{leerling.richting.naam}}
         </li>
       <li>
-        Email: hu.ocean.li@gmail.com
+        Email: {{leerling.email}}
       </li>
       <li>
-        Competenties: 100
+        Competenties: {{leerling.competenties.length}}
       </li>
       <li>
-        Werkgever: Geen
+        Werkgever: {{leerling.werkgever?.naam||"Geen"}}
       </li>
     </ul>
   </div>

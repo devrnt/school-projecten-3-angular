@@ -1,39 +1,31 @@
 <div class="card_border">
-  <div class="card_main" id="nav">
-    <div class="icon outer">
+  <div class="card_main" id="#{{id}}">
+    <div class="icon outer {{richting.kleur}}">
       <div class="inner">
-        <fa class="" name=laptop size=2x></fa>
+        <fa class="laptop" name=laptop size=2x></fa>
       </div>
     </div>
     <div class="text" href="#nav">
-      <h3>Informatica</h3>
-      <a *ngIf="isOpen"  href="#nav">
-        <fa class="slide_open_button" name="angle-down" size="1x"></fa>
-      </a>
-      <a *ngIf="(!isOpen)" href="#nav2">
-        <fa class="slide_open_button" name="angle-up" size="1x"></fa>
-      </a>
+      <h3>{{richting.naam}}</h3>
+      <a (click)="toggle()"><fa class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa></a>
     </div>
   </div>
-  <div id="nav2" class="card_slider expandable">
+  <div id="#{{id}}pannel" class="card_slider" [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
     <ul class="full">
       <li>
-        Naam: Li
+        Naam: {{richting.naam}}
       </li>
       <li>
-        Voornaam: Hu Ocean
+        Leerkrachten: {{richting.leerkrachtennamen()}}
       </li>
       <li>
-        Richting: Informatica
+        Leerlingen: {{richting.leerlingenId.length}}
       </li>
       <li>
-        Email: hu.ocean.li@gmail.com
+        Competenties: {{richting.competenties.length}}
       </li>
       <li>
-        Competenties: 100
-      </li>
-      <li>
-        Werkgever: Geen
+        Diploma: {{richting.diploma}}
       </li>
     </ul>
   </div>

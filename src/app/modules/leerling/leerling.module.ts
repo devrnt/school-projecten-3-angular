@@ -13,7 +13,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     LeerlingComponent,
   ],
   declarations: [
-    LeerlingComponent,
+    LeerlingComponent
   ],
   providers: [ LeerlingService],
 })

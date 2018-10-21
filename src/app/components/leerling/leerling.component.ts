@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Leerling } from 'src/app/models/leerling.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { Leerling, Geslacht } from 'src/app/models/leerling.model';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-leerling',
@@ -7,30 +8,20 @@ import { Leerling } from 'src/app/models/leerling.model';
   styleUrls: ['./leerling.component.css']
 })
 export class LeerlingComponent implements OnInit {
-  private isOpen: boolean;
-  private leerling: Leerling;
-  constructor(
-    // leerling: Leerling
-    ) {
+  @Input() public isOpen: boolean;
+  @Input() public leerling: Leerling;
+  constructor() {// leerling: Leerling
     // this.leerling = leerling;
-   }
+  }
 
   ngOnInit() {
-    this.isOpen = false;
   }
 
   public toggle(): void {
-    if (this.isOpen) {
       this.isOpen = !this.isOpen;
-    } else {
-      this.isOpen = !this.isOpen;
-    }
   }
 
-  public get id(): string {
-    return this.leerling.id;
+  public get geslacht(): string {
+    return this.leerling.geslacht === Geslacht.Man ? 'boy' : 'girl';
   }
-
-
-
 }

@@ -12,6 +12,7 @@ import {
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerkrachtService } from 'src/app/services/leerkracht.service';
 import { RichtingDetailsComponent } from 'src/app/components/richting-details/richting-details.component';
+import { RichtingService } from 'src/app/services/richting.service';
 
 @NgModule({
   imports: [
@@ -33,6 +34,6 @@ import { RichtingDetailsComponent } from 'src/app/components/richting-details/ri
     RichtingenViewComponent,
     RichtingDetailsComponent
   ],
-  providers: [ LeerkrachtService],
+  providers: [ LeerkrachtService, RichtingService],
 })
 export class RichtingModule { }

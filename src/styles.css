@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+/* manual layout*/
 .full{
 width: 100%
 }
@@ -11,4 +12,38 @@ width: 100%
 
 .third{
     width: 33.3333%
+}
+
+/* colors */
+
+.red {
+    background-color: #800000;
+}
+
+.orange{
+    background-color: #ce6e00;
+}
+
+.yellow{
+    background-color: #f0c400;
+}
+
+.green{
+    background-color: #009e0f;
+}
+
+.blue{
+    background-color: #005a96;
+}
+
+.purple{
+    background-color: #662ece;
+}
+
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
 }
