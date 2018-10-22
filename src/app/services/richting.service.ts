@@ -4,38 +4,57 @@ import { User, UserType } from '../models/user';
 import { LeerlingService } from './leerling.service';
 import { LeerkrachtService } from './leerkracht.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RichtingService {
   private _richtingen: Richting[];
-  constructor(private _leerlingService: LeerlingService, private _leerkrachtService: LeerkrachtService) {
+  constructor(private _leerkrachtService: LeerkrachtService) {
     this._richtingen = [];
     const leerkrachten = _leerkrachtService.leerkachten;
-    const leerlingen = _leerlingService.leerlingen;
-    this._richtingen[0] =
-    new Richting(
-      'Informatica',
-      [
-        leerkrachten[3],
-        leerkrachten[4]
-      ],
-      [
-        leerlingen[0],
-        leerlingen[1],
-        leerlingen[2],
-      ],
-      [
-      ],
-      [
-
-      ],
-      Diploma.TSO
-
-    );
+    this._richtingen = [
+      new Richting(
+        'Informatica',
+        [
+          leerkrachten[3],
+          leerkrachten[4]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO
+      ),
+      new Richting(
+        'Haarzorg',
+        [
+          leerkrachten[0],
+          leerkrachten[1]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO
+      ),
+      new Richting(
+        'Kantoor',
+        [
+          leerkrachten[1],
+          leerkrachten[2]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO
+      )
+    ];
   }
 
   public getRichting(): Richting {
     return this._richtingen[0];
+  }
+
+  public  get richtingen(): Richting[] {
+    return this._richtingen;
   }
 }

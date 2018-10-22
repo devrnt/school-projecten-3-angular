@@ -62,20 +62,20 @@ h4{
 
 /* animation */
 
-body { font-family: sans-serif;} 
-#content { margin: 50px; } 
-a { text-decoration: none; }  
+.slideup {
+    max-height: 0;            
+    overflow-y: hidden;
+    -webkit-transition: max-height 1s ease-in;
+    -moz-transition: max-height 1s ease-out;
+    -o-transition: max-height 1s ease-out;
+    transition: max-height 1s ease-out;
+}
+.slidedown {            
+    max-height: 500px ;
+    overflow-y: hidden;
+    -webkit-transition: max-height 2.5s ease-in;
+    -moz-transition: max-height  2.5s ease-out;
+    -o-transition: max-height  2.5s ease-out;
+    transition: max-height  2.5s ease-out;                   
+}
  
-.expandable {
-  background: #fff;
-  overflow: hidden;
-  color: #000;   
-  line-height: 16px;
-
-  transition: all .5s ease-in-out;
-  height: 0;
- }
- 
- .expandable:target {
-  height: 120px;
- }
