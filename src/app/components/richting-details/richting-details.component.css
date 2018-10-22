@@ -1,5 +1,7 @@
 .richting-details {
     width: 300px;
+    max-height: 100%;
+    overflow: scroll;
     /* margin-left: 10vw; */
     /* margin-top: 3vw; */
     /* border: 1px solid black; */
@@ -70,6 +72,11 @@
     width: 100%;
     display: flex;
 }
+
+.scrollDiv {
+    overflow: scroll;
+}
+
 
 ::ng-deep .mat-list .mat-list-item .mat-list-item-content {
     padding-right: 0px !important;
