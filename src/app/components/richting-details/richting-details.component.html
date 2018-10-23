@@ -22,7 +22,7 @@
 
     <div class="fullWidth">
       <mat-form-field class="selectLeerkracht">
-        <mat-select placeholder="Leerkracht toevoegen" [(value)]="selected" #selectLeerkracht>
+        <mat-select placeholder="Leerkracht" [(value)]="selected" #selectLeerkracht>
           <mat-option>---</mat-option>
           <mat-option *ngFor="let leerkracht of alleLeerkrachten" [value]="leerkracht">
             {{leerkracht.voornaam}} {{leerkracht.achternaam}}

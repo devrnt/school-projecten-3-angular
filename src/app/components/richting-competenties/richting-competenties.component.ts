@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RichtingCompetentiesComponent implements OnInit {
 
+  public _testList: String[] = ['ghbj', 'fvghbj', 'ygvubh', 'fchvbj', 'ycvgubh', 'uhyviyv', 'uyivicyvf'];
+
   constructor() { }
 
   ngOnInit() {
