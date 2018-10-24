@@ -14,6 +14,7 @@ import { LeerkrachtService } from 'src/app/services/leerkracht.service';
 import { RichtingDetailsComponent } from 'src/app/components/richting-details/richting-details.component';
 import { RichtingCompetentiesComponent } from 'src/app/components/richting-competenties/richting-competenties.component';
 import { RichtingService } from 'src/app/services/richting.service';
+import { RichtingFilterPipe } from 'src/app/components/richting-filter.pipe';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { RichtingService } from 'src/app/services/richting.service';
     RichtingComponent,
     RichtingenViewComponent,
     RichtingDetailsComponent,
-    RichtingCompetentiesComponent
+    RichtingCompetentiesComponent,
+    RichtingFilterPipe
   ],
   exports: [
     RichtingComponent,
