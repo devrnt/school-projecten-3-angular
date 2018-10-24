@@ -1,20 +1,13 @@
 .richting-details {
-    width: 300px;
-    margin-left: 10vw;
-    margin-top: 3vw;
-    /* border: 1px solid black; */
-    padding: 2em;
-
-    border-radius: 1vw;
-
-    -webkit-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
-    -moz-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
-    box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+    /* min-width: 300px; */
+    padding: 30px;
+    border-right: 1px solid lightgray;
 }
 
 .icon {
-    width: 150px;
-    margin: 0px 75px 20px 75px;
+    display: block;
+    width: 60%;
+    margin: 0 auto 20px auto;
 }
 
 .input {
@@ -27,12 +20,14 @@
 }
 
 .addButtonWrapper {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .selectLeerkracht {
+    min-width: 0px;
     flex: 1 0 auto;
 }
 
@@ -68,6 +63,7 @@
     width: 100%;
     display: flex;
 }
+
 
 ::ng-deep .mat-list .mat-list-item .mat-list-item-content {
     padding-right: 0px !important;

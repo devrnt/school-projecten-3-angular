@@ -9,7 +9,7 @@ import {NgsRevealModule} from 'ng-scrollreveal';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
