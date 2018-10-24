@@ -26,14 +26,19 @@
     justify-content: center;
 }
 
-.selectLeerkracht {
-    min-width: 0px;
+.selectLeerkrachtFormField {
+    width: calc(100% - 40px);
+    min-width: 0;
     flex: 1 0 auto;
+}
+
+.selectLeerkracht {
+    min-width: 0;
 }
 
 .addButton {
     flex: 0 0 auto;
-    margin-left: 1em;
+    margin-left: 15px;
     font-size: 1.5em;
     color: rgb(131, 212, 131);
 }
@@ -62,6 +67,12 @@
 .leerkrachtDiv {
     width: 100%;
     display: flex;
+}
+
+@media (max-width:576px){
+    .richting-details {
+        border-right: 0;
+    }
 }
 
 
