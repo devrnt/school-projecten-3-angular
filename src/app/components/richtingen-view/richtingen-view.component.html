@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
     <div class="row">
         <input (keyup)='filterRichting$.next($event.target.value)' type="text" class="form-control" placeholder="Search" id="filter" name="filter">
@@ -5,6 +6,27 @@
     <div class="row">
         <div *ngFor='let richting of richtingen | richtingFilter:filterRichtingenNaam'  class="col-1 col-md-2 col-lg-3 col-xl-4 padding_bottom">
             <app-richting [richting]=richting></app-richting>
+=======
+<div class="container-fluid row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div *ngFor='let richting of columns[0]'  class="col-12 padding_bottom">
+            <app-richting [richting]=richting class="sr-icons"></app-richting>
+        </div>
+    </div>
+    <div *ngIf='numberOfColumns>=2' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div *ngFor='let richting of columns[1]'  class="col-12 padding_bottom">
+            <app-richting [richting]=richting class="sr-icon-2"></app-richting>
+        </div>
+    </div>
+    <div *ngIf='numberOfColumns>=3' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div *ngFor='let richting of columns[2]'  class="col-12 padding_bottom">
+            <app-richting [richting]=richting class="sr-icons"></app-richting>
+        </div>
+    </div>
+    <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div *ngFor='let richting of columns[3]'  class="col-12 padding_bottom">
+            <app-richting [richting]=richting class="sr-icons"></app-richting>
+>>>>>>> 39b0de63fd8a83b0cf495cdb011e5c600dd9845d
         </div>
     </div>
 </div>

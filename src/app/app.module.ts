@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerlingModule } from './modules/leerling/leerling.module';
 import { RichtingModule } from './modules/richting/richting.module';
+import {NgsRevealModule} from 'ng-scrollreveal';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RichtingModule } from './modules/richting/richting.module';
     BrowserAnimationsModule,
     AngularFontAwesomeModule,
     LeerlingModule,
-    RichtingModule
+    RichtingModule,
+    NgsRevealModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })

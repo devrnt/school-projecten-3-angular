@@ -1,6 +1,7 @@
 import { User } from './user';
 import { Activiteit } from './activiteit.model';
 import { Leerling } from './leerling.model';
+import { MatChipTrailingIcon } from '@angular/material';
 
 export class Richting {
   private _id: string;
@@ -19,7 +20,9 @@ export class Richting {
     leerkrachten: User[],
     competenties: Activiteit[],
     werkgevers: User[],
-    diploma: Diploma
+    diploma: Diploma,
+    kleur?: Kleur,
+    icon?: string
   ) {
     this._naam = naam;
     this._leerkrachten = leerkrachten || [];
@@ -27,6 +30,8 @@ export class Richting {
     this._competenties = competenties || [];
     this._werkgevers = werkgevers || [];
     this._diploma = diploma;
+    this._kleur = kleur;
+    this._icon = icon;
   }
 
   /**
@@ -168,12 +173,19 @@ export class Richting {
 }
 
 export enum Diploma {
-  BSO = 'BSO', TSO = 'TSO', ASO = 'ASO', Duaal = 'Duaal Leren', Geen = 'Geen'
+  BSO = 'BSO', TSO = 'TSO', ASO = 'ASO', Duaal = 'Leren en werken', Geen = 'Geen'
 }
 
 export enum Kleur {
   red = 'red', orange = 'orange', yellow = 'yellow', green = 'green', blue= 'blue', purple= 'purple',
-   black = 'black', brown = 'brown',  white = 'white'
+  black = 'black', brown = 'brown',  white = 'white'
+}
+
+export enum Icon {
+  computer = 'desktop', laptop = 'laptop', scissors = 'scissors', sales = 'shopping-cart', wrench= 'wrench', purple= 'purple',
+   tree = 'tree', weegschaal = 'balance-scale',  bliksem = 'bolt', cogs = 'cogs', car = 'car', flask = 'flask', medkit = 'medkit',
+   child = 'child', doctor = 'user-md', sport= 'table-tennis', plant = 'leaf', food = 'utensils', building = 'building'
+   , paint = 'paint-roller', plug = 'plug', retail= 'shopping-bag'
 }
 
 
