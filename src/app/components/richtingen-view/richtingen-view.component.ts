@@ -1,33 +1,23 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { LeerlingService } from 'src/app/services/leerling.service';
 import { RichtingService } from 'src/app/services/richting.service';
-<<<<<<< HEAD
 import { Subject } from 'rxjs';
 import { Richting } from 'src/app/models/richting';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
-=======
-import { Richting } from 'src/app/models/richting';
->>>>>>> 39b0de63fd8a83b0cf495cdb011e5c600dd9845d
 
 @Component({
   selector: 'app-richtingen-view',
   templateUrl: './richtingen-view.component.html',
   styleUrls: ['./richtingen-view.component.css']
 })
-<<<<<<< HEAD
 export class RichtingenViewComponent implements OnInit {
   public filterRichtingenNaam: string;
   public filterRichting$ = new Subject<string>();
   private _richtingen: Richting[];
-=======
->>>>>>> 39b0de63fd8a83b0cf495cdb011e5c600dd9845d
-
-export class RichtingenViewComponent implements OnInit {
   public innerWidth: any;
   public numberOfColumns: number;
   public columns: Richting[][];
   constructor(private _richtingService: RichtingService) {
-<<<<<<< HEAD
     this.filterRichting$
       .pipe(
         distinctUntilChanged(),
@@ -35,10 +25,9 @@ export class RichtingenViewComponent implements OnInit {
         map(rich => rich.toLowerCase())
       )
       .subscribe(rich => (this.filterRichtingenNaam = rich));
-=======
+      
     this.numberOfColumns = 1;
     this.columns = [[], [], [], []];
->>>>>>> 39b0de63fd8a83b0cf495cdb011e5c600dd9845d
   }
 
   public get richtingen() {
