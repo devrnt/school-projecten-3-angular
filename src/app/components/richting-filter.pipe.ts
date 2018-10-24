@@ -11,7 +11,7 @@ export class RichtingFilterPipe implements PipeTransform {
       return richtingen;
     }
     return richtingen
-        .filter(rich => rich.naam && rich.naam.toLowerCase().startsWith(filterString.toLowerCase())
+        .filter(rich => rich.naam && rich.naam.toLowerCase().includes(filterString.toLowerCase())
     );
   }
 }

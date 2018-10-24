@@ -7,6 +7,7 @@ import { CompetentieService } from 'src/app/services/competentie.service';
   styleUrls: ['./richting-competenties.component.css']
 })
 export class RichtingCompetentiesComponent implements OnInit {
+  private 
 
   constructor(
     private _competentieService: CompetentieService

@@ -1,4 +1,5 @@
 import { Beoordeling } from './beoordeling.model';
+import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 
 // competentie == deelcompetentie
 export class Competentie {
@@ -6,12 +7,14 @@ export class Competentie {
   private _description: string;
   private _behaald: boolean;
   private _beoordeling: Beoordeling;
+  private _deelcompetenties: Competentie[];
 
-  constructor(id: string, description: string) {
+  constructor(id: string, description: string, deelcompetenties: Competentie[] = []) {
     this._id = id;
     this._description = description;
     this._beoordeling = Beoordeling['N/A'];
     this._behaald = false;
+    this._deelcompetenties = deelcompetenties;
   }
 
   /**
@@ -54,6 +57,38 @@ export class Competentie {
   public set behaald(value: boolean) {
     this._behaald = value;
   }
+  
+  /**
+   * Getter deelcompetenties
+   * @return {Competentie[]}
+   */
+  public get deelcompetenties(): Competentie[]{
+    return this._deelcompetenties;
+  }
 
+  /**
+   * Setter deelcompetenties
+   * @param {Competentie[]} deelcompetenties
+   */
+  public set deelcompetenties(deelcompetenties: Competentie[]) {
+    this._deelcompetenties = deelcompetenties;
+  }
+
+  /**
+   * Add deelcompetentie
+   * @param {Competentie} deelcompetentie
+   */
+  public addDeelcompetentie(deelcomp: Competentie){
+    this._deelcompetenties.push(deelcomp);
+  }
+
+  /**
+   * Remove deelcompetentie
+   * @param {Competentie} deelcompetentie
+   */
+  public removeDeelcompetentie(deelcomp: Competentie){
+    let index: number = this._deelcompetenties.findIndex(comp => comp._id === deelcomp._id);
+    this._deelcompetenties = this._deelcompetenties.slice(index);
+  }
 
 }
