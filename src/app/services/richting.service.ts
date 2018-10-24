@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Richting, Diploma } from '../models/richting';
+import { Richting, Diploma, Kleur, Icon } from '../models/richting';
 import { User, UserType } from '../models/user';
 import { LeerlingService } from './leerling.service';
 import { LeerkrachtService } from './leerkracht.service';
@@ -21,7 +21,9 @@ export class RichtingService {
         ,
         [
         ],
-        Diploma.TSO
+        Diploma.TSO,
+        Kleur.blue,
+        Icon.laptop
       ),
       new Richting(
         'Haarzorg',
@@ -33,7 +35,9 @@ export class RichtingService {
         ,
         [
         ],
-        Diploma.TSO
+        Diploma.BSO,
+        Kleur.red,
+        Icon.scissors
       ),
       new Richting(
         'Kantoor',
@@ -45,8 +49,277 @@ export class RichtingService {
         ,
         [
         ],
-        Diploma.TSO
+        Diploma.BSO,
+        Kleur.purple,
+        Icon.computer
+      ),
+      new Richting(
+        'Verkoop',
+        [
+          leerkrachten[1],
+          leerkrachten[2]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.BSO,
+        Kleur.green,
+        Icon.sales
+      ),
+      new Richting(
+        'Basismechanica carrosserie',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.BSO,
+        Kleur.orange,
+        Icon.wrench
+      ),
+      new Richting(
+        'Handel',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO,
+        Kleur.yellow,
+        Icon.weegschaal
+      ),
+      new Richting(
+        'Houtbewerking',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.BSO,
+        Kleur.brown,
+        Icon.tree
+      ),
+      new Richting(
+        'Elektrische installaties Elektrotechnicus duaal (7de jaar)',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.BSO,
+        Kleur.black,
+        Icon.bliksem
+      ),
+      new Richting(
+        'Auto technieken',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO,
+        Kleur.blue,
+        Icon.car
+      ),
+      new Richting(
+        'Mechanische technieken',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO,
+        Kleur.green,
+        Icon.cogs
+      ),
+      new Richting(
+        'Techniek-wetenschappen',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO,
+        Kleur.yellow,
+        Icon.flask
+      ),
+      new Richting(
+        'Voeding-verzorging',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO,
+        Kleur.orange,
+        Icon.medkit
+      ),
+      new Richting(
+        'Voeding-verzorging',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO,
+        Kleur.orange,
+        Icon.doctor
+      ),
+      new Richting(
+        '	Sociaal-technische Wetenschappen',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.TSO,
+        Kleur.red,
+        Icon.child
+      ),
+      new Richting(
+        'Buurtsport medewerker',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.purple,
+        Icon.sport
+      ),
+      new Richting(
+        'Medewerker snackbar | Keukenmedewerker',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.blue,
+        Icon.food
+      ),
+      new Richting(
+        'Medewerker groen- en tuinbeheer',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.green,
+        Icon.plant
+      ),
+      new Richting(
+        'Polyvalent onderhoudswerker gebouwen | Tegelzetter',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.yellow,
+        Icon.building
+      ),
+      new Richting(
+        'Schilder-decorateur',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.orange,
+        Icon.paint
+      ),
+      new Richting(
+        'Winkelbediende',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.red,
+        Icon.retail
+      ),
+      new Richting(
+        'PC-technicus',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.purple,
+        Icon.plug
+      ),
+      new Richting(
+        'Verzorgende Verzorgende / zorgkundige',
+        [
+          leerkrachten[2],
+          leerkrachten[3]
+        ],
+        []
+        ,
+        [
+        ],
+        Diploma.Duaal,
+        Kleur.blue,
+        Icon.doctor
       )
+
     ];
   }
 

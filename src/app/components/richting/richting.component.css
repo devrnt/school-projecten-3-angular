@@ -1,10 +1,9 @@
 .icon{
     vertical-align:middle;
     color: #fff;
-    height: 66px;
-    width: 60px;
+    height: 86px;
+    width: 80px;
     padding: 10px;
-    background-color: rgb(0, 132, 255)
 }
 
 .inner {
@@ -35,14 +34,16 @@
 
 .text{
     width: calc(100% - 80px);
-    height: 85px;
+    height: 86px;
     text-align: center;
     border-bottom: 1px solid rgba(199, 199, 199, 0.363)
 }
 
 h3 {
+    height: 2em;
     margin: auto;
     margin-top: 32px;
+    font-size: 0.8rem;
     font-weight: lighter;
     margin-bottom: 10px;
 }
@@ -53,6 +54,10 @@ h4{
     margin-bottom: 8px;
     font-size: 12px;
     font-weight: lighter;
+}
+
+ul{
+    margin-top: 1rem;
 }
 
 .slide_open_button{

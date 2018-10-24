@@ -37,13 +37,31 @@ width: 100%
 }
 
 .purple{
-    background-color: #662ece;
+    background-color: #674a9c;
 }
 
 .black{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.733);
 }
 
 .white{
     background-color: white;
 }
+
+.brown{
+    background-color: rgb(112, 56, 35);
+}
+
+/* font sizes*/
+
+.x1dot5 {
+    font-size: 1.5em
+ }
+
+ .x2 {
+    font-size: 2em
+ }
+
+ .x3{
+    font-size: 3em
+ }
