@@ -6,10 +6,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerlingModule } from './modules/leerling/leerling.module';
 import { RichtingModule } from './modules/richting/richting.module';
 import {NgsRevealModule} from 'ng-scrollreveal';
+import { HoofdcompetentieComponent } from './components/hoofdcompetentie/hoofdcompetentie.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HoofdcompetentieComponent
   ],
   imports: [
     BrowserModule,

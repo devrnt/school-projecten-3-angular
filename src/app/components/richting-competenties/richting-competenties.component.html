@@ -23,11 +23,25 @@
   </div>
 
   <div class="competentiesContainer row">
-      <div *ngFor="let string of _testList" class="
+      <div *ngFor="let hoofdc of hoofdCompetenties" class="
         col-lg-6
         col-12
       ">
-        {{string}}
+      <!-- TIJDELIJKE OPLOSSING TODO OCEAN CUSTOM KAARTJES -->
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="fas fa-desktop"></i>
+              </mat-panel-title>
+              <mat-panel-description>
+                {{hoofdc.description}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            DEELCOMPETENTIES TODO RENAAT
+          </mat-expansion-panel>
+        </mat-accordion>
+
       </div>
   </div>
 </div>

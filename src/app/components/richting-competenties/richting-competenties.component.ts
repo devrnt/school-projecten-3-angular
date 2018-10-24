@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompetentieService } from 'src/app/services/competentie.service';
 
 @Component({
   selector: 'app-richting-competenties',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RichtingCompetentiesComponent implements OnInit {
 
-  public _testList: String[] = ['ghbj', 'fvghbj', 'ygvubh', 'fchvbj', 'ycvgubh', 'uhyviyv', 'uyivicyvf'];
-
-  constructor() { }
+  constructor(
+    private _competentieService: CompetentieService
+  ) { }
 
   ngOnInit() {
+  }
+
+  public get hoofdCompetenties() {
+    console.log(this._competentieService.hoofdcompetenties);
+    return this._competentieService.hoofdcompetenties;
   }
 
 }
