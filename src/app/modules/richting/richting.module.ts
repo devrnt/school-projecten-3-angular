@@ -7,13 +7,16 @@ import {
   MatInputModule,
   MatListModule,
   MatButtonModule,
-  MatSelectModule
+  MatSelectModule,
+  MatToolbarModule,
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerkrachtService } from 'src/app/services/leerkracht.service';
 import { RichtingDetailsComponent } from 'src/app/components/richting-details/richting-details.component';
 import { RichtingCompetentiesComponent } from 'src/app/components/richting-competenties/richting-competenties.component';
 import { RichtingService } from 'src/app/services/richting.service';
+import { RichtingOverzichtSchermComponent } from 'src/app/components/richting-overzicht-scherm/richting-overzicht-scherm.component';
+import { RichtingSchermComponent } from 'src/app/components/richting-scherm/richting-scherm.component';
 
 @NgModule({
   imports: [
@@ -23,19 +26,24 @@ import { RichtingService } from 'src/app/services/richting.service';
     MatListModule,
     MatButtonModule,
     MatSelectModule,
+    MatToolbarModule,
     AngularFontAwesomeModule
   ],
   declarations: [
     RichtingComponent,
     RichtingenViewComponent,
     RichtingDetailsComponent,
-    RichtingCompetentiesComponent
+    RichtingCompetentiesComponent,
+    RichtingOverzichtSchermComponent,
+    RichtingSchermComponent
   ],
   exports: [
     RichtingComponent,
     RichtingenViewComponent,
     RichtingDetailsComponent,
-    RichtingCompetentiesComponent
+    RichtingCompetentiesComponent,
+    RichtingOverzichtSchermComponent,
+    RichtingSchermComponent
   ],
   providers: [ LeerkrachtService, RichtingService],
 })

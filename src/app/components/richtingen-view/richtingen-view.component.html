@@ -1,22 +1,24 @@
-<div class="container-fluid row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[0]'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icons"></app-richting>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <div *ngFor='let richting of columns[0]'  class="col-12 padding_bottom">
+                <app-richting [richting]=richting class="sr-icons"></app-richting>
+            </div>
         </div>
-    </div>
-    <div *ngIf='numberOfColumns>=2' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[1]'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icon-2"></app-richting>
+        <div *ngIf='numberOfColumns>=2' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <div *ngFor='let richting of columns[1]'  class="col-12 padding_bottom">
+                <app-richting [richting]=richting class="sr-icon-2"></app-richting>
+            </div>
         </div>
-    </div>
-    <div *ngIf='numberOfColumns>=3' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[2]'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icons"></app-richting>
+        <div *ngIf='numberOfColumns>=3' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <div *ngFor='let richting of columns[2]'  class="col-12 padding_bottom">
+                <app-richting [richting]=richting class="sr-icons"></app-richting>
+            </div>
         </div>
-    </div>
-    <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[3]'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icons"></app-richting>
+        <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <div *ngFor='let richting of columns[3]'  class="col-12 padding_bottom">
+                <app-richting [richting]=richting class="sr-icons"></app-richting>
+            </div>
         </div>
     </div>
 </div>

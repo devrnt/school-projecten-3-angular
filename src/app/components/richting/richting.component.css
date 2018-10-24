@@ -33,19 +33,10 @@
 }
 
 .text{
-    width: calc(100% - 80px);
+    width: calc(100% - 120px);
     height: 86px;
     text-align: center;
     border-bottom: 1px solid rgba(199, 199, 199, 0.363)
-}
-
-h3 {
-    height: 2em;
-    margin: auto;
-    margin-top: 32px;
-    font-size: 0.8rem;
-    font-weight: lighter;
-    margin-bottom: 10px;
 }
 
 h4{
@@ -62,8 +53,26 @@ ul{
 
 .slide_open_button{
     color: grey;
-    margin-top: 20px;
+    height: 20px;
 }
+
+.titletext{
+    align-self: auto;
+    display:table-cell; 
+    vertical-align:middle;
+    margin: auto;
+    font-size: 0.8rem;
+    font-weight: lighter;
+}
+
+.title{
+    padding: 3px;
+    height: 66px;
+    width: 100%;
+    text-align: center;
+    display:table;
+}
+
 
 /* animation */
 
@@ -84,3 +93,29 @@ ul{
     transition: max-height  2.5s ease-out;                   
 }
  
+.buttoncol{
+    border-bottom: 1px solid rgba(199, 199, 199, 0.363);
+    width: 40px;
+    
+}
+ul{
+    margin: 1rem;
+}
+
+.hover{
+    animation: appear 0.8s ease-in
+}
+
+.away{
+    animation: disappear 1s ease-in
+}
+
+@keyframes appear {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes disappear {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}

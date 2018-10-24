@@ -1,4 +1,4 @@
-<div class="card_border">
+<div class="card_border" (mouseenter)="hover=true" (mouseleave)="hover=false">
   <div class="card_main" id="#{{id}}">
     <div class="icon outer {{richting.kleur}}">
       <div class="inner">
@@ -6,8 +6,18 @@
       </div>
     </div>
     <div class="text" href="#nav">
-      <h3>{{richting.naam}}</h3>
+      <div class="title">
+        <h3 class="titletext">{{richting.naam}}</h3>
+      </div>
       <a (click)="toggle()"><fa class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa></a>
+    </div>
+    <div class="buttoncol">
+        <button *ngIf=hover&&animationdone() [ngClass]="{hover:hover,away:!hover}" mat-icon-button type="button" class="deleteButton" (click)="deleteLeerkracht(i)">
+            <i class="deleteIcon fas fa-trash-alt f-red"></i>
+        </button>
+        <button *ngIf=hover [ngClass]="{hover:hover,away:!hover}" mat-icon-button type="button" class="deleteButton" (click)="deleteLeerkracht(i)">
+            <i class="deleteIcon fas fa-pen f-black"></i>
+        </button>
     </div>
   </div>
   <div id="#{{id}}pannel" class="card_slider" [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
