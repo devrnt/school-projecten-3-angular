@@ -36,7 +36,6 @@ export class RichtingDetailsComponent implements OnInit {
 
   addLeerkracht(leerkracht: User) {
     this._richting.leerkrachten.push(leerkracht);
-    this.selectLeerkracht.value = undefined;
   }
 
   deleteLeerkracht(i: number) {

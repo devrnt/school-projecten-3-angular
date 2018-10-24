@@ -21,8 +21,8 @@
     </mat-list>
 
     <div class="fullWidth">
-      <mat-form-field class="selectLeerkracht">
-        <mat-select placeholder="Leerkracht" [(value)]="selected" #selectLeerkracht>
+      <mat-form-field class="selectLeerkrachtFormField">
+        <mat-select placeholder="Leerkracht" [(value)]="selected" class="selectLeerkracht">
           <mat-option>---</mat-option>
           <mat-option *ngFor="let leerkracht of alleLeerkrachten" [value]="leerkracht">
             {{leerkracht.voornaam}} {{leerkracht.achternaam}}
