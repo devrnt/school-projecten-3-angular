@@ -16,6 +16,7 @@ import { RichtingDetailsComponent } from 'src/app/components/richting-details/ri
 import { RichtingCompetentiesComponent } from 'src/app/components/richting-competenties/richting-competenties.component';
 import { RichtingService } from 'src/app/services/richting.service';
 import { RichtingSchermComponent } from 'src/app/components/richting-scherm/richting-scherm.component';
+import { RichtingFilterPipe } from 'src/app/components/richting-filter.pipe';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { RichtingSchermComponent } from 'src/app/components/richting-scherm/rich
     RichtingenViewComponent,
     RichtingDetailsComponent,
     RichtingCompetentiesComponent,
-    RichtingSchermComponent
+    RichtingSchermComponent,
+    RichtingFilterPipe
   ],
   exports: [
     RichtingComponent,
