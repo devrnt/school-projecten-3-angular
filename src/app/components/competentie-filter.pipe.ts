@@ -3,27 +3,27 @@ import { Competentie } from '../models/competentie.model';
 
 @Pipe({
   name: 'competentieFilter',
-  pure: false //Dit is om bij elke verandering in de code, de zoekfuntie aan te passen
+  //Haal dit uit commentaar als je wil dat bij elke verandering in de app de zoekfunctie opnieuw wordt uitgevoerd
+  //pure: false 
 })
 export class CompetentieFilterPipe implements PipeTransform {
     transform(competenties: Competentie[], filterString: string): Competentie[] {
-    const bestaatDescription = comp => comp.description;
-    const filterOpDescription = filterString => comp => 
-        comp.description.toLowerCase().includes(filterString.toLowerCase());
-    const filerOpDescriptionDeelcomp = filterString => comp => 
-        comp.deelcompetenties.forEach(el => el.description.toLowerCase().includes(filterString.toLowerCase())); 
+        let gefilterdeCompetenties = new Array<Competentie>();
+        if (!filterString || filterString.length === 0) 
+            return competenties;
     
-    // let competentiesGefilterdOpDeelcompetenties = [];
-    // competenties.forEach(comp => 
-    //     comp.deelcompetenties.forEach(deelcomp => 
-    //         deelcomp.description.toLowerCase().includes(filterString.toLowerCase())?competentiesGefilterdOpDeelcompetenties.push(comp):''));
-
-    if (!filterString || filterString.length === 0) {
-      return competenties;
-    }
-    return competenties
-        .filter(bestaatDescription && filterOpDescription(filterString) || filerOpDescriptionDeelcomp(filterString));
-
+        competenties
+            .forEach(comp => {
+                comp.deelcompetenties.forEach(deelcomp => {
+                    if(comp.description 
+                        && comp.description.toLowerCase().includes(filterString.toLowerCase().trim()) 
+                        || deelcomp.description.toLowerCase().includes(filterString.toLowerCase().trim()))
+                            if(!gefilterdeCompetenties.includes(comp))
+                                gefilterdeCompetenties.push(comp);
+                })
+            })
+        
+        return gefilterdeCompetenties;
   }
 
 
