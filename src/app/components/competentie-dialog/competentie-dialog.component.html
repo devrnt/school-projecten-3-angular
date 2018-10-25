@@ -1,0 +1,13 @@
+<form>
+  <h1 mat-dialog-title>Maak hier een nieuwe competentie</h1>
+  <div mat-dialog-content>
+    <mat-form-field class="filterInput">
+      <mat-label>Beschrijving</mat-label>
+      <input matInput class="filterInputField">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onAnnulerenClick()">Annuleer</button>
+    <button mat-button [mat-dialog-close]="data.description" cdkFocusInitial>Save</button>
+  </div>
+</form>

@@ -13,6 +13,7 @@ import {
   MatButtonModule,
   MatDividerModule
 } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

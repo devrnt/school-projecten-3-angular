@@ -25,6 +25,7 @@ import { CompetentieFilterPipe } from 'src/app/components/competentie-filter.pip
 import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/hoofdcompetentie.component';
 import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
 import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';
+import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/rich
     RichtingOverzichtSchermComponent,
     HoofdcompetentieComponent,
     RichtingHoofdschermComponent,
-    RichtingConfirmDeleteComponent
+    RichtingConfirmDeleteComponent,
+    CompetentieDialogComponent
   ],
   exports: [
     RichtingComponent,
@@ -63,9 +65,10 @@ import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/rich
     RichtingSchermComponent,
     HoofdcompetentieComponent,
     RichtingHoofdschermComponent,
-    RichtingConfirmDeleteComponent
+    RichtingConfirmDeleteComponent,
+    CompetentieDialogComponent
   ],
   providers: [ LeerkrachtService, RichtingService, RichtingFilterPipe, MatDialog],
-  entryComponents: [RichtingConfirmDeleteComponent]
+  entryComponents: [RichtingConfirmDeleteComponent,CompetentieDialogComponent]
 })
 export class RichtingModule { }
