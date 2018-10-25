@@ -7,10 +7,9 @@ import { LeerlingModule } from './modules/leerling/leerling.module';
 import { RichtingModule } from './modules/richting/richting.module';
 import {NgsRevealModule} from 'ng-scrollreveal';
 
-
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import {
   MatButtonModule,
   MatSelectModule,
   MatToolbarModule,
+  MatTabsModule
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerkrachtService } from 'src/app/services/leerkracht.service';
@@ -20,6 +21,8 @@ import { RichtingSchermComponent } from 'src/app/components/richting-scherm/rich
 import { RichtingFilterPipe } from 'src/app/components/richting-filter.pipe';
 import { CompetentieFilterPipe } from 'src/app/components/competentie-filter.pipe';
 import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/hoofdcompetentie.component';
+import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
+
 
 @NgModule({
   imports: [
@@ -30,7 +33,8 @@ import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/h
     MatButtonModule,
     MatSelectModule,
     AngularFontAwesomeModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTabsModule
   ],
   declarations: [
     RichtingComponent,
@@ -41,7 +45,8 @@ import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/h
     RichtingFilterPipe,
     CompetentieFilterPipe,
     RichtingOverzichtSchermComponent,
-    HoofdcompetentieComponent
+    HoofdcompetentieComponent,
+    RichtingHoofdschermComponent
   ],
   exports: [
     RichtingComponent,
@@ -50,7 +55,8 @@ import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/h
     RichtingCompetentiesComponent,
     RichtingOverzichtSchermComponent,
     RichtingSchermComponent,
-    HoofdcompetentieComponent
+    HoofdcompetentieComponent,
+    RichtingHoofdschermComponent
   ],
   providers: [ LeerkrachtService, RichtingService, RichtingFilterPipe],
 })

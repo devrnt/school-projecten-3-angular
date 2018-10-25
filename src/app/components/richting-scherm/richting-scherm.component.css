@@ -2,30 +2,6 @@
     margin-top: 2em;
 }
 
-.toolbar {
-    background-color: white;
-    padding-top: 1vw;
-    -webkit-box-shadow: 0 4px 5px rgba(57, 63, 72, 0.3);
-    -moz-box-shadow: 0 4px 5px rgba(57, 63, 72, 0.3);
-    box-shadow: 0 4px 5px rgba(57, 63, 72, 0.3);
-    padding-bottom: 1vw;
-}
-
-.toolbarRow {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 2vw;
-    padding-right: 2vw;
-}
-
-.fa-graduation-cap {
-    font-size: 2.5em;
-}
-
-.fa-chevron-left {
-    font-size: 1.5em;
-}
-
 .container {
     height: 70vh;
 }
