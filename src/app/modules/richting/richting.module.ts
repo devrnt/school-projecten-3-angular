@@ -9,7 +9,9 @@ import {
   MatButtonModule,
   MatSelectModule,
   MatToolbarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatDialog,
+  MatDialogModule
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerkrachtService } from 'src/app/services/leerkracht.service';
@@ -22,6 +24,7 @@ import { RichtingFilterPipe } from 'src/app/components/richting-filter.pipe';
 import { CompetentieFilterPipe } from 'src/app/components/competentie-filter.pipe';
 import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/hoofdcompetentie.component';
 import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
+import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';
 
 
 @NgModule({
@@ -30,11 +33,13 @@ import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofds
     MatExpansionModule,
     MatInputModule,
     MatListModule,
+    MatDialogModule,
     MatButtonModule,
     MatSelectModule,
     AngularFontAwesomeModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+
   ],
   declarations: [
     RichtingComponent,
@@ -46,7 +51,8 @@ import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofds
     CompetentieFilterPipe,
     RichtingOverzichtSchermComponent,
     HoofdcompetentieComponent,
-    RichtingHoofdschermComponent
+    RichtingHoofdschermComponent,
+    RichtingConfirmDeleteComponent
   ],
   exports: [
     RichtingComponent,
@@ -56,8 +62,10 @@ import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofds
     RichtingOverzichtSchermComponent,
     RichtingSchermComponent,
     HoofdcompetentieComponent,
-    RichtingHoofdschermComponent
+    RichtingHoofdschermComponent,
+    RichtingConfirmDeleteComponent
   ],
-  providers: [ LeerkrachtService, RichtingService, RichtingFilterPipe],
+  providers: [ LeerkrachtService, RichtingService, RichtingFilterPipe, MatDialog],
+  entryComponents: [RichtingConfirmDeleteComponent]
 })
 export class RichtingModule { }
