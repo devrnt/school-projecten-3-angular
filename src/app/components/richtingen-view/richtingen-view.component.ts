@@ -15,6 +15,7 @@ export class RichtingenViewComponent implements OnInit {
   public filterRichtingenNaam: string;
   public filterRichting$ = new Subject<string>();
   private _richtingen: Richting[];
+  private _richtingenFiltered: Richting[];
   public innerWidth: any;
   public numberOfColumns: number;
   public columns: Richting[][];
@@ -23,6 +24,7 @@ export class RichtingenViewComponent implements OnInit {
 
   constructor(private _richtingService: RichtingService, private _filter: RichtingFilterPipe) {
     this._richtingen = this._richtingService.richtingen;
+    this._richtingenFiltered = this.richtingen;
     this.filterRichting$
       .pipe(
         distinctUntilChanged(),
@@ -30,10 +32,7 @@ export class RichtingenViewComponent implements OnInit {
       )
       .subscribe(rich => {
         this.filterRichtingenNaam = rich;
-        console.log(rich);
-        console.log(this.filterRichtingenNaam);
-        this.richtingen = this._filter.transform(this._richtingService.richtingen, this.filterRichtingenNaam);
-        console.log(this.richtingen);
+        this._richtingenFiltered = this._filter.transform(this._richtingen, this.filterRichtingenNaam);
         this.orderItems();
       });
     this.numberOfColumns = 1;
@@ -44,25 +43,14 @@ export class RichtingenViewComponent implements OnInit {
     return this._richtingen;
   }
 
-  /**
-   * Setter richtingen
-   * @param {Richting[]} value
-   */
-  public set richtingen(value: Richting[]) {
-    this._richtingen = value;
-  }
-
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
-    console.log('resize');
-    console.log(this.innerWidth);
     this.orderItems();
   }
 
   ngOnInit() {
       this.innerWidth = window.innerWidth;
-      console.log(this.innerWidth);
       this.orderItems();
   }
 
@@ -85,13 +73,19 @@ export class RichtingenViewComponent implements OnInit {
 
     // divides richtingen between the columns
     this.columns = [[], [], [], []];
-    for (let index = 0; index < this._richtingen.length; index++) {
-      this.columns[index % this.numberOfColumns].push(this._richtingen[index]);
+    for (let index = 0; index < this._richtingenFiltered.length; index++) {
+      this.columns[index % this.numberOfColumns].push(this._richtingenFiltered[index]);
     }
   }
 
   public editRichting(richting: Richting) {
     this.edit.emit(richting);
+  }
+
+  public verwijderRichting(richting: Richting) {
+    this._richtingen = this._richtingen.filter(r => r.naam !== richting.naam);
+    this._richtingenFiltered = this.richtingen;
+    this.orderItems();
   }
 
 }

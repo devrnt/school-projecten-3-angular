@@ -28,7 +28,6 @@ export class RichtingCompetentiesComponent implements OnInit {
   }
 
   public get hoofdCompetenties() {
-    console.log(this._competentieService.hoofdcompetenties);
     return this._competentieService.hoofdcompetenties;
   }
 

@@ -9,6 +9,7 @@ import { Richting } from 'src/app/models/richting';
 export class RichtingOverzichtSchermComponent implements OnInit {
 
   @Output() edit = new EventEmitter<Richting>();
+  @Output() verwijder = new EventEmitter<Richting>();
 
   constructor() { }
 
@@ -17,6 +18,10 @@ export class RichtingOverzichtSchermComponent implements OnInit {
 
   public editRichting(richting: Richting) {
     this.edit.emit(richting);
+  }
+
+  public vewrijderRichting(richting: Richting) {
+    this.verwijder.emit(richting);
   }
 
 }

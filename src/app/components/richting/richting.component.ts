@@ -9,8 +9,8 @@ import { delay } from 'q';
 export class RichtingComponent implements OnInit {
   @Input() public richting: Richting;
   @Input() public isOpen: boolean;
-
-  @Output() edit = new EventEmitter<Richting>();
+  @Output() public verwijder = new EventEmitter<Richting>();
+  @Output() public edit = new EventEmitter<Richting>();
 
   public hover: boolean;
   constructor() { }
@@ -27,6 +27,10 @@ export class RichtingComponent implements OnInit {
 
   public editRichting() {
     this.edit.emit(this.richting);
+  }
+
+  public verwijderRichting() {
+    this.verwijder.emit(this.richting);
   }
 
  }
