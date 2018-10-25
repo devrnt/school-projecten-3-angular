@@ -13,7 +13,7 @@ import {
 
 export class RichtingConfirmDeleteComponent implements OnInit {
 
-  @Output() public delete = new EventEmitter<Boolean>();
+  @Output() public verwijder = new EventEmitter<string>();
 
   constructor(
     public dialogRef: MatDialogRef<RichtingConfirmDeleteComponent>,
@@ -27,10 +27,10 @@ export class RichtingConfirmDeleteComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  verwijderen(): void {
-    this.dialogRef.close();
+  @Output() verwijderen(): void {
     console.log('verwijder');
-     this.delete.emit(true);
+     this.verwijder.emit('delete');
+    this.dialogRef.close();
   }
 
 }

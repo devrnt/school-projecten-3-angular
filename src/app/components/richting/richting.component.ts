@@ -22,7 +22,7 @@ export class RichtingComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(RichtingConfirmDeleteComponent, {
       width: '400px',
-      data: {richting: this.richting}
+      data: {richting: this.richting, component: this}
     });
 
   }
@@ -39,7 +39,7 @@ export class RichtingComponent implements OnInit {
     this.edit.emit(this.richting);
   }
 
-  public verwijderRichting(verwijder: boolean) {
+  public verwijderRichting(verwijder: string) {
     console.log('verwijder2');
     this.verwijder.emit(this.richting);
   }
