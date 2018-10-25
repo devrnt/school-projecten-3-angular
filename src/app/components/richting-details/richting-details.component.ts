@@ -14,8 +14,6 @@ export class RichtingDetailsComponent implements OnInit {
   public _richting: Richting;
   public _alleLeerkrachten: User[];
 
-  @ViewChild('selectLeerkracht') selectLeerkracht;
-
   constructor(
     private _richtingService: RichtingService,
     private _leerkrachtService: LeerkrachtService
