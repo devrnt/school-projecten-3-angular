@@ -79,7 +79,7 @@ ul{
 .slideup {
     max-height: 0;            
     overflow-y: hidden;
-    -webkit-transition: max-height 1s ease-in;
+    -webkit-transition: max-height 1s ease-out;
     -moz-transition: max-height 1s ease-out;
     -o-transition: max-height 1s ease-out;
     transition: max-height 1s ease-out;
@@ -87,10 +87,10 @@ ul{
 .slidedown {            
     max-height: 500px ;
     overflow-y: hidden;
-    -webkit-transition: max-height 2.5s ease-in;
-    -moz-transition: max-height  2.5s ease-out;
-    -o-transition: max-height  2.5s ease-out;
-    transition: max-height  2.5s ease-out;                   
+    -webkit-transition: max-height 1.5s ease-in;
+    -moz-transition: max-height  1.5s ease-out;
+    -o-transition: max-height  1.5s ease-out;
+    transition: max-height  1.5s ease-out;                   
 }
  
 .buttoncol{

@@ -1,29 +1,34 @@
 <div class="container">
-    <div class="col-12">
-        <div class="row">
-            <input (keyup)='filterRichting$.next($event.target.value)' type="text" class="form-control" placeholder="Search" id="filter" name="filter">
-        </div>
-    </div>
-    
+  <div class="searchbar">
+    <mat-form-field class="col-12">
+      <span matPrefix>
+        <i class="fas fa-search"></i>
+        &nbsp;
+      </span>
+      <input matInput (keyup)='filterRichting$.next($event.target.value)' type="text" class="search" placeholder="Zoek richting"
+        id="filter" name="filter">
+    </mat-form-field>
+  </div>
+  <div class="row scrollbox">
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[0] | richtingFilter:filterRichtingenNaam'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icons"></app-richting>
-        </div>
+      <div *ngFor='let richting of columns[0]' class="col-12 padding_bottom">
+        <app-richting [richting]=richting class="sr-icons"></app-richting>
+      </div>
     </div>
     <div *ngIf='numberOfColumns>=2' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[1] | richtingFilter:filterRichtingenNaam'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icon-2"></app-richting>
-        </div>
+      <div *ngFor='let richting of columns[1]' class="col-12 padding_bottom">
+        <app-richting [richting]=richting class="sr-icon-2"></app-richting>
+      </div>
     </div>
     <div *ngIf='numberOfColumns>=3' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[2] | richtingFilter:filterRichtingenNaam'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icons"></app-richting>
-        </div>
+      <div *ngFor='let richting of columns[2]' class="col-12 padding_bottom">
+        <app-richting [richting]=richting class="sr-icons"></app-richting>
+      </div>
     </div>
     <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-        <div *ngFor='let richting of columns[3] | richtingFilter:filterRichtingenNaam'  class="col-12 padding_bottom">
-            <app-richting [richting]=richting class="sr-icons"></app-richting>
-
-        </div>
+      <div *ngFor='let richting of columns[3] | richtingFilter:filterRichtingenNaam' class="col-12 padding_bottom">
+        <app-richting [richting]=richting class="sr-icons"></app-richting>
+      </div>
     </div>
+  </div>
 </div>

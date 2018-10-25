@@ -4,6 +4,7 @@ import { RichtingService } from 'src/app/services/richting.service';
 import { Subject } from 'rxjs';
 import { Richting } from 'src/app/models/richting';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
+import { RichtingFilterPipe } from '../richting-filter.pipe';
 
 @Component({
   selector: 'app-richtingen-view',
@@ -17,22 +18,37 @@ export class RichtingenViewComponent implements OnInit {
   public innerWidth: any;
   public numberOfColumns: number;
   public columns: Richting[][];
-  constructor(private _richtingService: RichtingService) {
+  constructor(private _richtingService: RichtingService, private _filter: RichtingFilterPipe) {
+    this._richtingen = this._richtingService.richtingen;
     this.filterRichting$
       .pipe(
         distinctUntilChanged(),
-        debounceTime(200),
         map(rich => rich.toLowerCase())
       )
-      .subscribe(rich => (this.filterRichtingenNaam = rich));
-      
+      .subscribe(rich => {
+        this.filterRichtingenNaam = rich;
+        console.log(rich);
+        console.log(this.filterRichtingenNaam);
+        this.richtingen = this._filter.transform(this._richtingService.richtingen, this.filterRichtingenNaam);
+        console.log(this.richtingen);
+        this.orderItems();
+      });
     this.numberOfColumns = 1;
     this.columns = [[], [], [], []];
   }
 
   public get richtingen() {
-    return this._richtingService.richtingen;
+    return this._richtingen;
   }
+
+  /**
+   * Setter richtingen
+   * @param {Richting[]} value
+   */
+  public set richtingen(value: Richting[]) {
+    this._richtingen = value;
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
@@ -66,8 +82,8 @@ export class RichtingenViewComponent implements OnInit {
 
     // divides richtingen between the columns
     this.columns = [[], [], [], []];
-    for (let index = 0; index < this.richtingen.length; index++) {
-      this.columns[index % this.numberOfColumns].push(this.richtingen[index]);
+    for (let index = 0; index < this._richtingen.length; index++) {
+      this.columns[index % this.numberOfColumns].push(this._richtingen[index]);
     }
   }
 

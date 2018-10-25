@@ -1,16 +1,20 @@
 .richtingContainer {
     height: calc(100vh - 84px);
     overflow-y: auto;
-    
+
+}
+
+.seachbarpadding{
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 .toolbar {
     background-color: white;
-    padding-top: 1vw;
     -webkit-box-shadow: 0 4px 5px rgba(57, 63, 72, 0.3);
     -moz-box-shadow: 0 4px 5px rgba(57, 63, 72, 0.3);
     box-shadow: 0 4px 5px rgba(57, 63, 72, 0.3);
-    padding-bottom: 1vw;
+    font-size: 1rem;
 }
 
 .toolbarRow {
