@@ -8,7 +8,6 @@ import {
   MatListModule,
   MatButtonModule,
   MatSelectModule,
-  MatToolbarModule,
   MatTabsModule
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -33,7 +32,6 @@ import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofds
     MatButtonModule,
     MatSelectModule,
     AngularFontAwesomeModule,
-    MatToolbarModule,
     MatTabsModule
   ],
   declarations: [

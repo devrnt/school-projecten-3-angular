@@ -1,1 +1,58 @@
-<app-richting-hoofdscherm></app-richting-hoofdscherm>
+<mat-sidenav-container class="sidenavContainer">
+    <mat-sidenav #sidenav class="sidenavLeft" (close)="handleClose(menuButton)">
+        <div class="buttonWrapper">
+            <a mat-button style="height: 0; position:absolute;"></a>
+            <button class="chatButton right" mat-icon-button
+                (click)="sidenav.close()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <mat-divider></mat-divider>
+        <button class="menuButton" mat-button>
+            <i class="menuIcon fas fa-users"></i> 
+            <span class="menuText">Leerlingen</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button class="menuButton" mat-button (click)="sidenav.close()"> 
+            <i class="menuIcon fas fa-graduation-cap"></i> 
+            <span class="menuText">Richtingen</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button class="menuButton" mat-button> 
+            <i class="menuIcon fas fa-scroll"></i> 
+            <span class="menuText">Projecten</span>
+        </button>
+        <mat-divider></mat-divider>
+        <div class="bottom">
+            <mat-divider></mat-divider>
+            <button class="menuButton" mat-button> 
+                <i class="menuIcon fas fa-cog"></i> 
+                <span class="menuText">Instellingen</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button class="menuButton" mat-button> 
+                <i class="menuIcon fas fa-sign-out-alt"></i> 
+                <span class="menuText">Log uit</span>
+            </button>
+            <mat-divider></mat-divider>
+            <br>
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar class="toolbar">
+            <mat-toolbar-row class="toolbarRow">
+                <button mat-icon-button (click)="sidenav.open()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <i class="fas fa-graduation-cap x1"></i>
+                <!-- QUICK FIX OM ALLES CENTERED TE HOUDEN -->
+                <button mat-icon-button class="empty">
+                <i class="fas fa-chevron-left"></i>
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <app-richting-hoofdscherm></app-richting-hoofdscherm>
+    </mat-sidenav-content>
+</mat-sidenav-container>
