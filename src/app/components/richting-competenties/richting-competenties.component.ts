@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompetentieService } from 'src/app/services/competentie.service';
+import { Subject } from 'rxjs';
+import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-richting-competenties',
@@ -7,11 +9,20 @@ import { CompetentieService } from 'src/app/services/competentie.service';
   styleUrls: ['./richting-competenties.component.css']
 })
 export class RichtingCompetentiesComponent implements OnInit {
-  private 
+  public filterCompetentieDescription: string;
+  public filterCompetentie$ = new Subject<string>();
 
   constructor(
     private _competentieService: CompetentieService
-  ) { }
+  ) { 
+    this.filterCompetentie$
+      .pipe(
+        distinctUntilChanged(),
+        debounceTime(200),
+        map(comp => comp.toLowerCase())
+      )
+      .subscribe(comp => (this.filterCompetentieDescription = comp));
+  }
 
   ngOnInit() {
   }

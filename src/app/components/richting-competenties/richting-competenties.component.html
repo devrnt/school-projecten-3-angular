@@ -8,7 +8,7 @@
           <i class="fas fa-search"></i>
           &nbsp;
         </span>
-        <input matInput class="filterInputField">
+        <input matInput class="filterInputField" (keyup)='filterCompetentie$.next($event.target.value)' type="text" id="filter" name="filter">
       </mat-form-field>
     </form>
 
@@ -23,7 +23,7 @@
   </div>
 
   <div class="competentiesContainer row">
-      <div *ngFor="let hoofdc of hoofdCompetenties" class="
+      <div *ngFor="let hoofdc of hoofdCompetenties | competentieFilter:filterCompetentieDescription" class="
         col-lg-6
         col-12
       ">
