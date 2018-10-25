@@ -38,14 +38,10 @@ import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/h
     RichtingDetailsComponent,
     RichtingCompetentiesComponent,
     RichtingSchermComponent,
-<<<<<<< HEAD
     RichtingFilterPipe,
-    CompetentieFilterPipe
-=======
+    CompetentieFilterPipe,
     RichtingOverzichtSchermComponent,
-    RichtingFilterPipe,
     HoofdcompetentieComponent
->>>>>>> 266f28426e29b98984e07dd9ba965e1e895fe0f0
   ],
   exports: [
     RichtingComponent,
