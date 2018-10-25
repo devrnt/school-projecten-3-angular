@@ -13,7 +13,7 @@
     </div>
   </div>
   <div id="#{{id}}pannel" class="card_slider " [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
-    <div class="">
+    <div class="full">
     <ul>
       <li>
         Naam: {{richting.naam}}
@@ -32,7 +32,7 @@
       </li>
     </ul>
     <div class="sliderbuttons2">
-      <button mat-button type="button" class="half sliderbuttons" (click)="deleteLeerkracht(i)">
+      <button mat-icon-button type="button" class="half sliderbuttons" (click)="deleteLeerkracht(i)">
           <i class="deleteIcon fas fa-trash-alt f-red"></i>
       </button>
       <button mat-button type="button" class="half sliderbuttons divider" (click)="deleteLeerkracht(i)">
