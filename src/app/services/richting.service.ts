@@ -328,7 +328,7 @@ export class RichtingService {
   }
 
   public getRichting(): Richting {
-    return this._richtingen[0];
+    return this._richtingen[1];
   }
 
   public  get richtingen(): Richting[] {
