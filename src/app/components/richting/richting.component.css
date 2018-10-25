@@ -33,7 +33,7 @@
 }
 
 .text{
-    width: calc(100% - 120px);
+    width: calc(100% - 80px);
     height: 86px;
     text-align: center;
     border-bottom: 1px solid rgba(199, 199, 199, 0.363)
@@ -73,6 +73,18 @@ ul{
     display:table;
 }
 
+.sliderbuttons{
+    border: 0px;
+    padding: 0.5rem;
+}
+
+.sliderbuttons2{
+    border-top: 1px solid rgba(199, 199, 199, 0.363);;
+}
+.divider{
+    border-left: 1px solid rgba(199, 199, 199, 0.363);
+}
+
 
 /* animation */
 
@@ -85,7 +97,7 @@ ul{
     transition: max-height 1s ease-out;
 }
 .slidedown {            
-    max-height: 500px ;
+    max-height: 600px ;
     overflow-y: hidden;
     -webkit-transition: max-height 1.5s ease-in;
     -moz-transition: max-height  1.5s ease-out;

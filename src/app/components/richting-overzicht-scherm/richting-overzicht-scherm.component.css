@@ -4,6 +4,10 @@
 
 }
 
+.buttonContainer {
+    height: 25vh;
+}
+
 .seachbarpadding{
     padding-bottom: 1rem;
     padding-top: 1rem;

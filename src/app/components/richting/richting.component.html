@@ -11,17 +11,10 @@
       </div>
       <a (click)="toggle()"><fa class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa></a>
     </div>
-    <div class="buttoncol">
-        <button *ngIf=hover&&animationdone() [ngClass]="{hover:hover,away:!hover}" mat-icon-button type="button" class="deleteButton" (click)="deleteLeerkracht(i)">
-            <i class="deleteIcon fas fa-trash-alt f-red"></i>
-        </button>
-        <button *ngIf=hover [ngClass]="{hover:hover,away:!hover}" mat-icon-button type="button" class="deleteButton" (click)="deleteLeerkracht(i)">
-            <i class="deleteIcon fas fa-pen f-black"></i>
-        </button>
-    </div>
   </div>
-  <div id="#{{id}}pannel" class="card_slider" [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
-    <ul class="full">
+  <div id="#{{id}}pannel" class="card_slider " [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
+    <div class="">
+    <ul>
       <li>
         Naam: {{richting.naam}}
       </li>
@@ -38,5 +31,14 @@
         Diploma: {{richting.diploma}}
       </li>
     </ul>
+    <div class="sliderbuttons2">
+      <button mat-button type="button" class="half sliderbuttons" (click)="deleteLeerkracht(i)">
+          <i class="deleteIcon fas fa-trash-alt f-red"></i>
+      </button>
+      <button mat-button type="button" class="half sliderbuttons divider" (click)="deleteLeerkracht(i)">
+          <i class="deleteIcon fas fa-pen f-black"></i>
+      </button>
+      </div>
+  </div>
   </div>
 </div>
