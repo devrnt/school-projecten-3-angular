@@ -13,8 +13,7 @@ export class RichtingFilterPipe implements PipeTransform {
     return richtingen
         .filter(rich =>
           rich.naam && rich.naam.toLowerCase().includes(filterString.toLowerCase()) ||
-          rich.diploma.toLowerCase() === filterString.toLowerCase() ||
-          rich.leerkrachten.some(leerkracht => leerkracht.voornaam === filterString || leerkracht.achternaam === filterString)
+          rich.diploma.toLowerCase() === filterString.toLowerCase()
     );
   }
 }
