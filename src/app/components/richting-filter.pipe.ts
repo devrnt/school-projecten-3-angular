@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Richting } from '../models/richting';
+import { Richting, Diploma } from '../models/richting';
 
 @Pipe({
   name: 'richtingFilter',
@@ -11,7 +11,9 @@ export class RichtingFilterPipe implements PipeTransform {
       return richtingen;
     }
     return richtingen
-        .filter(rich => rich.naam && rich.naam.toLowerCase().includes(filterString.toLowerCase())
+        .filter(rich =>
+          rich.naam && rich.naam.toLowerCase().includes(filterString.toLowerCase()) ||
+          rich.diploma.toLowerCase() === filterString.toLowerCase()
     );
   }
 }

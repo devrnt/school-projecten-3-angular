@@ -8,16 +8,18 @@ import {
   MatListModule,
   MatButtonModule,
   MatSelectModule,
-  MatToolbarModule
+  MatToolbarModule,
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerkrachtService } from 'src/app/services/leerkracht.service';
 import { RichtingDetailsComponent } from 'src/app/components/richting-details/richting-details.component';
 import { RichtingCompetentiesComponent } from 'src/app/components/richting-competenties/richting-competenties.component';
 import { RichtingService } from 'src/app/services/richting.service';
+import { RichtingOverzichtSchermComponent } from 'src/app/components/richting-overzicht-scherm/richting-overzicht-scherm.component';
 import { RichtingSchermComponent } from 'src/app/components/richting-scherm/richting-scherm.component';
 import { RichtingFilterPipe } from 'src/app/components/richting-filter.pipe';
 import { CompetentieFilterPipe } from 'src/app/components/competentie-filter.pipe';
+import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/hoofdcompetentie.component';
 
 @NgModule({
   imports: [
@@ -36,16 +38,24 @@ import { CompetentieFilterPipe } from 'src/app/components/competentie-filter.pip
     RichtingDetailsComponent,
     RichtingCompetentiesComponent,
     RichtingSchermComponent,
+<<<<<<< HEAD
     RichtingFilterPipe,
     CompetentieFilterPipe
+=======
+    RichtingOverzichtSchermComponent,
+    RichtingFilterPipe,
+    HoofdcompetentieComponent
+>>>>>>> 266f28426e29b98984e07dd9ba965e1e895fe0f0
   ],
   exports: [
     RichtingComponent,
     RichtingenViewComponent,
     RichtingDetailsComponent,
     RichtingCompetentiesComponent,
-    RichtingSchermComponent
+    RichtingOverzichtSchermComponent,
+    RichtingSchermComponent,
+    HoofdcompetentieComponent
   ],
-  providers: [ LeerkrachtService, RichtingService],
+  providers: [ LeerkrachtService, RichtingService, RichtingFilterPipe],
 })
 export class RichtingModule { }

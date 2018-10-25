@@ -52,7 +52,49 @@ width: 100%
     background-color: rgb(112, 56, 35);
 }
 
+/* font colors*/
+
+.f-red {
+    color: salmon;
+}
+
+.f-orange{
+    color: sandybrown;
+}
+
+.f-yellow{
+    color: rgb(255, 246, 123);
+}
+
+.f-green{
+    color: green;
+}
+
+.f-blue{
+    color: rgb(37, 138, 179);
+}
+
+.f-purple{
+    color: #7357a7;
+}
+
+.f-black{
+    color: rgba(0, 0, 0, 0.733);
+}
+
+.white{
+    color: white;
+}
+
+.brown{
+    color: rgb(112, 56, 35);
+}
+
 /* font sizes*/
+
+.x1 {
+    font-size: 1
+ }
 
 .x1dot5 {
     font-size: 1.5em
@@ -65,3 +107,8 @@ width: 100%
  .x3{
     font-size: 3em
  }
+
+ /* button fix*/
+ button:focus {
+    outline:none;
+}

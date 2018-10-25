@@ -175,21 +175,21 @@ export class RichtingService {
         ,
         [
         ],
-        Diploma.TSO,
+        Diploma.BSO,
         Kleur.orange,
         Icon.medkit
       ),
       new Richting(
-        'Voeding-verzorging',
+        'Verzorging',
         [
-          leerkrachten[2],
-          leerkrachten[3]
+          leerkrachten[1],
+          leerkrachten[4]
         ],
         []
         ,
         [
         ],
-        Diploma.TSO,
+        Diploma.BSO,
         Kleur.orange,
         Icon.doctor
       ),
@@ -321,6 +321,10 @@ export class RichtingService {
       )
 
     ];
+  }
+
+  public removeRichting(naam: string) {
+    this._richtingen.slice(this._richtingen.findIndex(r => r.naam === naam));
   }
 
   public getRichting(): Richting {
