@@ -14,7 +14,7 @@ export class RichtingCompetentiesComponent implements OnInit {
 
   constructor(
     private _competentieService: CompetentieService
-  ) { 
+  ) {
     this.filterCompetentie$
       .pipe(
         distinctUntilChanged(),

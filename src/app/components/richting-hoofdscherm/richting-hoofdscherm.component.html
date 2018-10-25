@@ -12,9 +12,10 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-tab-group mat-align-tabs="center">
+<mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTab"
+    (selectedIndexChange)="changeTab($event)">
     <mat-tab label="Overzicht">
-        <app-richting-overzicht-scherm></app-richting-overzicht-scherm>
+        <app-richting-overzicht-scherm (edit)="editRichting($event)"></app-richting-overzicht-scherm>
     </mat-tab>
     <mat-tab label="Aanpassen">
         <app-richting-scherm></app-richting-scherm>

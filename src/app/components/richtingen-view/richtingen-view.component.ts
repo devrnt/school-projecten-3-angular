@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { LeerlingService } from 'src/app/services/leerling.service';
 import { RichtingService } from 'src/app/services/richting.service';
 import { Subject } from 'rxjs';
@@ -18,6 +18,9 @@ export class RichtingenViewComponent implements OnInit {
   public innerWidth: any;
   public numberOfColumns: number;
   public columns: Richting[][];
+
+  @Output() edit = new EventEmitter<Richting>();
+
   constructor(private _richtingService: RichtingService, private _filter: RichtingFilterPipe) {
     this._richtingen = this._richtingService.richtingen;
     this.filterRichting$
@@ -85,6 +88,10 @@ export class RichtingenViewComponent implements OnInit {
     for (let index = 0; index < this._richtingen.length; index++) {
       this.columns[index % this.numberOfColumns].push(this._richtingen[index]);
     }
+  }
+
+  public editRichting(richting: Richting) {
+    this.edit.emit(richting);
   }
 
 }
