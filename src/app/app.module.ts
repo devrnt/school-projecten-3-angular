@@ -7,6 +7,12 @@ import { LeerlingModule } from './modules/leerling/leerling.module';
 import { RichtingModule } from './modules/richting/richting.module';
 import {NgsRevealModule} from 'ng-scrollreveal';
 import { RichtingConfirmDeleteComponent } from './components/richting/richting-confirm-delete/richting-confirm-delete.component';
+import {
+  MatSidenavModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatDividerModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,10 @@ import { RichtingConfirmDeleteComponent } from './components/richting/richting-c
     AngularFontAwesomeModule,
     LeerlingModule,
     RichtingModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatDividerModule,
     NgsRevealModule.forRoot()
   ],
   bootstrap: [AppComponent]
