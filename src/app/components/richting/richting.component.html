@@ -32,7 +32,7 @@
       </li>
     </ul>
     <div class="sliderbuttons2">
-      <button mat-button type="button" class="half sliderbuttons" (click)="verwijderRichting()">
+      <button cdkFocusInitial mat-button type="button" class="half sliderbuttons" (delete)="verwijderRichting($event)" (click)="openDialog()">
           <i class="deleteIcon fas fa-trash-alt f-red"></i>
       </button>
       <button mat-button type="button" class="half sliderbuttons divider" (click)="editRichting()">

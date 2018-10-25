@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Richting } from 'src/app/models/richting';
 import { delay } from 'q';
+import { MatDialog } from '@angular/material';
+import { RichtingConfirmDeleteComponent } from './richting-confirm-delete/richting-confirm-delete.component';
  @Component({
   selector: 'app-richting',
   templateUrl: './richting.component.html',
@@ -13,8 +15,16 @@ export class RichtingComponent implements OnInit {
   @Output() public edit = new EventEmitter<Richting>();
 
   public hover: boolean;
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
    ngOnInit() {
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RichtingConfirmDeleteComponent, {
+      width: '400px',
+      data: {richting: this.richting}
+    });
+
   }
 
   public toggle(): void {
@@ -29,7 +39,8 @@ export class RichtingComponent implements OnInit {
     this.edit.emit(this.richting);
   }
 
-  public verwijderRichting() {
+  public verwijderRichting(verwijder: boolean) {
+    console.log('verwijder2');
     this.verwijder.emit(this.richting);
   }
 

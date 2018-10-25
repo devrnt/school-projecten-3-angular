@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Bent u zeker dat u {{data.richting.naam}} wilt verwijderen?</h1>
+<div mat-dialog-content>
+  <p>Eenmaal verwijderd bent u de richting definitief kwijt!</p>
+</div>
+<div mat-dialog-actions class="full">
+    <button mat-flat-button class="half annuleren" (click)=annuleren()>
+      <i class="fas fa-undo"></i>&nbsp; &nbsp; Annuleren
+    </button>
+    <button class="half verwijderen" mat-flat-button (click)=verwijderen()>
+      <i class="fas fa-trash-alt" ></i>&nbsp;&nbsp;Verwijderen</button>
+  </div>

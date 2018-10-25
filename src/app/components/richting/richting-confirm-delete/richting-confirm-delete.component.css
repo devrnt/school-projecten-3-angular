@@ -1,0 +1,17 @@
+h1 {
+    font-size: 1rem
+}
+
+.verwijderen{
+    background-color: rgb(212, 89, 84);
+    color: white;
+    border-radius: 0px;
+    font-size: 0.8rem;
+}
+.annuleren{
+    background-color: rgb(38, 85, 172);
+    color: white;
+    border-radius: 0px;
+    font-size: 0.8rem;
+    
+}
