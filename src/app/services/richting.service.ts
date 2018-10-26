@@ -329,7 +329,14 @@ export class RichtingService {
   }
 
   public getRichting(): Richting {
-    return this._richtingen[1];
+    return new Richting(
+      'Nieuwe richting',
+    [],
+    [],
+    [],
+    Diploma.Geen,
+    Kleur.white,
+    Icon.plant);
   }
 
   public  get richtingen(): Richting[] {

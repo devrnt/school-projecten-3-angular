@@ -16,7 +16,6 @@ export class AppComponent {
   }
 
   public get leerlingen() {
-    console.log('1');
     return this._leerlingService.leerlingen;
   }
 
