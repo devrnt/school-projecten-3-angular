@@ -1,0 +1,32 @@
+<div class="card_border" (mouseenter)="hover=true" (mouseleave)="hover=false">
+        <div (click)="toggle()" class="card_main" id="#{{id}}">
+          <div class="icon outer {{competentie.kleur}}">
+            <div class="inner">
+              <i class="fas fa-{{hoofdcompetentie.icon}} x2"></i>
+            </div>
+          </div>
+          <div class="text" href="#nav">
+            <div class="title">
+              <h3 class="titletext">{{hoofdcompetentie.desc}}</h3>
+            </div>
+            <i  (click)="toggle()"><fa (click)="toggle()" class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa></i>
+          </div>
+        </div>
+        <div id="#{{id}}pannel" class="card_slider " [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
+          <div class="full">
+          <ul>
+            <li>
+              {{deelcompetentie.desc}}
+            </li>
+          </ul>
+          <div class="sliderbuttons2">
+            <button cdkFocusInitial mat-button type="button" class="half sliderbuttons" (verwijder)="verwijderRichting($event)" (click)="openDialog()">
+                <i class="deleteIcon fas fa-trash-alt f-red"></i>
+            </button>
+            <button mat-button type="button" class="half sliderbuttons divider" (click)="editRichting()">
+                <i class="deleteIcon fas fa-pen f-black"></i>
+            </button>
+            </div>
+        </div>
+        </div>
+      </div>

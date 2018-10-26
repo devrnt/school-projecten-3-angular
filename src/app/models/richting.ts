@@ -1,7 +1,7 @@
 import { User } from './user';
-import { Activiteit } from './activiteit.model';
 import { Leerling } from './leerling.model';
 import { MatChipTrailingIcon } from '@angular/material';
+import { Hoofdcompetentie } from './hoofdcompetentie.model';
 
 export class Richting {
   private _id: string;
@@ -11,14 +11,14 @@ export class Richting {
   private _kleur: Kleur;
   private _leerlingenId: string[];
   private _leerkrachten: User[];
-  private _competenties: Activiteit[];
+  private _competenties: Hoofdcompetentie[];
   private _werkgevers: User[];
   private _diploma: Diploma;
 
   constructor(
     naam: string,
     leerkrachten: User[],
-    competenties: Activiteit[],
+    competenties: Hoofdcompetentie[],
     werkgevers: User[],
     diploma: Diploma,
     kleur?: Kleur,
@@ -88,9 +88,9 @@ export class Richting {
 
   /**
    * Getter competenties
-   * @return {Activiteit[]}
+   * @return {Hoofdcompetentie[]}
    */
-  public get competenties(): Activiteit[] {
+  public get competenties(): Hoofdcompetentie[] {
     return this._competenties;
   }
 

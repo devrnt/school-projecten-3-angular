@@ -1,19 +1,23 @@
-import { Competentie } from './competentie.model';
 import { Beoordeling } from './beoordeling.model';
+import { Deelcompetentie } from './deelcompetentie.model';
+import { Icon, Kleur } from './richting';
 
 // activiteit == hoofdcompetentie
-export class Activiteit {
+export class Hoofdcompetentie {
   private _id;
   private _description: string;
-  private _competenties: Competentie[];
-  private _icon: string;
-  private _color: string;
+  private _deelcompetenties: Deelcompetentie[];
+  private _icon: Icon;
+  private _color: Kleur;
   private _dateMade: Date;
   private _behaald: boolean;
 
-  constructor(id: string, description: string, icon: string, color: string) {
+  constructor(id: string, description: string, deelcompetenties: Deelcompetentie[],  icon: Icon, color: Kleur) {
     this._id = id;
-    this._competenties = [];
+    this._deelcompetenties = deelcompetenties;
+    this._description = description;
+    this._icon = icon;
+    this._color = color;
     this._dateMade = new Date();
     this._behaald = false;
   }
@@ -28,17 +32,17 @@ export class Activiteit {
 
   /**
    * Getter icon
-   * @return {string}
+   * @return {Icon}
    */
-  public get icon(): string {
+  public get icon(): Icon {
     return this._icon;
   }
 
   /**
    * Getter color
-   * @return {string}
+   * @return {Kleur}
    */
-  public get color(): string {
+  public get color(): Kleur {
     return this._color;
   }
 
@@ -54,8 +58,8 @@ export class Activiteit {
    * Getter competenties
    * @return {Competentie[]}
    */
-  public get competenties(): Competentie[] {
-    return this._competenties;
+  public get deelcompetenties(): Deelcompetentie[] {
+    return this._deelcompetenties;
   }
 
   /**
@@ -68,17 +72,17 @@ export class Activiteit {
 
   /**
    * Setter icon
-   * @param {string} value
+   * @param {Icon} value
    */
-  public set icon(value: string) {
+  public set icon(value: Icon) {
     this._icon = value;
   }
 
   /**
    * Setter color
-   * @param {string} value
+   * @param {Kleur} value
    */
-  public set color(value: string) {
+  public set color(value: Kleur) {
     this._color = value;
   }
 
@@ -94,8 +98,8 @@ export class Activiteit {
    * Setter competenties
    * @param {Competentie[]} value
    */
-  public set competenties(value: Competentie[]) {
-    this._competenties = value;
+  public set competenties(value: Deelcompetentie[]) {
+    this._deelcompetenties = value;
   }
 
   /**

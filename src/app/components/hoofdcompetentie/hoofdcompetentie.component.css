@@ -1,0 +1,134 @@
+.icon{
+    vertical-align:middle;
+    color: #fff;
+    height: 86px;
+    width: 80px;
+    padding: 10px;
+}
+
+.inner {
+  height: 60px;
+
+  text-align: center;
+  padding-top: 15px;
+}
+.center{
+    vertical-align: middle;
+    text-align: center;
+}
+
+.card_border{
+    box-shadow: 0 4px 8px 0 rgba(234, 233, 233, 0.01), 0 6px 20px 0 rgb(228, 228, 228);
+    font-family: Raleway;
+}
+
+.card_main{
+    display: flex;
+    cursor: pointer;
+}
+
+.card_slider{
+    display: flex;
+    border-top: 0px;
+    font-size: 12px;
+}
+
+.text{
+    width: calc(100% - 80px);
+    height: 86px;
+    text-align: center;
+    border-bottom: 1px solid rgba(199, 199, 199, 0.363)
+}
+
+h4{
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+ul{
+    margin-top: 1rem;
+}
+
+.slide_open_button{
+    color: grey;
+    height: 20px;
+}
+
+.titletext{
+    align-self: auto;
+    display:table-cell; 
+    vertical-align:middle;
+    margin: auto;
+    font-size: 0.8rem;
+    font-weight: lighter;
+}
+
+.title{
+    padding: 3px;
+    height: 66px;
+    width: 100%;
+    text-align: center;
+    display:table;
+}
+
+.sliderbuttons{
+    border: 0px;
+    padding: 0.5rem;
+}
+
+.sliderbuttons2{
+    border-top: 1px solid rgba(199, 199, 199, 0.363);;
+}
+.divider{
+    border-left: 1px solid rgba(199, 199, 199, 0.363);
+}
+
+
+/* animation */
+
+.slideup {
+    max-height: 0;            
+    overflow-y: hidden;
+    -webkit-transition: max-height 1s ease-out;
+    -moz-transition: max-height 1s ease-out;
+    -o-transition: max-height 1s ease-out;
+    transition: max-height 1s ease-out;
+}
+.slidedown {            
+    max-height: 600px ;
+    overflow-y: hidden;
+    -webkit-transition: max-height 1.5s ease-in;
+    -moz-transition: max-height  1.5s ease-out;
+    -o-transition: max-height  1.5s ease-out;
+    transition: max-height  1.5s ease-out;                   
+}
+ 
+.buttoncol{
+    border-bottom: 1px solid rgba(199, 199, 199, 0.363);
+    width: 40px;
+    
+}
+ul{
+    margin: 1rem;
+}
+
+.hover{
+    animation: appear 0.8s ease-in
+}
+
+.away{
+    animation: disappear 1s ease-in
+}
+
+@keyframes appear {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes disappear {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}

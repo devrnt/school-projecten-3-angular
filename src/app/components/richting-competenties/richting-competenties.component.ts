@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CompetentieService } from 'src/app/services/competentie.service';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
+import { Richting } from 'src/app/models/richting';
 
 @Component({
   selector: 'app-richting-competenties',
@@ -11,6 +12,7 @@ import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 export class RichtingCompetentiesComponent implements OnInit {
   public filterCompetentieDescription: string;
   public filterCompetentie$ = new Subject<string>();
+  @Input() public richting: Richting;
 
   constructor(
     private _competentieService: CompetentieService
@@ -28,7 +30,7 @@ export class RichtingCompetentiesComponent implements OnInit {
   }
 
   public get hoofdCompetenties() {
-    return this._competentieService.hoofdcompetenties;
+    return this.richting.competenties;
   }
 
 }

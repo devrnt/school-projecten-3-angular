@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Leerling, Geslacht } from '../models/leerling.model';
-import { Competentie } from '../models/competentie.model';
 import { Beoordeling } from '../models/beoordeling.model';
-import { Activiteit } from '../models/activiteit.model';
 import { RichtingService } from './richting.service';
 
 @Injectable()
@@ -47,29 +45,4 @@ export class LeerlingService {
     return this._leerlingen;
   }
 
-    /**
-   * Method kenAlleCompetentiesToe
-   * @return {void}
-   * voegt eenzelfde beoordeling toe aan alle deelcompetenties, zet indien nodig behaald op true
-   */
-  public kenAlleCompetentiesToe(leerling: Leerling, activiteit: Activiteit, beoordeling: Beoordeling): void {
-  }
-
-    /**
-   * Method controlleerBehaald
-   * @return {void}
-   * persisteert
-   * zet behaald op true als alle deelcompetenties behaald zijn
-   */
-  private controlleerBehaald(leerling: Leerling, activiteit: Activiteit): void {
-  }
-
-  /**
-   * Method kenCompetentiesToe
-   * @return {void}
-   * persisteert
-   * voegt een competentie met beoordeling toe aan een leerlig zet indien nodig behaald op true
-   */
-  public kenCompetentiesToe(leerling: Leerling, activiteit: Activiteit, competentie: Competentie, beoordeling: Beoordeling): void {
-  }
 }

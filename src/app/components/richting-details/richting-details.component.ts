@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { RichtingService } from 'src/app/services/richting.service';
 import { Richting } from '../../models/richting';
 import { User, UserType } from '../../models/user';
@@ -11,8 +11,8 @@ import { LeerkrachtService } from '../../services/leerkracht.service';
 })
 export class RichtingDetailsComponent implements OnInit {
 
-  public _richting: Richting;
-  public _alleLeerkrachten: User[];
+  @Input() public richting: Richting;
+  public alleLeerkrachten: User[];
 
   constructor(
     private _richtingService: RichtingService,
@@ -20,20 +20,12 @@ export class RichtingDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._richting = this._richtingService.getRichting();
-    this._alleLeerkrachten = this._leerkrachtService.leerkachten;
-  }
-
-  get richting(): Richting {
-    return this._richting;
-  }
-
-  get alleLeerkrachten(): User[] {
-    return this._alleLeerkrachten;
+    this.richting = this._richtingService.getRichting();
+    this.alleLeerkrachten = this._leerkrachtService.leerkachten;
   }
 
   addLeerkracht(leerkracht: User) {
-    this._richting.leerkrachten.push(leerkracht);
+    this.richting.leerkrachten.push(leerkracht);
   }
 
   deleteLeerkracht(i: number) {

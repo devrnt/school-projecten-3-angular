@@ -1,4 +1,4 @@
-import { Activiteit } from './activiteit.model';
+import { Hoofdcompetentie } from './hoofdcompetentie.model';
 import { User } from './user';
 import { Richting } from './richting';
 
@@ -6,10 +6,10 @@ export class Leerling {
   private _id: string;
   private _voornaam: string;
   private _achternaam: string;
-  private _competenties: Activiteit[];
+  private _competenties: Hoofdcompetentie[];
   private _email: string;
   private _richting: Richting;
-  private _projecten: Activiteit[];
+  private _projecten: Hoofdcompetentie[];
   private _geslacht: Geslacht;
   private _stage: User;
   private _werkgever: User;
@@ -45,7 +45,7 @@ export class Leerling {
    * Getter competenties
    * @return {Activiteit[]}
    */
-  public get competenties(): Activiteit[] {
+  public get competenties(): Hoofdcompetentie[] {
     return this._competenties;
   }
 
@@ -69,7 +69,7 @@ export class Leerling {
    * Getter projecten
    * @return {Activiteit[]}
    */
-  public get projecten(): Activiteit[] {
+  public get projecten(): Hoofdcompetentie[] {
     return this._projecten;
   }
 
@@ -117,7 +117,7 @@ export class Leerling {
    * Setter competenties
    * @param {Activiteit[]} value
    */
-  public set competenties(value: Activiteit[]) {
+  public set competenties(value: Hoofdcompetentie[]) {
     this._competenties = value;
   }
 
@@ -141,7 +141,7 @@ export class Leerling {
    * Setter projecten
    * @param {Activiteit[]} value
    */
-  public set projecten(value: Activiteit[]) {
+  public set projecten(value: Hoofdcompetentie[]) {
     this._projecten = value;
   }
 

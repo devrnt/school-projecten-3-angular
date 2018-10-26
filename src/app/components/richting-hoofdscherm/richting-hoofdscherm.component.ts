@@ -9,6 +9,7 @@ import { Richting } from 'src/app/models/richting';
 export class RichtingHoofdschermComponent implements OnInit {
 
   public selectedTab: number;
+  public selectedRichting: Richting;
 
   constructor() { }
 
@@ -17,6 +18,7 @@ export class RichtingHoofdschermComponent implements OnInit {
 
   public editRichting(richting: Richting) {
     this.selectedTab = 1;
+    this.selectedRichting = richting;
   }
 
   public changeTab(index: number) {

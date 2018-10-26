@@ -24,7 +24,6 @@ export class RichtingComponent implements OnInit {
       width: '400px',
       data: {richting: this.richting, component: this}
     });
-
   }
 
   public toggle(): void {

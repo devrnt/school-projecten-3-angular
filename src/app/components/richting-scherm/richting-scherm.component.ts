@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Beoordeling } from 'src/app/models/beoordeling.model';
-import { Competentie } from 'src/app/models/competentie.model';
+import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
 import { MatDialog } from '@angular/material';
 import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
+import { Icon, Kleur, Richting } from 'src/app/models/richting';
 
 @Component({
   selector: 'app-richting-scherm',
@@ -10,8 +11,9 @@ import { CompetentieDialogComponent } from '../competentie-dialog/competentie-di
   styleUrls: ['./richting-scherm.component.css']
 })
 export class RichtingSchermComponent implements OnInit {
-  nieuweCompetentie: Competentie;
-  description: string;
+  @Input() public richting: Richting;
+  public nieuweCompetentie: Hoofdcompetentie;
+  public description: string;
 
   constructor(public dialog: MatDialog) { }
 
@@ -27,11 +29,11 @@ export class RichtingSchermComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      let teller: number = 6;
+      let teller = 6;
       console.log(result);
       // this._newCompetentie = result;
       this.description = result;
-      this.nieuweCompetentie = new Competentie(`hoofdcompetentie${++teller}`, this.description);
+      this.nieuweCompetentie = new Hoofdcompetentie(`hoofdcompetentie${++teller}`, this.description, [], Icon.scissors, Kleur.red);
     });
   }
 

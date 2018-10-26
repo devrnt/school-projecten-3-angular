@@ -8,7 +8,8 @@
           <i class="fas fa-search"></i>
           &nbsp;
         </span>
-        <input matInput class="filterInputField" (keyup)='filterCompetentie$.next($event.target.value)' type="text" id="filter" name="filter">
+        <input matInput class="filterInputField" (keyup)='filterCompetentie$.next($event.target.value)' type="text" id="filter"
+          name="filter">
       </mat-form-field>
     </form>
 
@@ -22,33 +23,8 @@
     </mat-form-field>
   </div>
 
-  <div class="competentiesContainer row">
-      <div *ngFor="let hoofdc of hoofdCompetenties | competentieFilter:filterCompetentieDescription" class="
-        col-lg-6
-        col-12
-      ">
-      <!-- TIJDELIJKE OPLOSSING TODO OCEAN CUSTOM KAARTJES -->
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <i class="fas fa-desktop"></i>
-              </mat-panel-title>
-              <mat-panel-description>
-                {{hoofdc.description}}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-list>
-              <div *ngFor="let deelcomp of hoofdc.deelcompetenties">
-                <mat-list-item role="listitem" class="listitem" [ngStyle]="{'margin-top':'10px'}">
-                  <i class="fas fa-genderless"></i>
-                  &nbsp;&nbsp;{{deelcomp.description}}
-                </mat-list-item>
-              </div>
-            </mat-list>
-          </mat-expansion-panel>
-        </mat-accordion>
-
-      </div>
+  <div *ngIf="richting" class="competentiesContainer row">
+    <app-hoofdcompetentie  *ngFor="let competentie of richting.competenties" [hoofdcompetentie]=competentie></app-hoofdcompetentie>
   </div>
 </div>
+
