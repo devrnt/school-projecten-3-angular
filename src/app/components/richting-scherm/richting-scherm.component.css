@@ -17,6 +17,7 @@
 .richtingContainer {
     flex: 1;
     margin-top: 2em;
+    height: calc(100vh - 250px);
 }
 
 .richtingCompetenties {
