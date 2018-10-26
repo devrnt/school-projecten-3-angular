@@ -23,8 +23,8 @@
     </mat-form-field>
   </div>
 
-  <div *ngIf="richting" class="competentiesContainer row">
-    <app-hoofdcompetentie  *ngFor="let competentie of richting.competenties" [hoofdcompetentie]=competentie></app-hoofdcompetentie>
+  <div class="competentiesContainer row">
+    <app-hoofdcompetentie  class="full competentiePadding" *ngFor="let competentie of hoofdCompetenties" [hoofdcompetentie]=competentie></app-hoofdcompetentie>
   </div>
 </div>
 

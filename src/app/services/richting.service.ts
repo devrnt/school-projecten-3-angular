@@ -3,11 +3,12 @@ import { Richting, Diploma, Kleur, Icon } from '../models/richting';
 import { User, UserType } from '../models/user';
 import { LeerlingService } from './leerling.service';
 import { LeerkrachtService } from './leerkracht.service';
+import { CompetentieService } from './competentie.service';
 
 @Injectable()
 export class RichtingService {
   private _richtingen: Richting[];
-  constructor(private _leerkrachtService: LeerkrachtService) {
+  constructor(private _leerkrachtService: LeerkrachtService, private _competentieSevice: CompetentieService) {
     this._richtingen = [];
     const leerkrachten = _leerkrachtService.leerkachten;
     this._richtingen = [
@@ -31,7 +32,7 @@ export class RichtingService {
           leerkrachten[0],
           leerkrachten[1]
         ],
-        []
+          this._competentieSevice.hoofdcompetenties
         ,
         [
         ],

@@ -15,7 +15,6 @@ export class RichtingCompetentiesComponent implements OnInit {
   @Input() public richting: Richting;
 
   constructor(
-    private _competentieService: CompetentieService
   ) {
     this.filterCompetentie$
       .pipe(
@@ -30,7 +29,11 @@ export class RichtingCompetentiesComponent implements OnInit {
   }
 
   public get hoofdCompetenties() {
-    return this.richting.competenties;
+    console.log(this.richting);
+    if (this.richting) {
+      return this.richting.competenties;
+    }
+    return [];
   }
 
 }
