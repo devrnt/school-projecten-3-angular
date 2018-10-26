@@ -19,6 +19,12 @@
     padding: 16px 1em 0 0;
 }
 
+.competentiesContainer {
+    height: calc(100vh - 330px);
+    overflow: auto;
+    padding: 20px;
+}
+
 .competentieNaamFilter {
     flex: 1;
     min-width: 0;

@@ -66,7 +66,7 @@ import { CompetentieDialogComponent } from 'src/app/components/competentie-dialo
     HoofdcompetentieComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
-    CompetentieDialogComponent
+    CompetentieDialogComponent,
   ],
   providers: [ LeerkrachtService, RichtingService, RichtingFilterPipe, MatDialog],
   entryComponents: [RichtingConfirmDeleteComponent, CompetentieDialogComponent]

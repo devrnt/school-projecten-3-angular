@@ -24,7 +24,7 @@
   </div>
 
   <div class="competentiesContainer row">
-    <app-hoofdcompetentie  class="full competentiePadding" *ngFor="let competentie of hoofdCompetenties" [hoofdcompetentie]=competentie></app-hoofdcompetentie>
+    <app-hoofdcompetentie  class="full competentiePadding" *ngFor="let competentie of hoofdCompetenties | competentieFilter:filterCompetentieDescription" [hoofdcompetentie]=competentie></app-hoofdcompetentie>
   </div>
 </div>
 

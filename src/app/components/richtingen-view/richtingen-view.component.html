@@ -26,7 +26,7 @@
       </div>
     </div>
     <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-      <div *ngFor='let richting of columns[3] | richtingFilter:filterRichtingenNaam' class="col-12 padding_bottom">
+      <div *ngFor='let richting of columns[3]' class="col-12 padding_bottom">
         <app-richting [richting]=richting class="sr-icons" (edit)="editRichting($event)"></app-richting>
       </div>
     </div>

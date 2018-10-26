@@ -19,7 +19,6 @@ export class RichtingCompetentiesComponent implements OnInit {
     this.filterCompetentie$
       .pipe(
         distinctUntilChanged(),
-        debounceTime(200),
         map(comp => comp.toLowerCase())
       )
       .subscribe(comp => (this.filterCompetentieDescription = comp));
