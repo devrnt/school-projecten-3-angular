@@ -26,6 +26,7 @@ import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/h
 import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
 import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';
 import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,8 +40,7 @@ import { CompetentieDialogComponent } from 'src/app/components/competentie-dialo
     MatSelectModule,
     AngularFontAwesomeModule,
     MatToolbarModule,
-    MatTabsModule,
-
+    MatTabsModule
   ],
   declarations: [
     RichtingComponent,

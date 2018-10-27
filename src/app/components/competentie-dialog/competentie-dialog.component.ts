@@ -1,8 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Richting, Icon, Kleur } from 'src/app/models/richting';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 export interface DialogData{
-  description: string;
+  icons: Array<string>,
+  kleuren: Array<string>
 }
 
 @Component({
@@ -11,18 +14,34 @@ export interface DialogData{
   styleUrls: ['./competentie-dialog.component.css']
 })
 export class CompetentieDialogComponent implements OnInit {
-
+  hoofdcompetentie: FormGroup;
+  icons: Array<string>;
+  kleuren: Array<string>;
   
   constructor(
+    // private fb: FormBuilder,
     public dialogRef: MatDialogRef<CompetentieDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+      this.icons = data.icons;
+      this.kleuren = data.kleuren;
+
+    }
 
   
-  ngOnInit() {}
+  ngOnInit() {
+    // this.hoofdcompetentie = this.fb.group({
+    //   description: this.fb.control('description'),
+    //   icon: this.fb.contol('icon'),
+    //   kleur: this.fb.control('kleur')
+    // })
+  }
   
   onAnnulerenClick(): void {
     this.dialogRef.close();
   }
 
-
+  onSaveClick(): void {
+    console.log(this.hoofdcompetentie.value);
+    this.dialogRef.close(this.hoofdcompetentie.value);
+  }
 }

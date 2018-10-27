@@ -169,6 +169,10 @@ export class Richting {
     this._kleur = value;
   }
 
+  public addNieuweHoofdcompetentie(hoofdcomp: Hoofdcompetentie){
+    this._competenties.push(hoofdcomp);
+  }
+
 
 }
 

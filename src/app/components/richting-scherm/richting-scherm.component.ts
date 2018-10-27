@@ -12,6 +12,8 @@ import { Icon, Kleur, Richting } from 'src/app/models/richting';
 })
 export class RichtingSchermComponent implements OnInit {
   @Input() public richting: Richting;
+  public icons: Array<string>;
+  public kleuren: Array<string>;
   public nieuweCompetentie: Hoofdcompetentie;
   public description: string;
 
@@ -23,18 +25,25 @@ export class RichtingSchermComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(CompetentieDialogComponent, {
       width: '950px',
+      autoFocus: true,
       data: {
-        description: this.description
+        icons: Object.keys(Icon),
+        kleuren: Object.values(Kleur)
       }
     });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   let teller = 6;
+    //   console.log(result);
+    //   // this._newCompetentie = result;
+    //   this.description = result;
+    //   this.nieuweCompetentie = new Hoofdcompetentie(`hoofdcompetentie${++teller}`, this.description, [], Icon.scissors, Kleur.red);
+    // });
 
     dialogRef.afterClosed().subscribe(result => {
       let teller = 6;
       console.log(result);
-      // this._newCompetentie = result;
-      this.description = result;
-      this.nieuweCompetentie = new Hoofdcompetentie(`hoofdcompetentie${++teller}`, this.description, [], Icon.scissors, Kleur.red);
-    });
+    })
   }
 
 }

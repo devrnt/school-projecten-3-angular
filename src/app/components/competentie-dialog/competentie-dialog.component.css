@@ -1,0 +1,8 @@
+.formField{
+    display: flex;
+    flex-direction: column;
+}
+
+.formField > * {
+    width: 80%;
+}

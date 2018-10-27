@@ -1,13 +1,22 @@
-<form>
+<form >
   <h1 mat-dialog-title>Maak hier een nieuwe competentie</h1>
-  <div mat-dialog-content>
-    <mat-form-field class="filterInput">
-      <mat-label>Beschrijving</mat-label>
-      <input matInput class="filterInputField">
+  <mat-dialog-content class="formField" >
+    <mat-form-field>
+      <textarea matInput  placeholder="Beschrijving" ></textarea>
     </mat-form-field>
-  </div>
-  <div mat-dialog-actions>
+    <mat-form-field>
+      <mat-select placeholder="Kies het juiste icon" [(value)]="selected" >
+        <mat-option *ngFor="let icon of icons" [value]="icon">{{icon}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Kies de juiste kleur voor de competentie" [(value)]="selected" >
+        <mat-option *ngFor="let kleur of kleuren" [value]="kleur">{{kleur}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
     <button mat-button (click)="onAnnulerenClick()">Annuleer</button>
-    <button mat-button [mat-dialog-close]="data.description" cdkFocusInitial>Save</button>
-  </div>
+    <button mat-button [mat-dialog-close]="data.description" cdkFocusInitial (click)="onSaveClick()">Save</button>
+  </mat-dialog-actions>
 </form>
