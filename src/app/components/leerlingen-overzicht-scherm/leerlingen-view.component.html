@@ -1,0 +1,43 @@
+<div class="">
+  <div class="richtingContainer">
+    <div class="container">
+      <div class="searchbar">
+        <mat-form-field class="col-xs-6 col-sm-8">
+          <span matPrefix>
+            <i class="fas fa-search"></i>
+            &nbsp;
+          </span>
+          <input matInput (keyup)='filterLeerling$.next($event.target.value)' type="text" class="half" placeholder="Zoek Leerling"
+            id="filter" name="filter">
+        </mat-form-field>
+        <mat-form-field class="col-xs-6 col-sm-4">
+            <mat-select placeholder="Richting" multiple [formControl]="richtingForm" (click)='filterLeerling$.next($event.target.value)'>
+              <mat-option *ngFor="let richting of richtingen" [value]="richting">{{richting}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row scrollbox">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div *ngFor='let leerling of columns[0]' class="col-12 padding_bottom">
+            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling></app-leerling>
+          </div>
+        </div>
+        <div *ngIf='numberOfColumns>=2' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div *ngFor='let leerling of columns[1]' class="col-12 padding_bottom">
+            <app-leerling (verwijder)="verwijderLeerling($event)"  [leerling]=leerling></app-leerling>
+          </div>
+        </div>
+        <div *ngIf='numberOfColumns>=3' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div *ngFor='let leerling of columns[2]' class="col-12 padding_bottom">
+            <app-leerling (verwijder)="verwijderLeerling($event)"  [leerling]=leerling></app-leerling>
+          </div>
+        </div>
+        <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div *ngFor='let leerling of columns[3]' class="col-12 padding_bottom">
+            <app-leerling (verwijder)="verwijderLeerling($event)"  [leerling]=leerling></app-leerling>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

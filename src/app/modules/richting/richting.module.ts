@@ -20,8 +20,8 @@ import { RichtingCompetentiesComponent } from 'src/app/components/richting-compe
 import { RichtingService } from 'src/app/services/richting.service';
 import { RichtingOverzichtSchermComponent } from 'src/app/components/richting-overzicht-scherm/richting-overzicht-scherm.component';
 import { RichtingSchermComponent } from 'src/app/components/richting-scherm/richting-scherm.component';
-import { RichtingFilterPipe } from 'src/app/components/richting-filter.pipe';
-import { CompetentieFilterPipe } from 'src/app/components/competentie-filter.pipe';
+import { RichtingFilterPipe } from 'src/app/pipes/richting/richting-filter.pipe';
+import { CompetentieFilterPipe } from 'src/app/pipes/richting/competentie-filter.pipe';
 import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/hoofdcompetentie.component';
 import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
 import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';

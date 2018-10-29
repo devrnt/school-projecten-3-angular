@@ -1,0 +1,24 @@
+.padding_bottom {
+    margin-bottom: 2rem;
+}
+
+.seachbarpadding{
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.searchbar{
+    margin-top: 0.8rem;
+    margin-bottom: -1.2rem;
+}
+
+.scrollbox{
+    padding-top: 1rem;
+    overflow-y: auto;
+    height: calc(100vh - 200px) ;
+}
+
+.margins {
+    margin-left: 15px;
+    margin-right: 15px;
+}

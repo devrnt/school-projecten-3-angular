@@ -6,22 +6,23 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerlingModule } from './modules/leerling/leerling.module';
 import { RichtingModule } from './modules/richting/richting.module';
 import {NgsRevealModule} from 'ng-scrollreveal';
-import { RichtingConfirmDeleteComponent } from './components/richting/richting-confirm-delete/richting-confirm-delete.component';
 import {
   MatSidenavModule,
   MatToolbarModule,
   MatButtonModule,
   MatDividerModule
 } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFontAwesomeModule,
     LeerlingModule,
     RichtingModule,

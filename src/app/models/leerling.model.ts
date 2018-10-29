@@ -171,6 +171,6 @@ export class Leerling {
 }
 
 export enum Geslacht {
-  Man,
-  Vrouw
+  Man = 'boy',
+  Vrouw = 'girl'
 }

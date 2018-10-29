@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Hoofdcompetentie } from '../models/hoofdcompetentie.model';
+import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
 
 @Pipe({
     name: 'competentieFilter',

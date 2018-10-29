@@ -1,12 +1,20 @@
 .icon{
-    vertical-align:bottom;
-    height: 66px;
-    width: 60px;
+    vertical-align:middle;
+    color: #fff;
+    height: 86px;
+    width: 80px;
     padding: 10px;
 }
 
-.icon:hover {
-    background-color: rgb(1, 41, 78);
+.inner {
+  height: 60px;
+
+  text-align: center;
+  padding-top: 15px;
+}
+.center{
+    vertical-align: middle;
+    text-align: center;
 }
 
 .card_border{
@@ -16,6 +24,7 @@
 
 .card_main{
     display: flex;
+    cursor: pointer;
 }
 
 .card_slider{
@@ -26,15 +35,9 @@
 
 .text{
     width: calc(100% - 80px);
-    height: 85px;
+    height: 86px;
     text-align: center;
     border-bottom: 1px solid rgba(199, 199, 199, 0.363)
-}
-
-h3 {
-    margin: auto;
-    margin-top: 20px;
-    font-weight: lighter;
 }
 
 h4{
@@ -45,26 +48,87 @@ h4{
     font-weight: lighter;
 }
 
+ul{
+    margin-top: 1rem;
+}
+
 .slide_open_button{
     color: grey;
-    margin-top: 20px;
+    height: 20px;
 }
+
+.titletext{
+    align-self: auto;
+    display:table-cell; 
+    vertical-align:middle;
+    margin: auto;
+    font-size: 0.8rem;
+    font-weight: lighter;
+}
+
+.title{
+    padding: 3px;
+    height: 66px;
+    width: 100%;
+    text-align: center;
+    display:table;
+}
+
+.sliderbuttons{
+    border: 0px;
+    padding: 0.5rem;
+}
+
+.sliderbuttons2{
+    border-top: 1px solid rgba(199, 199, 199, 0.363);;
+}
+.divider{
+    border-left: 1px solid rgba(199, 199, 199, 0.363);
+}
+
 
 /* animation */
 
 .slideup {
     max-height: 0;            
     overflow-y: hidden;
-    -webkit-transition: max-height 0.5s ease-out;
-    -moz-transition: max-height 0.5s ease-out;
-    -o-transition: max-height 0.5s ease-out;
-    transition: max-height 0.5s ease-out;
+    -webkit-transition: max-height 1s ease-out;
+    -moz-transition: max-height 1s ease-out;
+    -o-transition: max-height 1s ease-out;
+    transition: max-height 1s ease-out;
 }
 .slidedown {            
-    max-height: 500px ;
+    max-height: 600px ;
     overflow-y: hidden;
-    -webkit-transition: max-height 1.5s ease-out;
-    -moz-transition: max-height 2.5s ease-out;
-    -o-transition: max-height 2.5s ease-out;
-    transition: max-height 2.5s ease-out;                   
+    -webkit-transition: max-height 1.5s ease-in;
+    -moz-transition: max-height  1.5s ease-out;
+    -o-transition: max-height  1.5s ease-out;
+    transition: max-height  1.5s ease-out;                   
+}
+ 
+.buttoncol{
+    border-bottom: 1px solid rgba(199, 199, 199, 0.363);
+    width: 40px;
+    
+}
+ul{
+    margin: 1rem;
+}
+
+.hover{
+    animation: appear 0.8s ease-in
+}
+
+.away{
+    animation: disappear 1s ease-in
+}
+
+@keyframes appear {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes disappear {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
 }

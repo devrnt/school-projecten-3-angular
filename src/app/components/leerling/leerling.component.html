@@ -1,32 +1,43 @@
-<div class="card_border">
-<div class="card_main" id="{{leerling.id}} expandable">
-  <img src="assets/images/{{geslacht}}.png" class="icon">
-  <div class="text" href="#nav">
-    <h3>{{leerling.voornaam}} {{leerling.achternaam}}</h3>
-    <h4>{{leerling.richting.naam}}</h4>
-    <a (click)="toggle()"><fa class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa></a>
+<div class="card_border" (mouseenter)="hover=true" (mouseleave)="hover=false">
+  <div (click)="toggle()" class="card_main" id="#{{id}}">
+    <img class="icon fas fa-{{leerling.icon}} {{leerling.richting.kleur}} x2" src="../../../assets/images/{{leerling.geslacht}}.png">
+    <div class="text" href="#nav">
+      <div class="title">
+        <h3 class="titletext">{{leerling.voornaam}} {{leerling.achternaam}}</h3>
+      </div>
+      <i  (click)="toggle()"><fa (click)="toggle()" class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa></i>
+    </div>
   </div>
-</div>
-<div id="#{{id}}pannel" class="card_slider" [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
-    <ul class="full">
-      <li>
-        Naam: {{leerling.achternaam}}
-      </li>
-      <li>
-        Voornaam: {{leerling.voornaam}}
-      </li>
-      <li>
-        Richting: {{leerling.richting.naam}}
-        </li>
-      <li>
-        Email: {{leerling.email}}
-      </li>
-      <li>
-        Competenties: {{leerling.competenties.length}}
-      </li>
-      <li>
-        Werkgever: {{leerling.werkgever?.naam||"Geen"}}
-      </li>
+  <div id="#{{id}}pannel" class="card_slider " [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
+    <div class="full">
+    <ul>
+        <li>
+            Naam: {{leerling.achternaam}}
+          </li>
+          <li>
+            Voornaam: {{leerling.voornaam}}
+          </li>
+          <li>
+            Richting: {{leerling.richting.naam}}
+            </li>
+          <li>
+            Email: {{leerling.email}}
+          </li>
+          <li>
+            Competenties: {{leerling.competenties.length}}
+          </li>
+          <li>
+            Werkgever: {{leerling.werkgever?.naam||"Geen"}}
+          </li>
     </ul>
+    <div class="sliderbuttons2">
+      <button cdkFocusInitial mat-button type="button" class="half sliderbuttons" (verwijder)="verwijderRichting($event)" (click)="openDialog()">
+          <i class="deleteIcon fas fa-trash-alt f-red"></i>
+      </button>
+      <button mat-button type="button" class="half sliderbuttons divider" (click)="editRichting()">
+          <i class="deleteIcon fas fa-pen f-black"></i>
+      </button>
+      </div>
+  </div>
   </div>
 </div>
