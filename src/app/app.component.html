@@ -47,7 +47,8 @@
                 <button mat-icon-button (click)="sidenav.open()">
                     <i class="fas fa-bars"></i>
                 </button>
-                <i class="fas fa-graduation-cap x1"></i>
+                <i *ngIf='toolbarIcon==0' class="fas fa-users x1 toolbarIcon"></i>
+                <i *ngIf='toolbarIcon==1' class="fas fa-graduation-cap x1 toolbarIcon"></i>
                 <!-- QUICK FIX OM ALLES CENTERED TE HOUDEN -->
                 <button mat-icon-button class="empty">
                 <i class="fas fa-chevron-left"></i>

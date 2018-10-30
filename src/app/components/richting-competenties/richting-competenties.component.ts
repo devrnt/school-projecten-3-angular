@@ -28,7 +28,7 @@ export class RichtingCompetentiesComponent implements OnInit {
   }
 
   public get hoofdCompetenties() {
-    console.log(this.richting);
+    // console.log(this.richting);
     if (this.richting) {
       return this.richting.competenties;
     }
