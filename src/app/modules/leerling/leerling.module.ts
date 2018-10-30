@@ -17,6 +17,7 @@ import {
 import { LeerlingFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LeerlingConfirmDeleteComponent } from 'src/app/components/leerling/leerling-confirm-delete/leerling-confirm-delete.component';
+import { LeerlingHoofdschermComponent } from 'src/app/components/leerling-hoofdscherm/leerling-hoofdscherm.component';
 
 @NgModule({
   imports: [
@@ -33,8 +34,18 @@ import { LeerlingConfirmDeleteComponent } from 'src/app/components/leerling/leer
     MatToolbarModule,
     MatTabsModule
   ],
-  exports: [ LeerlingenViewComponent, LeerlingComponent, LeerlingConfirmDeleteComponent],
-  declarations: [ LeerlingenViewComponent, LeerlingComponent, LeerlingConfirmDeleteComponent],
+  exports: [
+    LeerlingenViewComponent,
+    LeerlingComponent,
+    LeerlingConfirmDeleteComponent,
+    LeerlingHoofdschermComponent
+  ],
+  declarations: [
+    LeerlingenViewComponent,
+    LeerlingComponent,
+    LeerlingConfirmDeleteComponent,
+    LeerlingHoofdschermComponent
+  ],
   providers: [LeerlingService, LeerlingFilterPipe],
   entryComponents: [LeerlingConfirmDeleteComponent]
 })

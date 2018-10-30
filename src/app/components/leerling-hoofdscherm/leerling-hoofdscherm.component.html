@@ -1,0 +1,9 @@
+<mat-tab-group class="center" mat-align-tabs="center" [selectedIndex]="selectedTab" (selectedIndexChange)="changeTab($event)">
+  <mat-tab label="Overzicht">
+    <app-leerlingen-view (edit)="editRichting($event)"></app-leerlingen-view>
+  </mat-tab>
+  <mat-tab label="Aanpassen">
+  </mat-tab>
+  <mat-tab label="Nieuw">
+  </mat-tab>
+</mat-tab-group>

@@ -1,15 +1,11 @@
-<mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTab"
-    (selectedIndexChange)="changeTab($event)">
-    <mat-tab label="Overzicht">
-        <app-richting-overzicht-scherm (edit)="editRichting($event)"></app-richting-overzicht-scherm>
-    </mat-tab>
-    <mat-tab label="Aanpassen">
-        <app-richting-scherm [richting]="selectedRichting"></app-richting-scherm>
-    </mat-tab>
-    <mat-tab label="Nieuw">
-            <app-richting-scherm></app-richting-scherm>
-        </mat-tab>
+<mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTab" (selectedIndexChange)="changeTab($event)">
+  <mat-tab label="Overzicht">
+    <app-richting-overzicht-scherm (edit)="editRichting($event)"></app-richting-overzicht-scherm>
+  </mat-tab>
+  <mat-tab label="Aanpassen">
+    <app-richting-scherm [richting]="selectedRichting"></app-richting-scherm>
+  </mat-tab>
+  <mat-tab label="Nieuw">
+    <app-richting-scherm></app-richting-scherm>
+  </mat-tab>
 </mat-tab-group>
-
-
-
