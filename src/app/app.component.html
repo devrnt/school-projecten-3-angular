@@ -9,12 +9,14 @@
         </div>
         
         <mat-divider></mat-divider>
-        <button class="menuButton" mat-button>
+        <button class="menuButton" mat-button
+            routerLink="/leerlingen" (click)="sidenav.close()">
             <i class="menuIcon fas fa-users"></i> 
             <span class="menuText">Leerlingen</span>
         </button>
         <mat-divider></mat-divider>
-        <button class="menuButton" mat-button (click)="sidenav.close()"> 
+        <button class="menuButton" mat-button 
+            routerLink="/richtingen" (click)="sidenav.close()">
             <i class="menuIcon fas fa-graduation-cap"></i> 
             <span class="menuText">Richtingen</span>
         </button>
@@ -52,6 +54,7 @@
                 </button>
             </mat-toolbar-row>
         </mat-toolbar>
-        <app-leerling-hoofdscherm></app-leerling-hoofdscherm>
+        <!-- <app-leerling-hoofdscherm></app-leerling-hoofdscherm> -->
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

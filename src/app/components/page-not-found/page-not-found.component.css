@@ -1,0 +1,25 @@
+.wrapper {
+    text-align: center;
+    height: calc(100vh - 64px);
+}
+
+.fourofour {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14vw;
+    font-weight: bold;
+    color: #3f51b5;
+    margin: auto;
+    margin-top: 11vh;
+}
+
+.wrong {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3vw;
+    font-weight: 100;
+}
+
+@media (max-width: 599px) {
+    .wrapper {
+        height: calc(100vh - 56px);
+    }
+}

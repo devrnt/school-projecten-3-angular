@@ -13,10 +13,13 @@ import {
   MatDividerModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatButtonModule,
     MatDividerModule,
-    NgsRevealModule.forRoot()
+    NgsRevealModule.forRoot(),
+    AppRoutingModule // ALTIJD ACHTERAAN
   ],
   bootstrap: [AppComponent]
 })
