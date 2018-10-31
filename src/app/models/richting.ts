@@ -7,7 +7,7 @@ export class Richting {
   private _id: string;
   private _naam: string;
   private _desc: string;
-  private _icon: string;
+  private _icon: Icon;
   private _kleur: Kleur;
   private _leerlingenId: string[];
   private _leerkrachten: User[];
@@ -22,7 +22,7 @@ export class Richting {
     werkgevers: User[],
     diploma: Diploma,
     kleur?: Kleur,
-    icon?: string
+    icon?: Icon
   ) {
     this._naam = naam;
     this._leerkrachten = leerkrachten || [];
@@ -72,10 +72,10 @@ export class Richting {
 
   /**
    * Getter icon
-   * @return {string}
+   * @return {Icon}
    */
-  public get icon(): string {
-    return this._icon;
+  public get icon(): Icon {
+    return this._icon || Icon.laptop;
   }
 
   /**
@@ -146,9 +146,9 @@ export class Richting {
 
   /**
    * Setter icon
-   * @param {string} value
+   * @param {Icon} value
    */
-  public set icon(value: string) {
+  public set icon(value: Icon) {
     this._icon = value;
   }
 

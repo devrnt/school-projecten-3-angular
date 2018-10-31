@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Beoordeling } from 'src/app/models/beoordeling.model';
 import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
-import { Icon, Kleur, Richting } from 'src/app/models/richting';
+import { Richting } from 'src/app/models/richting';
 
 @Component({
   selector: 'app-richting-scherm',
@@ -12,37 +12,32 @@ import { Icon, Kleur, Richting } from 'src/app/models/richting';
 })
 export class RichtingSchermComponent implements OnInit {
   @Input() public richting: Richting;
-  public icons: Array<string>;
-  public kleuren: Array<string>;
   public nieuweCompetentie: Hoofdcompetentie;
-  public description: string;
+  private dialogRef: MatDialogRef<CompetentieDialogComponent>;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CompetentieDialogComponent, {
+    this.dialogRef = this.dialog.open(CompetentieDialogComponent, {
       width: '950px',
       autoFocus: true,
       data: {
-        icons: Object.keys(Icon),
-        kleuren: Object.values(Kleur)
+        
       }
     });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   let teller = 6;
-    //   console.log(result);
-    //   // this._newCompetentie = result;
-    //   this.description = result;
-    //   this.nieuweCompetentie = new Hoofdcompetentie(`hoofdcompetentie${++teller}`, this.description, [], Icon.scissors, Kleur.red);
-    // });
-
-    dialogRef.afterClosed().subscribe(result => {
+    this.dialogRef.afterClosed().subscribe(result => {
       let teller = 6;
-      console.log(result);
+      this.richting.addNieuweHoofdcompetentie(new Hoofdcompetentie(
+            `hoofdcompetentie${++teller}`, 
+            result.beschrijving, 
+            [], 
+            this.richting.icon,
+            this.richting.kleur))
     })
   }
 
