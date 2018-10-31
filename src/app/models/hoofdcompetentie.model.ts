@@ -11,13 +11,15 @@ export class Hoofdcompetentie {
   private _color: Kleur;
   private _dateMade: Date;
   private _behaald: boolean;
+  private _module: Modules;
 
-  constructor(id: string, description: string, deelcompetenties: Deelcompetentie[],  icon: Icon, color: Kleur) {
+  constructor(id: string, description: string, deelcompetenties: Deelcompetentie[], icon: Icon, color: Kleur, module: Modules) {
     this._id = id;
     this._deelcompetenties = deelcompetenties;
     this._description = description;
     this._icon = icon;
     this._color = color;
+    this._module = module;
     this._dateMade = new Date();
     this._behaald = false;
   }
@@ -60,6 +62,14 @@ export class Hoofdcompetentie {
    */
   public get deelcompetenties(): Deelcompetentie[] {
     return this._deelcompetenties;
+  }
+
+  /**
+   * Getter module
+   * @return {string}
+   */
+  public get module(): Modules {
+    return this._module;
   }
 
   /**
@@ -110,4 +120,16 @@ export class Hoofdcompetentie {
     this._behaald = value;
   }
 
+  /**
+   * Setter module
+   * @param {string} value
+   */
+  public set module(value: Modules) {
+    this._module = value;
+  }
+
+}
+
+export enum Modules {
+  module1= 'Module 1', module2= 'Module 2', module3= 'Module 3'
 }

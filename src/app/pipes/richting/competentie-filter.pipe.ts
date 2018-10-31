@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
+import { Hoofdcompetentie, Modules } from 'src/app/models/hoofdcompetentie.model';
 
 @Pipe({
     name: 'competentieFilter',
@@ -7,22 +7,35 @@ import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
     // pure: false
 })
 export class CompetentieFilterPipe implements PipeTransform {
-    transform(competenties: Hoofdcompetentie[], filterString: string): Hoofdcompetentie[] {
+    transform(competenties: Hoofdcompetentie[], filterDescription: string, filterModule: string): Hoofdcompetentie[] {
         const gefilterdeCompetenties = new Array<Hoofdcompetentie>();
-        if (!filterString || filterString.length === 0) {
+        if ((!filterDescription || filterDescription.length === 0) && (!filterModule || filterModule.length === 0)) {
             return competenties;
+        } else {
+            gefilterdeCompetenties.concat(competenties.filter(comp => comp.module === filterModule));
         }
         competenties
             .forEach(comp => {
-                comp.deelcompetenties.forEach(deelcomp => {
-                    if (comp.description
-                        && comp.description.toLowerCase().includes(filterString.toLowerCase().trim())
-                        || deelcomp.description.toLowerCase().includes(filterString.toLowerCase().trim())) {
+                if (
+                    comp.description
+                    && comp.description.toLowerCase().includes(filterDescription.toLowerCase().trim())
+                    && comp.module === filterModule
+                    ) {
                         if (!gefilterdeCompetenties.includes(comp)) {
                             gefilterdeCompetenties.push(comp);
                         }
-                    }
-                });
+                } else {
+                    comp.deelcompetenties.forEach(deelcomp => {
+                        if (
+                            deelcomp.description.toLowerCase().includes(filterDescription.toLowerCase().trim())
+                            && comp.module === filterModule
+                            ) {
+                            if (!gefilterdeCompetenties.includes(comp)) {
+                                gefilterdeCompetenties.push(comp);
+                            }
+                        }
+                    });
+                }
             });
 
         return gefilterdeCompetenties;

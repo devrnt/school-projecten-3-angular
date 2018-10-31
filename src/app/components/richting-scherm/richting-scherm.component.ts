@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Beoordeling } from 'src/app/models/beoordeling.model';
-import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
+import { Hoofdcompetentie, Modules } from 'src/app/models/hoofdcompetentie.model';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
 import { Richting } from 'src/app/models/richting';
@@ -26,19 +26,19 @@ export class RichtingSchermComponent implements OnInit {
       width: '950px',
       autoFocus: true,
       data: {
-        
       }
     });
 
     this.dialogRef.afterClosed().subscribe(result => {
       let teller = 6;
       this.richting.addNieuweHoofdcompetentie(new Hoofdcompetentie(
-            `hoofdcompetentie${++teller}`, 
-            result.beschrijving, 
-            [], 
+            `hoofdcompetentie${++teller}`,
+            result.beschrijving,
+            [],
             this.richting.icon,
-            this.richting.kleur))
-    })
+            this.richting.kleur,
+            Modules.module1));
+    });
   }
 
 }

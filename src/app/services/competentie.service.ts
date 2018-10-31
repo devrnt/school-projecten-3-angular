@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Hoofdcompetentie } from '../models/hoofdcompetentie.model';
 import { Deelcompetentie } from '../models/deelcompetentie.model';
 import { Icon, Kleur } from '../models/richting';
+import { Modules } from '../models/hoofdcompetentie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -56,13 +57,47 @@ export class CompetentieService {
     ];
 
     this._hoofdcompetenties = [
-      new Hoofdcompetentie('hoofdcompetentie1', 'Ruimt de werkpost op en maakt hem schoon', deelcompetenties1, Icon.scissors, Kleur.red),
-      new Hoofdcompetentie('hoofdcompetentie2', 'Neemt deel aan de organisatie van het kapsalon',
-       deelcompetenties2, Icon.scissors, Kleur.red),
-      new Hoofdcompetentie('hoofdcompetentie3', 'Bereidt de werkpost voor', deelcompetenties3, Icon.scissors, Kleur.red),
-      new Hoofdcompetentie('hoofdcompetentie4', 'Bereidt voor op de toe te passen technieken', deelcompetenties4, Icon.scissors, Kleur.red),
-      new Hoofdcompetentie('hoofdcompetentie5', 'Adviseert de klant', deelcompetenties5, Icon.scissors, Kleur.red),
-      new Hoofdcompetentie('hoofdcompetentie6', 'Toont het kapsel aan de klant', deelcompetenties6, Icon.scissors, Kleur.red)
+      new Hoofdcompetentie(
+          'hoofdcompetentie1',
+          'Ruimt de werkpost op en maakt hem schoon',
+          deelcompetenties1,
+          Icon.scissors,
+          Kleur.red,
+          Modules.module1),
+      new Hoofdcompetentie(
+          'hoofdcompetentie2',
+          'Neemt deel aan de organisatie van het kapsalon',
+          deelcompetenties2,
+          Icon.scissors,
+          Kleur.red,
+          Modules.module1),
+      new Hoofdcompetentie(
+          'hoofdcompetentie3',
+          'Bereidt de werkpost voor',
+          deelcompetenties3,
+          Icon.scissors,
+          Kleur.red,
+          Modules.module1),
+      new Hoofdcompetentie(
+          'hoofdcompetentie4',
+          'Bereidt voor op de toe te passen technieken',
+          deelcompetenties4,
+          Icon.scissors,
+          Kleur.red,
+          Modules.module2),
+      new Hoofdcompetentie(
+          'hoofdcompetentie5',
+          'Adviseert de klant',
+          deelcompetenties5,
+          Icon.scissors,
+          Kleur.red,
+          Modules.module3),
+      new Hoofdcompetentie('hoofdcompetentie6',
+          'Toont het kapsel aan de klant',
+          deelcompetenties6,
+          Icon.scissors,
+          Kleur.red,
+          Modules.module3)
     ];
   }
 
