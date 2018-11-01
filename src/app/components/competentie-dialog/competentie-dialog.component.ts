@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Richting, Icon } from 'src/app/models/richting';
 
-export interface DialogData{
+export class DialogData {
 }
 
 @Component({
@@ -11,27 +11,26 @@ export interface DialogData{
   templateUrl: './competentie-dialog.component.html',
   styleUrls: ['./competentie-dialog.component.css']
 })
+
 export class CompetentieDialogComponent implements OnInit {
   hoofdcompetentie: FormGroup;
-  
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<CompetentieDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     }
 
-  
   ngOnInit() {
     this.hoofdcompetentie = this.fb.group({
       beschrijving: ['', Validators.required]
-    })
+    });
   }
-  
+
   onAnnulerenClick(): void {
     this.dialogRef.close();
   }
 
-  submit(hoofdcompetentie){
+  submit(hoofdcompetentie) {
     this.dialogRef.close(hoofdcompetentie.value);
   }
 

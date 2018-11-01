@@ -2,7 +2,7 @@
   <div class="headerContainer">
     <h2 class="competentiesHeader">Competenties</h2>
     <form class="competentieNaamFilter" >
-      <mat-form-field class="filterInput">
+      <mat-form-field class="filterInput half">
         <span matPrefix>
           <i class="fas fa-search"></i>
           &nbsp;
@@ -10,8 +10,13 @@
         <input matInput class="filterInputField" [(ngModel)]='beschrijving' type="text" id="filter"
           name="filter">
       </mat-form-field>
+<<<<<<< HEAD
       <mat-form-field class="moduleSelect">
         <mat-select placeholder="Filter op module" [(value)]="selected" (ngmodel)="module">
+=======
+      <mat-form-field class="moduleSelect half">
+        <mat-select placeholder="Filter op module" [(value)]="selected" (ng-model)="module">
+>>>>>>> 9a511b3065f935e8b9ba7ad71bae4434a442385d
           <mat-option *ngFor="let module of modules" [value]="module">{{module}}</mat-option>
         </mat-select>
       </mat-form-field>

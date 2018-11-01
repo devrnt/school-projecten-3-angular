@@ -8,8 +8,6 @@
 
 .half{
     width: 50% !important;
-    
-
 }
 
 .third{
@@ -135,4 +133,16 @@
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(128, 128, 128, 0.7);
     border-radius: 5px;
+}
+
+    /* other */
+
+.noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+           -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome and Opera */
 }
