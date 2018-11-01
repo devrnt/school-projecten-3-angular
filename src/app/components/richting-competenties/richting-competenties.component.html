@@ -11,7 +11,7 @@
           name="filter">
       </mat-form-field>
       <mat-form-field class="moduleSelect">
-        <mat-select placeholder="Filter op module" [(value)]="selected" (ng-model)="module">
+        <mat-select placeholder="Filter op module" [(value)]="selected" (ngmodel)="module">
           <mat-option *ngFor="let module of modules" [value]="module">{{module}}</mat-option>
         </mat-select>
       </mat-form-field>

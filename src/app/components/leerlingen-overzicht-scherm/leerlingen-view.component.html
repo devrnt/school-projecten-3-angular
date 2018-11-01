@@ -7,12 +7,13 @@
             <i class="fas fa-search"></i>
             &nbsp;
           </span>
-          <input matInput (keyup)='filterLeerling$.next($event.target.value)' type="text" class="half" placeholder="Zoek Leerling"
+          <input matInput (keyup)='filterNaamLeerling$.next($event.target.value)' type="text" class="half" placeholder="Zoek Leerling"
             id="filter" name="filter">
         </mat-form-field>
         <mat-form-field class="col-xs-6 col-sm-4">
-            <mat-select placeholder="Richting" multiple [formControl]="richtingForm" (click)='filterLeerling$.next($event.target.value)'>
-              <mat-option *ngFor="let richting of richtingen" [value]="richting">{{richting}}</mat-option>
+            <mat-select placeholder="Richting" [formControl]="richtingForm">
+              <mat-option (onSelectionChange)='filterRichtingLeerling$.next($event.source.value)'>---</mat-option>
+              <mat-option *ngFor="let richting of richtingen" (onSelectionChange)='filterRichtingLeerling$.next($event.source.value)' [value]="richting">{{richting}}</mat-option>
             </mat-select>
         </mat-form-field>
       </div>
