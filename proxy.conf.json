@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://projecten3studserver11.westeurope.cloudapp.azure.com",
+    "secure": false
+  }
+}

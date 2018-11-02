@@ -6,6 +6,8 @@ export const environment = {
   production: false
 };
 
+export const BACKEND_URL = 'http://projecten3studserver11.westeurope.cloudapp.azure.com/';
+
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

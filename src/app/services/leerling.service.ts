@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Leerling, Geslacht } from '../models/leerling.model';
 import { Beoordeling } from '../models/beoordeling.model';
 import { RichtingService } from './richting.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LeerlingService {
   private _leerlingen: Leerling[];
-  constructor(private _richtingService: RichtingService) {
+  constructor(private _http: HttpClient, private _richtingService: RichtingService) {
     const informatica = _richtingService.richtingen[0];
     const haarzorg = _richtingService.richtingen[1];
     const kantoor = _richtingService.richtingen[2];
@@ -98,7 +99,12 @@ export class LeerlingService {
   }
 
   public get leerlingen(): Leerling[] {
+    this.fetchLeerlingen();
     return this._leerlingen;
+  }
+
+  public fetchLeerlingen() {
+    this._http.get('api/leerlingen').subscribe(res => console.log(res));
   }
 
 }

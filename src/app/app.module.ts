@@ -15,6 +15,8 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { basehttpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     PageNotFoundComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -35,6 +38,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     MatDividerModule,
     NgsRevealModule.forRoot(),
     AppRoutingModule // ALTIJD ACHTERAAN
+  ],
+  providers: [
+    basehttpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

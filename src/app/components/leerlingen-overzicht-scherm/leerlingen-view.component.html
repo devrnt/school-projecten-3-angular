@@ -1,8 +1,8 @@
 <div class="">
-  <div class="richtingContainer">
+  <div class="leerlingContainer">
     <div class="container">
       <div class="searchbar">
-        <mat-form-field class="col-xs-6 col-sm-8">
+        <mat-form-field class="col-7">
           <span matPrefix>
             <i class="fas fa-search"></i>
             &nbsp;
@@ -10,7 +10,7 @@
           <input matInput (keyup)='filterLeerling$.next($event.target.value)' type="text" class="half" placeholder="Zoek Leerling"
             id="filter" name="filter">
         </mat-form-field>
-        <mat-form-field class="col-xs-6 col-sm-4">
+        <mat-form-field class="col-5 noMargingPaddingLeft">
             <mat-select placeholder="Richting" multiple [formControl]="richtingForm" (click)='filterLeerling$.next($event.target.value)'>
               <mat-option *ngFor="let richting of richtingen" [value]="richting">{{richting}}</mat-option>
             </mat-select>
