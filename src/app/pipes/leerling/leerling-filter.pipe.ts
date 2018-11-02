@@ -2,19 +2,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Leerling } from 'src/app/models/leerling.model';
 
 @Pipe({
-  name: 'leerlingFilter',
+  name: 'leerlingNaamFilter',
   pure: false
 })
-export class LeerlingFilterPipe implements PipeTransform {
-  transform(richtingen: Leerling[], filterString: string): Leerling[] {
-    if (!filterString || filterString.length === 0) {
-      return richtingen;
+export class LeerlingNaamFilterPipe implements PipeTransform {
+  transform(leerlingen: Leerling[], filterNaam: string): Leerling[] {
+    if (!filterNaam || filterNaam.length === 0) {
+      return leerlingen;
     }
-    return richtingen
+    return leerlingen
         .filter(l =>
-        l.achternaam.toLowerCase().includes(filterString.toLowerCase()) ||
-        l.voornaam.toLowerCase().includes(filterString.toLowerCase()) ||
-        filterString.toLowerCase().includes(l.voornaam.toLowerCase() + ' ' + l.achternaam.toLowerCase())
+        l.achternaam.toLowerCase().includes(filterNaam.toLowerCase()) ||
+        l.voornaam.toLowerCase().includes(filterNaam.toLowerCase()) ||
+        filterNaam.toLowerCase().includes(l.voornaam.toLowerCase() + ' ' + l.achternaam.toLowerCase()) ||
+        filterNaam.toLowerCase().includes(l.achternaam.toLowerCase() + ' ' + l.voornaam.toLowerCase())
     );
   }
 }

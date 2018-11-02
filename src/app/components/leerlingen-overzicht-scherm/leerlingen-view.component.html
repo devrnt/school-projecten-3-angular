@@ -7,13 +7,15 @@
             <i class="fas fa-search"></i>
             &nbsp;
           </span>
-          <input matInput (keyup)='filterLeerling$.next($event.target.value)' type="text" class="half" placeholder="Zoek Leerling"
+          <input matInput (keyup)='filterNaamLeerling$.next($event.target.value)' type="text" class="half" placeholder="Zoek Leerling"
             id="filter" name="filter">
         </mat-form-field>
         <mat-form-field class="col-5 noMargingPaddingLeft">
-            <mat-select placeholder="Richting" multiple [formControl]="richtingForm" (click)='filterLeerling$.next($event.target.value)'>
-              <mat-option *ngFor="let richting of richtingen" [value]="richting">{{richting}}</mat-option>
-            </mat-select>
+          <mat-select placeholder="Richting" [formControl]="richtingForm">
+            <mat-option (onSelectionChange)='filterRichtingLeerling$.next($event.source.value)'>---</mat-option>
+            <mat-option *ngFor="let richting of richtingen" (onSelectionChange)='filterRichtingLeerling$.next($event.source.value)'
+              [value]="richting">{{richting}}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <div class="row scrollbox">
@@ -24,17 +26,17 @@
         </div>
         <div *ngIf='numberOfColumns>=2' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <div *ngFor='let leerling of columns[1]' class="col-12 padding_bottom">
-            <app-leerling (verwijder)="verwijderLeerling($event)"  [leerling]=leerling></app-leerling>
+            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling></app-leerling>
           </div>
         </div>
         <div *ngIf='numberOfColumns>=3' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <div *ngFor='let leerling of columns[2]' class="col-12 padding_bottom">
-            <app-leerling (verwijder)="verwijderLeerling($event)"  [leerling]=leerling></app-leerling>
+            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling></app-leerling>
           </div>
         </div>
         <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <div *ngFor='let leerling of columns[3]' class="col-12 padding_bottom">
-            <app-leerling (verwijder)="verwijderLeerling($event)"  [leerling]=leerling></app-leerling>
+            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling></app-leerling>
           </div>
         </div>
       </div>

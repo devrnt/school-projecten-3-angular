@@ -14,10 +14,11 @@ import {
   MatToolbarModule,
   MatTabsModule
 } from '@angular/material';
-import { LeerlingFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
+import { LeerlingNaamFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LeerlingConfirmDeleteComponent } from 'src/app/components/leerling/leerling-confirm-delete/leerling-confirm-delete.component';
 import { LeerlingHoofdschermComponent } from 'src/app/components/leerling-hoofdscherm/leerling-hoofdscherm.component';
+import { LeerlingRichtingFilterPipe } from 'src/app/pipes/leerling/leerling-richting-filter.pipe';
 
 @NgModule({
   imports: [
@@ -46,7 +47,7 @@ import { LeerlingHoofdschermComponent } from 'src/app/components/leerling-hoofds
     LeerlingConfirmDeleteComponent,
     LeerlingHoofdschermComponent
   ],
-  providers: [LeerlingService, LeerlingFilterPipe],
+  providers: [LeerlingService, LeerlingNaamFilterPipe, LeerlingRichtingFilterPipe],
   entryComponents: [LeerlingConfirmDeleteComponent]
 })
 export class LeerlingModule {}
