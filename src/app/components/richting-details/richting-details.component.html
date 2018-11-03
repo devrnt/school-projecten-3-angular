@@ -4,7 +4,23 @@
       <i class="fas fa-{{richting.icon}} x2"></i>
     </div>
   </div>
-  <form class="richtingNaamForm" >
+  <form class="richtingNaamForm">
+    <mat-form-field class="half paddingRight">
+      <mat-select placeholder="Icon" [(value)]="richting.icon" class="selectLeerkracht">
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let icon of icons" [value]="icon">
+              <i class="fas fa-{{icon}} x1"></i>&nbsp;&nbsp;{{icon}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="half paddingLeft">
+        <mat-select placeholder="Kleur" [(value)]="richting.kleur" class="selectLeerkracht">
+            <mat-option>---</mat-option>
+            <mat-option *ngFor="let kleur of kleuren" [value]="kleur">
+              {{kleur}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
     <mat-form-field class="input">
       <input matInput placeholder="Naam van de richting" value="{{richting.naam}}">
     </mat-form-field>

@@ -16,39 +16,39 @@
 
 /* colors */
 
-.red {
+.rood {
     background-color: #800000;
 }
 
-.orange{
+.oranje{
     background-color: #ce6e00;
 }
 
-.yellow{
+.geel{
     background-color: #f0c400;
 }
 
-.green{
+.groen{
     background-color: #009e0f;
 }
 
-.blue{
+.blauw{
     background-color: #005a96;
 }
 
-.purple{
+.paars{
     background-color: #674a9c;
 }
 
-.black{
+.zwart{
     background-color: rgba(0, 0, 0, 0.733);
 }
 
-.white{
+.wit{
     background-color: white;
 }
 
-.brown{
+.bruin{
     background-color: rgb(112, 56, 35);
 }
 
@@ -155,4 +155,12 @@
 .noMarginPaddingRight {
     margin-right: 0px;
     padding-right: 0px;
+}
+
+.paddingLeft {
+    padding-left: 15px;
+}
+
+.paddingRight {
+    padding-right: 15px;
 }

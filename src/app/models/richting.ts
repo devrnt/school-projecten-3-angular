@@ -181,8 +181,8 @@ export enum Diploma {
 }
 
 export enum Kleur {
-  red = 'red', orange = 'orange', yellow = 'yellow', green = 'green', blue= 'blue', purple= 'purple',
-  black = 'black', brown = 'brown',  white = 'white'
+  red = 'rood', orange = 'oranje', yellow = 'geel', green = 'groen', blue= 'blauw', purple= 'paars',
+  black = 'zwart', brown = 'bruin',  white = 'wit'
 }
 
 export enum Icon {
