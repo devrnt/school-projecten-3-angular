@@ -1,6 +1,7 @@
 .containerDing {
     flex: 1;
     padding: 0 15px;
+    height: 100%;
     /* border: 1px solid lightgray; */
 }
 
@@ -20,7 +21,7 @@
 }
 
 .competentiesContainer {
-    height: calc(100vh - 400px);
+    height: calc(100% - 82px);
     overflow: auto;
     padding: 20px;
     padding-top: 0px;
