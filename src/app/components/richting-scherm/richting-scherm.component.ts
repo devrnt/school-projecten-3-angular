@@ -13,32 +13,11 @@ import { Richting } from 'src/app/models/richting';
 export class RichtingSchermComponent implements OnInit {
   @Input() public richting: Richting;
   public nieuweCompetentie: Hoofdcompetentie;
-  private dialogRef: MatDialogRef<CompetentieDialogComponent>;
 
   constructor(
-    public dialog: MatDialog) { }
+    ) { }
 
   ngOnInit() {
-  }
-
-  openDialog(): void {
-    this.dialogRef = this.dialog.open(CompetentieDialogComponent, {
-      width: '950px',
-      autoFocus: true,
-      data: {
-      }
-    });
-
-    this.dialogRef.afterClosed().subscribe(result => {
-      let teller = 6;
-      this.richting.addNieuweHoofdcompetentie(new Hoofdcompetentie(
-            `hoofdcompetentie${++teller}`,
-            result.beschrijving,
-            [],
-            this.richting.icon,
-            this.richting.kleur,
-            Modules.module1));
-    });
   }
 
 }

@@ -20,7 +20,7 @@
 
   <div class="competentiesContainer row">
     <mat-card class="full addCompetentieButton">
-      <button mat-button class="full button addCompetentieButton {{richting?.kleur}}">
+      <button mat-button class="full addCompetentieButton {{richting?.kleur}}" (click)="openDialog()">
         <i class="fas fa-plus x1dot5 white"></i>&nbsp;&nbsp;<i class="fas fa-{{richting?.icon}} x2 white"></i>
       </button>
     </mat-card>

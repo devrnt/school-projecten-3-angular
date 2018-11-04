@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CompetentieService } from 'src/app/services/competentie.service';
-import { Subject } from 'rxjs';
-import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 import { Richting } from 'src/app/models/richting';
-import { Modules } from 'src/app/models/hoofdcompetentie.model';
+import { Modules, Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
 
 @Component({
   selector: 'app-richting-competenties',
@@ -15,8 +14,11 @@ export class RichtingCompetentiesComponent implements OnInit {
   public beschrijving: '';
   public module: '';
   @Input() public richting: Richting;
+  private dialogRef: MatDialogRef<CompetentieDialogComponent>;
+
 
   constructor(
+    public dialog: MatDialog
   ) {
     // this.filterCompetentie$
     //   .pipe(
@@ -39,6 +41,26 @@ export class RichtingCompetentiesComponent implements OnInit {
       return this.richting.competenties;
     }
     return [];
+  }
+
+  openDialog(): void {
+    this.dialogRef = this.dialog.open(CompetentieDialogComponent, {
+      width: '950px',
+      autoFocus: true,
+      data: {
+      }
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      let teller = 6;
+      this.richting.addNieuweHoofdcompetentie(new Hoofdcompetentie(
+            `hoofdcompetentie${++teller}`,
+            result.beschrijving,
+            [],
+            this.richting.icon,
+            this.richting.kleur,
+            Modules.module1));
+    });
   }
 
 }
