@@ -11,7 +11,8 @@ import {
   MatToolbarModule,
   MatTabsModule,
   MatDialog,
-  MatDialogModule
+  MatDialogModule,
+  MatCardModule,
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerkrachtService } from 'src/app/services/leerkracht.service';
@@ -38,11 +39,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatDialogModule,
     MatButtonModule,
     MatSelectModule,
+    MatCardModule,
     AngularFontAwesomeModule,
     MatToolbarModule,
     MatTabsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     RichtingComponent,

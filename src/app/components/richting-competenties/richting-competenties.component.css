@@ -35,6 +35,17 @@
     padding-bottom: 1rem;
 }
 
+.addCompetentieButton{
+    height: 86px;
+    margin-bottom: 1rem;
+    padding: initial;
+    box-shadow: 0 4px 8px 0 rgba(234, 233, 233, 0.01), 0 6px 20px 0 rgb(228, 228, 228);
+    text-align: center;
+    display: table-cell;
+    border: 0px;
+    vertical-align: middle;
+}
+
 .filterInput {
     width: 100%;
     min-width: 0;

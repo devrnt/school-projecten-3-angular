@@ -1,17 +1,17 @@
 <div class="containerDing">
   <div class="headerContainer">
     <h2 class="competentiesHeader">Competenties</h2>
-    <form class="competentieNaamFilter" >
+    <form class="competentieNaamFilter">
       <mat-form-field class="filterInput half">
         <span matPrefix>
           <i class="fas fa-search"></i>
           &nbsp;
         </span>
-        <input matInput class="filterInputField" [(ngModel)]='beschrijving' type="text" id="filter"
-          name="filter">
+        <input matInput class="filterInputField" [(ngModel)]='beschrijving' type="text" id="filter" name="filter">
       </mat-form-field>
       <mat-form-field class="moduleSelect half">
         <mat-select placeholder="Filter op module" [(value)]="selected" (ng-model)="module">
+          <mat-option>---</mat-option>
           <mat-option *ngFor="let module of modules" [value]="module">{{module}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -19,7 +19,12 @@
   </div>
 
   <div class="competentiesContainer row">
-    <app-hoofdcompetentie  class="full competentiePadding" *ngFor="let competentie of hoofdCompetenties | competentieFilter:beschrijving:selected" [hoofdcompetentie]=competentie></app-hoofdcompetentie>
+    <mat-card class="full addCompetentieButton">
+      <button mat-button class="full button addCompetentieButton {{richting?.kleur}}">
+        <i class="fas fa-plus x1dot5 white"></i>&nbsp;&nbsp;<i class="fas fa-{{richting?.icon}} x2 white"></i>
+      </button>
+    </mat-card>
+    <app-hoofdcompetentie class="full competentiePadding" *ngFor="let competentie of hoofdCompetenties | competentieFilter:beschrijving:selected"
+      [hoofdcompetentie]=competentie></app-hoofdcompetentie>
   </div>
 </div>
-
