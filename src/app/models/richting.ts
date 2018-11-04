@@ -150,6 +150,9 @@ export class Richting {
    */
   public set icon(value: Icon) {
     this._icon = value;
+    for (let index = 0; index < this.competenties.length; index++) {
+      this._competenties[index].icon = value;
+    }
   }
 
   /**
@@ -167,6 +170,9 @@ export class Richting {
      */
   public set kleur(value: Kleur) {
     this._kleur = value;
+    for (let index = 0; index < this.competenties.length; index++) {
+      this._competenties[index].color = value;
+    }
   }
 
   public addNieuweHoofdcompetentie(hoofdcomp: Hoofdcompetentie) {

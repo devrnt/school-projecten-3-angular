@@ -3,6 +3,7 @@ import { RichtingService } from 'src/app/services/richting.service';
 import { Richting, Kleur, Icon } from '../../models/richting';
 import { User, UserType } from '../../models/user';
 import { LeerkrachtService } from '../../services/leerkracht.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-richting-details',
@@ -26,7 +27,7 @@ export class RichtingDetailsComponent implements OnInit {
       ];
       this.icons = [
         Icon.bliksem, Icon.building, Icon.car, Icon.child, Icon.cogs, Icon.computer,
-        Icon.doctor, Icon.flask, Icon.food, Icon.laptop, Icon.medkit, Icon.paint
+        Icon.doctor, Icon.flask, Icon.food, Icon.laptop, Icon.medkit, Icon.paint, Icon.scissors
       ];
   }
 
