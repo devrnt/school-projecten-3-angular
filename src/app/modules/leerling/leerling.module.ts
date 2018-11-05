@@ -12,7 +12,10 @@ import {
   MatButtonModule,
   MatSelectModule,
   MatToolbarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatButtonToggleModule
 } from '@angular/material';
 import { LeerlingNaamFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,7 +38,10 @@ import { LeerlingDetailsComponent } from 'src/app/components/leerling-details/le
     MatSelectModule,
     AngularFontAwesomeModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonToggleModule
   ],
   exports: [
     LeerlingenViewComponent,

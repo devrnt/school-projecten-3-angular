@@ -18,6 +18,7 @@ export class LeerlingService {
     leerling1.geslacht = Geslacht.Man;
     leerling1.richting = informatica;
     leerling1.email = 'hu.ocean.li@gmail.com';
+    leerling1.geboortedatum = new Date(1997, 1, 1);
     leerling1.competenties = [];
     leerling1.projecten = [];
 
@@ -27,6 +28,7 @@ export class LeerlingService {
     leerling2.geslacht = Geslacht.Man;
     leerling2.richting = informatica;
     leerling2.email = 'jonathan.delmeiren.@gmail.com';
+    leerling2.geboortedatum = new Date(1997, 2, 2);
     leerling2.competenties = [];
     leerling2.projecten = [];
 
@@ -36,6 +38,7 @@ export class LeerlingService {
     leerling3.geslacht = Geslacht.Vrouw;
     leerling3.richting = informatica;
     leerling3.email = 'renata.haleydt@gmail.com';
+    leerling3.geboortedatum = new Date(1997, 3, 3);
     leerling3.competenties = [];
     leerling3.projecten = [];
 
@@ -45,6 +48,7 @@ export class LeerlingService {
     leerling4.geslacht = Geslacht.Vrouw;
     leerling4.richting = haarzorg;
     leerling4.email = 'oceana.li@gmail.com';
+    leerling4.geboortedatum = new Date(1997, 4, 4);
     leerling4.competenties = [];
     leerling4.projecten = [];
 
@@ -54,6 +58,7 @@ export class LeerlingService {
     leerling5.geslacht = Geslacht.Vrouw;
     leerling5.richting = haarzorg;
     leerling5.email = 'jonathania.delmeiren.@gmail.com';
+    leerling5.geboortedatum = new Date(1997, 5, 5);
     leerling5.competenties = [];
     leerling5.projecten = [];
 
@@ -63,6 +68,7 @@ export class LeerlingService {
     leerling6.geslacht = Geslacht.Man;
     leerling6.richting = haarzorg;
     leerling6.email = 'renato.haleydt@gmail.com';
+    leerling6.geboortedatum = new Date(1997, 6, 6);
     leerling6.competenties = [];
     leerling6.projecten = [];
 
@@ -72,6 +78,7 @@ export class LeerlingService {
     leerling7.geslacht = Geslacht.Man;
     leerling7.richting = kantoor;
     leerling7.email = 'tom.de.schutter@gmail.com';
+    leerling7.geboortedatum = new Date(1997, 7, 7);
     leerling7.competenties = [];
     leerling7.projecten = [];
 
@@ -81,6 +88,7 @@ export class LeerlingService {
     leerling8.geslacht = Geslacht.Man;
     leerling8.richting = kantoor;
     leerling8.email = 'jan.sneeuw.@gmail.com';
+    leerling8.geboortedatum = new Date(1997, 8, 8);
     leerling8.competenties = [];
     leerling8.projecten = [];
 
@@ -90,6 +98,7 @@ export class LeerlingService {
     leerling9.geslacht = Geslacht.Vrouw;
     leerling9.richting = kantoor;
     leerling9.email = 'liana.vandekerkhove@gmail.com';
+    leerling9.geboortedatum = new Date(1997, 9, 9);
     leerling9.competenties = [];
     leerling9.projecten = [];
 

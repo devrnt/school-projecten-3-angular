@@ -8,6 +8,7 @@ export class Leerling {
   private _achternaam: string;
   private _competenties: Hoofdcompetentie[];
   private _email: string;
+  private _geboortedatum: Date;
   private _richting: Richting;
   private _projecten: Hoofdcompetentie[];
   private _geslacht: Geslacht;
@@ -55,6 +56,14 @@ export class Leerling {
    */
   public get email(): string {
     return this._email;
+  }
+
+  /**
+   * Getter geboortedatum
+   * @return {Date}
+   */
+  public get geboortedatum(): Date {
+    return this._geboortedatum;
   }
 
   /**
@@ -127,6 +136,14 @@ export class Leerling {
    */
   public set email(value: string) {
     this._email = value;
+  }
+
+  /**
+   * Setter email
+   * @param {Date} value
+   */
+  public set geboortedatum(value: Date) {
+    this._geboortedatum = value;
   }
 
   /**
