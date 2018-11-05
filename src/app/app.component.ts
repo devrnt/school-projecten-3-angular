@@ -24,12 +24,11 @@ export class AppComponent {
     private _richtingService: RichtingService,
     private _router: Router
   ) {
-    console.log(this._leerlingService.leerlingen);
-    console.log(this._richtingService.richtingen);
+    // console.log(this._leerlingService.leerlingen);
+    // console.log(this._richtingService.richtingen);
 
     this._router.events.subscribe((event) => {
       const re = event as RouterEvent;
-      console.log(re.url);
       switch (re.url) {
         case '/leerlingen': {
           this._toolbarIcon = Route.LEERLINGEN;
@@ -44,7 +43,6 @@ export class AppComponent {
   }
 
   get toolbarIcon(): Route {
-    console.log(this._toolbarIcon);
     return this._toolbarIcon;
   }
 
@@ -53,7 +51,6 @@ export class AppComponent {
   }
 
   public get richtingen(): Richting[] {
-    console.log(this._richtingService.richtingen);
     return this._richtingService.richtingen;
   }
 }

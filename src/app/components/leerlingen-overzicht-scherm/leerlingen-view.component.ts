@@ -27,7 +27,7 @@ export class LeerlingenViewComponent implements OnInit {
   public columns: Leerling[][];
   public richtingen: string[];
   public richtingForm = new FormControl();
-  @Output() edit = new EventEmitter<Richting>();
+  @Output() edit = new EventEmitter<Leerling>();
 
   constructor(
     private _leerlingService: LeerlingService,
@@ -123,8 +123,8 @@ export class LeerlingenViewComponent implements OnInit {
     }
   }
 
-  public editLeerling(richting: Richting) {
-    this.edit.emit(richting);
+  public editLeerling(leerling: Leerling) {
+    this.edit.emit(leerling);
   }
 
   public verwijderLeerling(leerling: Leerling) {

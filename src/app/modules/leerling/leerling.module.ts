@@ -19,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LeerlingConfirmDeleteComponent } from 'src/app/components/leerling/leerling-confirm-delete/leerling-confirm-delete.component';
 import { LeerlingHoofdschermComponent } from 'src/app/components/leerling-hoofdscherm/leerling-hoofdscherm.component';
 import { LeerlingRichtingFilterPipe } from 'src/app/pipes/leerling/leerling-richting-filter.pipe';
+import { LeerlingSchermComponent } from 'src/app/components/leerling-scherm/leerling-scherm.component';
+import { LeerlingDetailsComponent } from 'src/app/components/leerling-details/leerling-details.component';
 
 @NgModule({
   imports: [
@@ -39,13 +41,17 @@ import { LeerlingRichtingFilterPipe } from 'src/app/pipes/leerling/leerling-rich
     LeerlingenViewComponent,
     LeerlingComponent,
     LeerlingConfirmDeleteComponent,
-    LeerlingHoofdschermComponent
+    LeerlingHoofdschermComponent,
+    LeerlingSchermComponent,
+    LeerlingDetailsComponent
   ],
   declarations: [
     LeerlingenViewComponent,
     LeerlingComponent,
     LeerlingConfirmDeleteComponent,
-    LeerlingHoofdschermComponent
+    LeerlingHoofdschermComponent,
+    LeerlingSchermComponent,
+    LeerlingDetailsComponent
   ],
   providers: [LeerlingService, LeerlingNaamFilterPipe, LeerlingRichtingFilterPipe],
   entryComponents: [LeerlingConfirmDeleteComponent]
