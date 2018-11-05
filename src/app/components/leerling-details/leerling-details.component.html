@@ -3,7 +3,7 @@
   <form class="richtingNaamForm">
 
     <div class="geslachtButtons">
-      <mat-button-toggle-group [value]="leerling.geslacht">
+      <mat-button-toggle-group [(value)]="leerling.geslacht">
         <mat-button-toggle value="boy">
           <i class="fas fa-mars"></i>
         </mat-button-toggle>
@@ -14,7 +14,7 @@
     </div>
 
     <mat-form-field class="input">
-      <input matInput placeholder="Voornaam" value="{{leerling.voornaam}}">
+      <input matInput placeholder="Voornaam" [(value)]="leerling.voornaam">
     </mat-form-field>
     <mat-form-field class="input">
       <input matInput placeholder="Achternaam" value="{{leerling.achternaam}}">

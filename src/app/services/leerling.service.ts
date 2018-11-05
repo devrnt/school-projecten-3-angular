@@ -3,11 +3,15 @@ import { Leerling, Geslacht } from '../models/leerling.model';
 import { Beoordeling } from '../models/beoordeling.model';
 import { RichtingService } from './richting.service';
 import { HttpClient } from '@angular/common/http';
+import { CompetentieService } from './competentie.service';
 
 @Injectable()
 export class LeerlingService {
   private _leerlingen: Leerling[];
-  constructor(private _http: HttpClient, private _richtingService: RichtingService) {
+  constructor(
+    private _http: HttpClient,
+    private _richtingService: RichtingService,
+    private _competentieService: CompetentieService) {
     const informatica = _richtingService.richtingen[0];
     const haarzorg = _richtingService.richtingen[1];
     const kantoor = _richtingService.richtingen[2];
@@ -19,7 +23,7 @@ export class LeerlingService {
     leerling1.richting = informatica;
     leerling1.email = 'hu.ocean.li@gmail.com';
     leerling1.geboortedatum = new Date(1997, 1, 1);
-    leerling1.competenties = [];
+    leerling1.competenties = _competentieService.behaaldeHoofdcompetenties;
     leerling1.projecten = [];
 
     const leerling2 = new Leerling('abc456');

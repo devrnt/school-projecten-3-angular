@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { basehttpInterceptorProviders } from './http-interceptors';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { basehttpInterceptorProviders } from './http-interceptors';
     AngularFontAwesomeModule,
     LeerlingModule,
     RichtingModule,
+    SharedModule,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,

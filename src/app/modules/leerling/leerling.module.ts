@@ -24,6 +24,8 @@ import { LeerlingHoofdschermComponent } from 'src/app/components/leerling-hoofds
 import { LeerlingRichtingFilterPipe } from 'src/app/pipes/leerling/leerling-richting-filter.pipe';
 import { LeerlingSchermComponent } from 'src/app/components/leerling-scherm/leerling-scherm.component';
 import { LeerlingDetailsComponent } from 'src/app/components/leerling-details/leerling-details.component';
+import { LeerlingCompetentiesComponent } from 'src/app/components/leerling-competenties/leerling-competenties.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -41,7 +43,8 @@ import { LeerlingDetailsComponent } from 'src/app/components/leerling-details/le
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    SharedModule
   ],
   exports: [
     LeerlingenViewComponent,
@@ -49,7 +52,8 @@ import { LeerlingDetailsComponent } from 'src/app/components/leerling-details/le
     LeerlingConfirmDeleteComponent,
     LeerlingHoofdschermComponent,
     LeerlingSchermComponent,
-    LeerlingDetailsComponent
+    LeerlingDetailsComponent,
+    LeerlingCompetentiesComponent
   ],
   declarations: [
     LeerlingenViewComponent,
@@ -57,7 +61,8 @@ import { LeerlingDetailsComponent } from 'src/app/components/leerling-details/le
     LeerlingConfirmDeleteComponent,
     LeerlingHoofdschermComponent,
     LeerlingSchermComponent,
-    LeerlingDetailsComponent
+    LeerlingDetailsComponent,
+    LeerlingCompetentiesComponent
   ],
   providers: [LeerlingService, LeerlingNaamFilterPipe, LeerlingRichtingFilterPipe],
   entryComponents: [LeerlingConfirmDeleteComponent]

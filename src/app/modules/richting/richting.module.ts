@@ -23,11 +23,11 @@ import { RichtingOverzichtSchermComponent } from 'src/app/components/richting-ov
 import { RichtingSchermComponent } from 'src/app/components/richting-scherm/richting-scherm.component';
 import { RichtingFilterPipe } from 'src/app/pipes/richting/richting-filter.pipe';
 import { CompetentieFilterPipe } from 'src/app/pipes/richting/competentie-filter.pipe';
-import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/hoofdcompetentie.component';
 import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
 import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';
 import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -45,6 +45,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatTabsModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule
   ],
   declarations: [
     RichtingComponent,
@@ -55,7 +56,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RichtingFilterPipe,
     CompetentieFilterPipe,
     RichtingOverzichtSchermComponent,
-    HoofdcompetentieComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
     CompetentieDialogComponent
@@ -67,7 +67,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RichtingCompetentiesComponent,
     RichtingOverzichtSchermComponent,
     RichtingSchermComponent,
-    HoofdcompetentieComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
     CompetentieDialogComponent,
