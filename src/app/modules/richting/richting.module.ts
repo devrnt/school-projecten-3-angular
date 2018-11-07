@@ -47,8 +47,8 @@ import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/de
     AngularFontAwesomeModule,
     MatToolbarModule,
     MatTabsModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   declarations: [
@@ -63,8 +63,7 @@ import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/de
     RichtingOverzichtSchermComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
-    CompetentieDialogComponent,
-    DeelcompetentieComponent
+    CompetentieDialogComponent
   ],
   exports: [
     RichtingComponent,
@@ -75,8 +74,7 @@ import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/de
     RichtingSchermComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
-    CompetentieDialogComponent,
-    DeelcompetentieComponent,
+    CompetentieDialogComponent
   ],
   providers: [
     LeerkrachtService,

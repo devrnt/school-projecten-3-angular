@@ -16,7 +16,9 @@ import {
   MatTableModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatRadioModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { LeerlingNaamFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -50,6 +52,8 @@ import { LeerlingCompetentiesToekennenSchermComponent } from 'src/app/components
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonToggleModule,
+    MatRadioModule,
+    MatCheckboxModule,
     SharedModule
   ],
   exports: [

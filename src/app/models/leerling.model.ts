@@ -16,6 +16,12 @@ export class Leerling {
   private _stage: User;
   private _werkgever: User;
   private _intresses: string;
+  private _behaaldeHoofdcompetenties: LeerlingHoofdcompetentie[];
+
+  constructor(id: string) {
+    this._id = id;
+    this.behaaldeHoofdcompetenties = [];
+  }
 
   /**
    * Getter intresses
@@ -34,9 +40,6 @@ export class Leerling {
   }
   private _geboorteDatum: Date;
 
-  constructor(id: string) {
-    this._id = id;
-  }
   /**
    * Getter voornaam
    * @return {string}
@@ -95,7 +98,7 @@ export class Leerling {
 
   /**
    * Getter projecten
-   * @return {Activiteit[]}
+   * @return {Hoofdcompetentie[]}
    */
   public get projecten(): Hoofdcompetentie[] {
     return this._projecten;
@@ -123,6 +126,14 @@ export class Leerling {
    */
   public get werkgever(): User {
     return this._werkgever;
+  }
+
+  /**
+   * Getter behaaldeHoofdcompetenties
+   * @return {LeerlingHoofdcompetentie[]}
+   */
+  public get behaaldeHoofdcompetenties(): LeerlingHoofdcompetentie[] {
+    return this._behaaldeHoofdcompetenties;
   }
 
   /**
@@ -203,6 +214,14 @@ export class Leerling {
    */
   public set werkgever(value: User) {
     this._werkgever = value;
+  }
+
+  /**
+   * Setter behaaldeHoofdcompetenties
+   * @param {LeerlingHoofdcompetentie[]} value
+   */
+  public set behaaldeHoofdcompetenties(value: LeerlingHoofdcompetentie[]) {
+    this._behaaldeHoofdcompetenties = value;
   }
 
   public static fromJSON(json: any): Leerling {
