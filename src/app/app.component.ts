@@ -44,7 +44,6 @@ export class AppComponent {
   }
 
   get toolbarIcon(): Route {
-    console.log(this._toolbarIcon);
     return this._toolbarIcon;
   }
 

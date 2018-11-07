@@ -34,6 +34,7 @@ export class LeerlingenViewComponent implements OnInit {
     private _filterNaam: LeerlingNaamFilterPipe,
     private _filterRichting: LeerlingRichtingFilterPipe) {
       this._leerlingen = this._leerlingService.leerlingen;
+      console.log(this._leerlingen);
       this.richtingen = this._leerlingen.map(l => l.richting.naam).filter((elem, pos, arr) => {
         return arr.indexOf(elem) === pos;
       });

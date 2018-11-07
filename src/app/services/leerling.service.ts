@@ -3,10 +3,12 @@ import { Leerling, Geslacht } from '../models/leerling.model';
 import { Beoordeling } from '../models/beoordeling.model';
 import { RichtingService } from './richting.service';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class LeerlingService {
   private _leerlingen: Leerling[];
+  private _url = 'api/leerlingen';
   constructor(private _http: HttpClient, private _richtingService: RichtingService) {
     const informatica = _richtingService.richtingen[0];
     const haarzorg = _richtingService.richtingen[1];
@@ -104,7 +106,12 @@ export class LeerlingService {
   }
 
   public fetchLeerlingen() {
-    this._http.get('api/leerlingen').subscribe(res => console.log(res));
+    // console.log(this.leerlingen.map(l => l.toJSON()));
+    this._http.get(this._url)
+    .pipe(map((list: any[]): Leerling[] => list.map(Leerling.fromJSON)))
+    .subscribe(res => {
+      this._leerlingen = res;
+    });
   }
 
 }

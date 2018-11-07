@@ -1,4 +1,5 @@
 export class User {
+  private _id: number;
   private _voornaam: string;
   private _achternaam: string;
   private _email: string;
@@ -27,6 +28,14 @@ export class User {
    */
   public get voornaam(): string {
     return this._voornaam;
+  }
+
+  /**
+   * Getter id
+   * @return {number}
+   */
+  public get id(): number {
+    return this._id;
   }
 
   /**
