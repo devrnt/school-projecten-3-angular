@@ -6,6 +6,9 @@
     padding: 10px;
 }
 
+.noPadding{
+    padding: 0px;
+}
 .inner {
   height: 60px;
 
@@ -15,6 +18,10 @@
 .center{
     vertical-align: middle;
     text-align: center;
+}
+
+.height{
+    height: 100%;
 }
 
 .card_border{
@@ -80,8 +87,38 @@ ul{
 }
 
 .sliderbuttons2{
-    border-top: 1px solid rgba(199, 199, 199, 0.363);;
+    border-top: 1px solid rgba(199, 199, 199, 0.363);
+    display: inline-block;
 }
+
+.radius{
+    border-radius: 2px;
+}
+
+.textarea{
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+    resize: none;
+}
+
+.bottomfix{
+    padding-bottom: 5px
+}
+
+.textarea:focus{
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+    resize: none;
+    outline-color: transparent;
+    outline-style: none;
+}
+
+.sliderbuttons3{  
+    display: inline-block;
+}
+
 .divider{
     border-left: 1px solid rgba(199, 199, 199, 0.363);
 }
