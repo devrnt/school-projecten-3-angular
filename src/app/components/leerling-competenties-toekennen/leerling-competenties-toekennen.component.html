@@ -1,4 +1,8 @@
-<p>
-  leerling-competenties-toekennen works!
-  {{leerling.voornaam}}
-</p>
+<table mat-table [dataSource]="dataSource.data" class="mat-elevation-z8">
+  <ng-container matColumnDef="Hoofdcompetentie">
+    <th mat-header-cell *matHeaderCellDef>Hoofdcompetentie</th>
+    <td mat-cell *matCellDef="let hoofdcompetentie">{{hoofdcompetentie.description}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row;columns: displayedColumns;"></tr>
+</table>

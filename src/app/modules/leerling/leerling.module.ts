@@ -12,7 +12,8 @@ import {
   MatButtonModule,
   MatSelectModule,
   MatToolbarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTableModule
 } from '@angular/material';
 import { LeerlingNaamFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -37,7 +38,8 @@ import { LeerlingCompetentiesToekennenSchermComponent } from 'src/app/components
     MatSelectModule,
     AngularFontAwesomeModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   exports: [
     LeerlingenViewComponent,
