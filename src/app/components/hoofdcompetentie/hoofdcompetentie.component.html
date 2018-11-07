@@ -28,15 +28,20 @@
         </li>
       </ul>
       <div class="sliderbuttons2 full">
-        <div class="sliderbuttons3 half">
+        <div class="sliderbuttons3 third">
           <button cdkFocusInitial mat-button type="button" class="full sliderbuttons" (verwijder)="verwijderRichting($event)"
             (click)="openDialog()">
             <i class="deleteIcon fas fa-trash-alt f-red"></i>
           </button>
         </div>
-        <div class="sliderbuttons3 half radius {{showSelected()}}">
+        <div class="sliderbuttons3 third radius {{showSelected()}}">
           <button mat-button type="button" class="full sliderbuttons divider" (click)="toggleEdit()">
             <i class="deleteIcon fas fa-pen f-black " [ngClass]="{white: edit}"></i>
+          </button>
+        </div>
+        <div class="sliderbuttons3 third">
+          <button cdkFocusInitial mat-button type="button" class="full sliderbuttons divider" (click)="addNewDeelcompetentie()">
+            <i class="deleteIcon fas fa-plus f-green"></i>
           </button>
         </div>
       </div>

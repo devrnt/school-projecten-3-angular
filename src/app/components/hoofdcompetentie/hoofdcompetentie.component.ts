@@ -4,7 +4,8 @@ import { MatDialog } from '@angular/material';
 import { delay } from 'q';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { CompetentieService } from 'src/app/services/competentie.service';
+import { Deelcompetentie } from 'src/app/models/deelcompetentie.model';
+import { RichtingService } from 'src/app/services/richting.service';
 
 @Component({
   selector: 'app-hoofdcompetentie',
@@ -15,58 +16,21 @@ export class HoofdcompetentieComponent implements OnInit {
 
   @Input() public hoofdcompetentie: Hoofdcompetentie;
   @Input() public isOpen: boolean;
-  @Output() public verwijder = new EventEmitter<Hoofdcompetentie>();
   public edit: boolean;
   public hover: boolean;
-  public hoofdcompetentieform: FormGroup;
+  // public hoofdcompetentieform: FormGroup;
 
   constructor(
     public dialog: MatDialog,
-    private _fb: FormBuilder,
-    private _competentieService: CompetentieService
+    // private _fb: FormBuilder,
+    private _richtingService: RichtingService
     ) { }
 
 
   ngOnInit() {
-    this.hoofdcompetentieform = this._fb.group({
-      description: ['', [Validators.required, Validators.minLength(2)]],
-      deelcompetenties: this._fb.array([this.createDeelcompetenties])
-    });
+    // formstuff goes here
 
-    this.hoofdcompetentieform.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged())
-      .subscribe(ingList => {
-        // if the last entry's name is typed, add a new empty one
-        // if we're removing an entry's name, and there is an empty one after that one, remove the empty one
-        const lastElement = ingList[ingList.length - 1];
-        if (
-          lastElement.description &&
-          lastElement.description.length > 2
-        ) {
-          this.deelcompetenties.push(this.createDeelcompetenties());
-        } else if (ingList.length >= 2) {
-          const secondToLast = ingList[ingList.length - 2];
-          if (
-            !lastElement.description &&
-            (!secondToLast.description ||
-              secondToLast.description.length < 2)
-          ) {
-            this.deelcompetenties.removeAt(this.deelcompetenties.length - 1);
-          }
-        }
-      });
   }
-
-  get deelcompetenties(): FormArray {
-    return <FormArray>this.hoofdcompetentieform.get('deelcompetenties');
-  }
-
-  createDeelcompetenties(): FormGroup {
-    return this._fb.group({
-      description: ['']
-    });
-  }
-
 
   public toggle(): void {
     this.isOpen = !this.isOpen;
@@ -80,11 +44,6 @@ export class HoofdcompetentieComponent implements OnInit {
    this.edit = !this.edit;
  }
 
- public verwijderHoofdCompetentie(verwijder: string) {
-   console.log('verwijder2');
-   this.verwijder.emit(this.hoofdcompetentie);
- }
-
  public showSelected(): string {
    return this.edit ? this.hoofdcompetentie.color : '';
  }
@@ -92,6 +51,35 @@ export class HoofdcompetentieComponent implements OnInit {
  public makeeditable(): string {
   return this.edit ? 'true' : '';
 }
+
+// REST
+
+public verwijderHoofdCompetentie(hId: number) {
+  this._richtingService.verwijderHoofdCompetentie(hId);
+ }
+
+public verwijderDeelCompetentie(hId: number, dId: number) {
+  this._richtingService.verwijderDeelCompetentie(hId, dId);
+}
+
+public addNewDeelcompetentie(hId: number, description: string) {
+  this._richtingService.addNewDeelComptentie(hId, description);
+}
+
+public addNewHoofdCompetentie(description: string) {
+  this._richtingService.addNewHoofdCompetentie(description);
+}
+
+public updateDeelcompetentie(dId: number, description: string) {
+  this._richtingService.updateDeelComptentie(dId, description);
+}
+
+public updateHoofdCompetentie(hId: number, description: string) {
+  this._richtingService.updateHoofdCompetentie(hId, description);
+}
+
+
+
 }
 
 function waitfor1s() {

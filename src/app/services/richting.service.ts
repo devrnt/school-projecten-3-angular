@@ -7,7 +7,9 @@ import { CompetentieService } from './competentie.service';
 
 @Injectable()
 export class RichtingService {
+
   private _richtingen: Richting[];
+  private _geselecteerdeRichting: Richting;
   constructor(private _leerkrachtService: LeerkrachtService, private _competentieSevice: CompetentieService) {
     this._richtingen = [];
     const leerkrachten = _leerkrachtService.leerkachten;
@@ -342,4 +344,18 @@ export class RichtingService {
   public  get richtingen(): Richting[] {
     return this._richtingen;
   }
+
+// REST
+addNewHoofdCompetentie(description: string): any {
+}
+addNewDeelComptentie(hId: number, description: string): any {
+}
+verwijderDeelCompetentie(hId: number, dId: number): any {
+}
+verwijderHoofdCompetentie(hId: number): any {
+}
+updateDeelComptentie(dId: number, description: string): any {
+}
+updateHoofdCompetentie(hId: number, description: string): any {
+}
 }
