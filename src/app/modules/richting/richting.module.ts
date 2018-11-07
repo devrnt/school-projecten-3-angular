@@ -29,6 +29,7 @@ import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/rich
 import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CompetentieModuleFilterPipe } from 'src/app/pipes/richting/competentie-module-filter.pipe';
+import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/deelcompetentie/deelcompetentie.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { CompetentieModuleFilterPipe } from 'src/app/pipes/richting/competentie-
     HoofdcompetentieComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
-    CompetentieDialogComponent
+    CompetentieDialogComponent,
+    DeelcompetentieComponent
   ],
   exports: [
     RichtingComponent,
@@ -73,6 +75,7 @@ import { CompetentieModuleFilterPipe } from 'src/app/pipes/richting/competentie-
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
     CompetentieDialogComponent,
+    DeelcompetentieComponent,
   ],
   providers: [
     LeerkrachtService,

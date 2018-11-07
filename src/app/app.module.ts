@@ -21,7 +21,7 @@ import { basehttpInterceptorProviders } from './http-interceptors';
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     HttpClientModule,
