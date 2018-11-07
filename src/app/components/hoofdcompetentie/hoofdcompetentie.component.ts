@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { delay } from 'q';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { CompetentieService } from 'src/app/services/competentie.service';
 
 @Component({
   selector: 'app-hoofdcompetentie',
@@ -21,14 +22,15 @@ export class HoofdcompetentieComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private fb: FormBuilder,
+    private _fb: FormBuilder,
+    private _competentieService: CompetentieService
     ) { }
 
 
   ngOnInit() {
-    this.hoofdcompetentieform = this.fb.group({
+    this.hoofdcompetentieform = this._fb.group({
       description: ['', [Validators.required, Validators.minLength(2)]],
-      deelcompetenties: this.fb.array([this.createDeelcompetenties])
+      deelcompetenties: this._fb.array([this.createDeelcompetenties])
     });
 
     this.hoofdcompetentieform.valueChanges
@@ -60,7 +62,7 @@ export class HoofdcompetentieComponent implements OnInit {
   }
 
   createDeelcompetenties(): FormGroup {
-    return this.fb.group({
+    return this._fb.group({
       description: ['']
     });
   }

@@ -1,0 +1,7 @@
+<div *ngIf="edit">
+    <textarea class="textarea" [(ngModel)]="deelcompetentie.description">
+    </textarea>
+</div>
+<div *ngIf="!edit">
+ {{deelcompetentie?.description}}
+</div>

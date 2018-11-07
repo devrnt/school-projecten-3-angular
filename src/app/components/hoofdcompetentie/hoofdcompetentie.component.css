@@ -95,15 +95,23 @@ ul{
     border-radius: 2px;
 }
 
+.bottomfix{
+    padding-bottom: 5px !important;
+}
+
+.sliderbuttons3{  
+    display: inline-block;
+}
+
+.divider{
+    border-left: 1px solid rgba(199, 199, 199, 0.363);
+}
+
 .textarea{
     width: 100%;
     padding: 15px;
     border: 0px;
     resize: none;
-}
-
-.bottomfix{
-    padding-bottom: 5px
 }
 
 .textarea:focus{
@@ -113,14 +121,6 @@ ul{
     resize: none;
     outline-color: transparent;
     outline-style: none;
-}
-
-.sliderbuttons3{  
-    display: inline-block;
-}
-
-.divider{
-    border-left: 1px solid rgba(199, 199, 199, 0.363);
 }
 
 

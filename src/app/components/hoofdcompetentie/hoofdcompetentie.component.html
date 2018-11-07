@@ -17,15 +17,14 @@
   </div>
   <div id="#{{id}}pannel" class="card_slider " [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
     <div class="full">
-      <form *ngIf="edit" [formGroup]='hoofdcompetentieform'>
-        <div formArrayName='deelcompetenties' *ngFor="let item of deelcompetenties.controls; let i = index">
-          <textarea [formGroupName]='i' class="textarea" [(ngModel)]="item.description" formControlName='desc'>
-            </textarea>
+      <form *ngIf="edit">
+        <div *ngFor="let deelcompetentie of hoofdcompetentie.deelcompetenties; let i = index">
+            <app-deelcompetentie [edit]="true" [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie>
         </div>
       </form>
       <ul *ngIf="!edit">
         <li contenteditable="false" *ngFor="let deelcompetentie of hoofdcompetentie.deelcompetenties">
-          {{deelcompetentie.description}}
+            <app-deelcompetentie [edit]="false" [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie>
         </li>
       </ul>
       <div class="sliderbuttons2 full">

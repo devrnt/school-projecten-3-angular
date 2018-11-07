@@ -28,6 +28,7 @@ import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofds
 import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';
 import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/deelcompetentie/deelcompetentie.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HoofdcompetentieComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
-    CompetentieDialogComponent
+    CompetentieDialogComponent,
+    DeelcompetentieComponent
   ],
   exports: [
     RichtingComponent,
@@ -71,6 +73,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
     CompetentieDialogComponent,
+    DeelcompetentieComponent,
   ],
   providers: [ LeerkrachtService, RichtingService, RichtingFilterPipe, MatDialog],
   entryComponents: [RichtingConfirmDeleteComponent, CompetentieDialogComponent]
