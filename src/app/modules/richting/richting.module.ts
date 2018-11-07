@@ -24,7 +24,6 @@ import { RichtingSchermComponent } from 'src/app/components/richting-scherm/rich
 import { RichtingFilterPipe } from 'src/app/pipes/richting/richting-filter.pipe';
 // import { CompetentieFilterPipe } from 'src/app/pipes/richting/competentie-filter.pipe';
 import { CompetentieDescriptionFilterPipe } from 'src/app/pipes/richting/competentie-description-filter.pipe';
-import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/hoofdcompetentie.component';
 import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
 import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';
 import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
@@ -63,8 +62,7 @@ import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/de
     RichtingOverzichtSchermComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
-    CompetentieDialogComponent,
-    DeelcompetentieComponent
+    CompetentieDialogComponent
   ],
   exports: [
     RichtingComponent,
@@ -75,8 +73,7 @@ import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/de
     RichtingSchermComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
-    CompetentieDialogComponent,
-    DeelcompetentieComponent,
+    CompetentieDialogComponent
   ],
   providers: [
     LeerkrachtService,
