@@ -7,12 +7,14 @@
           <i class="fas fa-search"></i>
           &nbsp;
         </span>
-        <input matInput class="filterInputField" [(ngModel)]='beschrijving' type="text" id="filter" name="filter">
+        <!-- <input matInput class="filterInputField" [(ngModel)]='beschrijving' type="text" id="filter" name="filter"> -->
+        <input matInput (keyup)='filterHoofdcompetentieBeschrijving$.next($event.target.value)' type="text" class="half" placeholder="Zoek competentie"
+        id="filter" name="filter">
       </mat-form-field>
       <mat-form-field class="moduleSelect half">
         <mat-select placeholder="Filter op module" [(value)]="selected" (ng-model)="module">
-          <mat-option>---</mat-option>
-          <mat-option *ngFor="let module of modules" [value]="module">{{module}}</mat-option>
+          <mat-option (onSelectionChange)='filterHoofdcompetentieModule$.next($event.source.value)'>---</mat-option>
+          <mat-option *ngFor="let module of modules" [value]="module" (onSelectionChange)='filterHoofdcompetentieModule$.next($event.source.value)'>{{module}}</mat-option>
         </mat-select>
       </mat-form-field>
     </form>
@@ -24,7 +26,7 @@
         <i class="fas fa-plus x1dot5 white"></i>&nbsp;&nbsp;<i class="fas fa-{{richting?.icon}} x2 white"></i>
       </button>
     </mat-card>
-    <app-hoofdcompetentie class="full competentiePadding" *ngFor="let competentie of hoofdCompetenties | competentieFilter:beschrijving:selected"
+    <app-hoofdcompetentie class="full competentiePadding" *ngFor="let competentie of hoofdcompetentiesFiltered"
       [hoofdcompetentie]=competentie></app-hoofdcompetentie>
   </div>
 </div>

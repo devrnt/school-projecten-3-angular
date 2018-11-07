@@ -9,16 +9,21 @@ import { Leerling } from 'src/app/models/leerling.model';
 export class LeerlingHoofdschermComponent implements OnInit {
 
   public selectedTab: number;
-  public selectedRichting: Leerling;
+  public selectedLeerling: Leerling;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  public editRichting(leerling: Leerling) {
+  public editLeerling(leerling: Leerling) {
+    this.selectedTab = 2;
+    this.selectedLeerling = leerling;
+  }
+
+  public kenCompetentiesToe(leerling: Leerling) {
     this.selectedTab = 1;
-    this.selectedRichting = leerling;
+    this.selectedLeerling = leerling;
   }
 
   public changeTab(index: number) {

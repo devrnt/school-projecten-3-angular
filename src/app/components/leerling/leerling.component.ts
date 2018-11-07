@@ -15,6 +15,7 @@ export class LeerlingComponent implements OnInit {
   @Input() public isOpen: boolean;
   @Output() public verwijder = new EventEmitter<Leerling>();
   @Output() public edit = new EventEmitter<Leerling>();
+  @Output() public toekennenCompetenties = new EventEmitter<Leerling>();
 
   public hover: boolean;
   constructor(public dialog: MatDialog) { }
@@ -38,6 +39,10 @@ export class LeerlingComponent implements OnInit {
 
   public editRichting() {
     this.edit.emit(this.leerling);
+  }
+
+  public kenCompetentiesToe() {
+    this.toekennenCompetenties.emit(this.leerling);
   }
 
   public verwijderRichting(verwijder: string) {
