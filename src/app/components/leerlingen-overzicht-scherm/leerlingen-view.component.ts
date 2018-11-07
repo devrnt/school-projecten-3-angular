@@ -27,6 +27,7 @@ export class LeerlingenViewComponent implements OnInit {
   public columns: Leerling[][];
   public richtingen: string[];
   public richtingForm = new FormControl();
+  @Output() edit = new EventEmitter<Leerling>();
   @Output() toekennenCompetenties = new EventEmitter<Leerling>();
 
   constructor(
@@ -34,6 +35,7 @@ export class LeerlingenViewComponent implements OnInit {
     private _filterNaam: LeerlingNaamFilterPipe,
     private _filterRichting: LeerlingRichtingFilterPipe) {
       this._leerlingen = this._leerlingService.leerlingen;
+      console.log(this._leerlingen);
       this.richtingen = this._leerlingen.map(l => l.richting.naam).filter((elem, pos, arr) => {
         return arr.indexOf(elem) === pos;
       });
@@ -121,6 +123,10 @@ export class LeerlingenViewComponent implements OnInit {
     for (let index = 0; index < this._leerlingenFiltered.length; index++) {
       this.columns[index % this.numberOfColumns].push(this._leerlingenFiltered[index]);
     }
+  }
+
+  public editLeerling(leerling: Leerling) {
+    this.edit.emit(leerling);
   }
 
   public kenCompetentiesToe(leerling: Leerling) {

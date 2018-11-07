@@ -16,11 +16,12 @@ export class Richting {
   private _diploma: Diploma;
 
   constructor(
-    naam: string,
-    leerkrachten: User[],
-    competenties: Hoofdcompetentie[],
-    werkgevers: User[],
-    diploma: Diploma,
+    id: number,
+    naam?: string,
+    leerkrachten?: User[],
+    competenties?: Hoofdcompetentie[],
+    werkgevers?: User[],
+    diploma?: Diploma,
     kleur?: Kleur,
     icon?: Icon
   ) {

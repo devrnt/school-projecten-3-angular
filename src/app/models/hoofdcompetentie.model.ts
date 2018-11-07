@@ -26,6 +26,15 @@ export class Hoofdcompetentie {
 
   /**
    * Getter description
+   * @return {number}
+   */
+  public get id(): number {
+    return this._id;
+  }
+
+
+  /**
+   * Getter description
    * @return {string}
    */
   public get description(): string {

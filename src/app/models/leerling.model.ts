@@ -1,6 +1,7 @@
 import { Hoofdcompetentie } from './hoofdcompetentie.model';
 import { User } from './user';
 import { Richting } from './richting';
+import { LeerlingHoofdcompetentie } from './leerling-hoofdcompetentie.model';
 
 export class Leerling {
   private _id: string;
@@ -8,11 +9,30 @@ export class Leerling {
   private _achternaam: string;
   private _competenties: Hoofdcompetentie[];
   private _email: string;
+  private _geboortedatum: Date;
   private _richting: Richting;
   private _projecten: Hoofdcompetentie[];
   private _geslacht: Geslacht;
   private _stage: User;
   private _werkgever: User;
+  private _intresses: string;
+
+  /**
+   * Getter intresses
+   * @return {string}
+   */
+  public get intresses(): string {
+    return this._intresses;
+  }
+
+  /**
+   * Getter geboorteDatum
+   * @return {Date}
+   */
+  public get geboorteDatum(): Date {
+    return this._geboorteDatum;
+  }
+  private _geboorteDatum: Date;
 
   constructor(id: string) {
     this._id = id;
@@ -55,6 +75,14 @@ export class Leerling {
    */
   public get email(): string {
     return this._email;
+  }
+
+  /**
+   * Getter geboortedatum
+   * @return {Date}
+   */
+  public get geboortedatum(): Date {
+    return this._geboortedatum;
   }
 
   /**
@@ -130,6 +158,14 @@ export class Leerling {
   }
 
   /**
+   * Setter email
+   * @param {Date} value
+   */
+  public set geboortedatum(value: Date) {
+    this._geboortedatum = value;
+  }
+
+  /**
    * Setter richting
    * @param {Richting} value
    */
@@ -167,6 +203,38 @@ export class Leerling {
    */
   public set werkgever(value: User) {
     this._werkgever = value;
+  }
+
+  public static fromJSON(json: any): Leerling {
+    const leerling = new Leerling(
+      json.id
+    );
+    leerling._voornaam = json.voornaam;
+    leerling._achternaam = json.naam;
+    leerling._email = json.email;
+    leerling._geslacht = json.geslacht === 0 ? Geslacht.Man : Geslacht.Vrouw;
+    leerling._geboorteDatum = json.geboorteDatum;
+    leerling._intresses = json.intresses;
+    leerling._richting = new Richting(json.richting.id).naam = json.richting.naam;
+    json.competenties.map( c => {
+      // to do
+    });
+    leerling._competenties = [];
+    return leerling;
+  }
+
+  public toJSON() {
+    return {
+      voornaam: this._voornaam,
+      achternaam: this._achternaam,
+      email: this._email,
+      geslacht: this._geslacht ? 1 : 0,
+      richting: this._richting.id,
+      competenties: this._competenties.map(c => c.id),
+      werkgever: this._werkgever.id,
+      intresses: this._intresses,
+      // projecten: this._projecten.map(p => p.id);
+    };
   }
 }
 
