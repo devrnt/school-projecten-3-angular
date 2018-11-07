@@ -26,6 +26,10 @@ import { LeerlingSchermComponent } from 'src/app/components/leerling-scherm/leer
 import { LeerlingDetailsComponent } from 'src/app/components/leerling-details/leerling-details.component';
 import { LeerlingCompetentiesComponent } from 'src/app/components/leerling-competenties/leerling-competenties.component';
 import { SharedModule } from '../shared/shared.module';
+// tslint:disable-next-line:max-line-length
+import { LeerlingCompetentiesToekennenComponent } from 'src/app/components/leerling-competenties-toekennen/leerling-competenties-toekennen.component';
+// tslint:disable-next-line:max-line-length
+import { LeerlingCompetentiesToekennenSchermComponent } from 'src/app/components/leerling-competenties-toekennen-scherm/leerling-competenties-toekennen-scherm.component';
 
 @NgModule({
   imports: [
@@ -53,7 +57,9 @@ import { SharedModule } from '../shared/shared.module';
     LeerlingHoofdschermComponent,
     LeerlingSchermComponent,
     LeerlingDetailsComponent,
-    LeerlingCompetentiesComponent
+    LeerlingCompetentiesComponent,
+    LeerlingCompetentiesToekennenComponent,
+    LeerlingCompetentiesToekennenSchermComponent
   ],
   declarations: [
     LeerlingenViewComponent,
@@ -62,7 +68,9 @@ import { SharedModule } from '../shared/shared.module';
     LeerlingHoofdschermComponent,
     LeerlingSchermComponent,
     LeerlingDetailsComponent,
-    LeerlingCompetentiesComponent
+    LeerlingCompetentiesComponent,
+    LeerlingCompetentiesToekennenComponent,
+    LeerlingCompetentiesToekennenSchermComponent
   ],
   providers: [LeerlingService, LeerlingNaamFilterPipe, LeerlingRichtingFilterPipe],
   entryComponents: [LeerlingConfirmDeleteComponent]

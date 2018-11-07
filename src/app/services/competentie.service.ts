@@ -3,6 +3,7 @@ import { Hoofdcompetentie } from '../models/hoofdcompetentie.model';
 import { Deelcompetentie } from '../models/deelcompetentie.model';
 import { Icon, Kleur } from '../models/richting';
 import { Modules } from '../models/hoofdcompetentie.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class CompetentieService {
   private _hoofdcompetenties: Hoofdcompetentie[];
   private _behaaldeHoofdcompetenties: Hoofdcompetentie[];
 
-  constructor() {
+  constructor(
+    private _http: HttpClient
+  ) {
     const deelcompetenties1 = [
       new Deelcompetentie('deelcompetentie1', 'Houdt zich aan de richtlijnen voor hygiëne, veiligheid en ergonomie'),
       new Deelcompetentie('deelcompetentie2', 'Ruimt de gebruikte werkpost op na elke behandeling en reinigt deze'),

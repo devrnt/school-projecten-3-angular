@@ -17,6 +17,11 @@ export class LeerlingHoofdschermComponent implements OnInit {
   }
 
   public editLeerling(leerling: Leerling) {
+    this.selectedTab = 2;
+    this.selectedLeerling = leerling;
+  }
+
+  public kenCompetentiesToe(leerling: Leerling) {
     this.selectedTab = 1;
     this.selectedLeerling = leerling;
   }

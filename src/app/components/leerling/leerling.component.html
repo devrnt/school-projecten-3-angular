@@ -31,10 +31,13 @@
           </li>
     </ul>
     <div class="sliderbuttons2">
-      <button cdkFocusInitial mat-button type="button" class="half sliderbuttons" (verwijder)="verwijderRichting($event)" (click)="openDialog()">
+      <button cdkFocusInitial mat-button type="button" class="sliderbuttons" (verwijder)="verwijderRichting($event)">
           <i class="deleteIcon fas fa-trash-alt f-red"></i>
       </button>
-      <button mat-button type="button" class="half sliderbuttons divider" (click)="editRichting()">
+      <button cdkFocusInitial mat-button type="button" class="sliderbuttons" (click)="kenCompetentiesToe()">
+        <i class="deleteIcon fas fa-clipboard-list"></i>
+      </button>
+      <button mat-button type="button" class="sliderbuttons divider" (click)="editRichting()">
           <i class="deleteIcon fas fa-pen f-black"></i>
       </button>
       </div>

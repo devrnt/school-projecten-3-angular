@@ -7,12 +7,15 @@ import { CompetentieService } from './competentie.service';
 
 @Injectable()
 export class RichtingService {
+
   private _richtingen: Richting[];
+  private _geselecteerdeRichting: Richting;
   constructor(private _leerkrachtService: LeerkrachtService, private _competentieSevice: CompetentieService) {
     this._richtingen = [];
     const leerkrachten = _leerkrachtService.leerkachten;
     this._richtingen = [
       new Richting(
+        1,
         'Informatica',
         [
           leerkrachten[3],
@@ -27,6 +30,7 @@ export class RichtingService {
         Icon.laptop
       ),
       new Richting(
+        2,
         'Haarzorg',
         [
           leerkrachten[0],
@@ -41,6 +45,7 @@ export class RichtingService {
         Icon.scissors
       ),
       new Richting(
+        3,
         'Kantoor',
         [
           leerkrachten[1],
@@ -55,6 +60,7 @@ export class RichtingService {
         Icon.computer
       ),
       new Richting(
+        4,
         'Verkoop',
         [
           leerkrachten[1],
@@ -69,6 +75,7 @@ export class RichtingService {
         Icon.sales
       ),
       new Richting(
+        5,
         'Basismechanica carrosserie',
         [
           leerkrachten[2],
@@ -83,6 +90,7 @@ export class RichtingService {
         Icon.wrench
       ),
       new Richting(
+        5,
         'Handel',
         [
           leerkrachten[2],
@@ -97,6 +105,7 @@ export class RichtingService {
         Icon.weegschaal
       ),
       new Richting(
+        6,
         'Houtbewerking',
         [
           leerkrachten[2],
@@ -111,6 +120,7 @@ export class RichtingService {
         Icon.tree
       ),
       new Richting(
+        6,
         'Elektrische installaties Elektrotechnicus duaal (7de jaar)',
         [
           leerkrachten[2],
@@ -125,6 +135,7 @@ export class RichtingService {
         Icon.bliksem
       ),
       new Richting(
+        7,
         'Auto technieken',
         [
           leerkrachten[2],
@@ -139,6 +150,7 @@ export class RichtingService {
         Icon.car
       ),
       new Richting(
+        8,
         'Mechanische technieken',
         [
           leerkrachten[2],
@@ -153,6 +165,7 @@ export class RichtingService {
         Icon.cogs
       ),
       new Richting(
+        9,
         'Techniek-wetenschappen',
         [
           leerkrachten[2],
@@ -167,6 +180,7 @@ export class RichtingService {
         Icon.flask
       ),
       new Richting(
+        10,
         'Voeding-verzorging',
         [
           leerkrachten[2],
@@ -181,6 +195,7 @@ export class RichtingService {
         Icon.medkit
       ),
       new Richting(
+        11,
         'Verzorging',
         [
           leerkrachten[1],
@@ -195,6 +210,7 @@ export class RichtingService {
         Icon.doctor
       ),
       new Richting(
+        12,
         '	Sociaal-technische Wetenschappen',
         [
           leerkrachten[2],
@@ -209,6 +225,7 @@ export class RichtingService {
         Icon.child
       ),
       new Richting(
+        13,
         'Buurtsport medewerker',
         [
           leerkrachten[2],
@@ -223,6 +240,7 @@ export class RichtingService {
         Icon.sport
       ),
       new Richting(
+        14,
         'Medewerker snackbar | Keukenmedewerker',
         [
           leerkrachten[2],
@@ -237,6 +255,7 @@ export class RichtingService {
         Icon.food
       ),
       new Richting(
+        15,
         'Medewerker groen- en tuinbeheer',
         [
           leerkrachten[2],
@@ -251,6 +270,7 @@ export class RichtingService {
         Icon.plant
       ),
       new Richting(
+        16,
         'Polyvalent onderhoudswerker gebouwen | Tegelzetter',
         [
           leerkrachten[2],
@@ -265,6 +285,7 @@ export class RichtingService {
         Icon.building
       ),
       new Richting(
+        17,
         'Schilder-decorateur',
         [
           leerkrachten[2],
@@ -279,6 +300,7 @@ export class RichtingService {
         Icon.paint
       ),
       new Richting(
+        18,
         'Winkelbediende',
         [
           leerkrachten[2],
@@ -293,6 +315,7 @@ export class RichtingService {
         Icon.retail
       ),
       new Richting(
+        19,
         'PC-technicus',
         [
           leerkrachten[2],
@@ -307,6 +330,7 @@ export class RichtingService {
         Icon.plug
       ),
       new Richting(
+        20,
         'Verzorgende Verzorgende / zorgkundige',
         [
           leerkrachten[2],
@@ -330,6 +354,7 @@ export class RichtingService {
 
   public getRichting(): Richting {
     return new Richting(
+      -1,
       'Nieuwe richting',
     [],
     [],
@@ -342,4 +367,18 @@ export class RichtingService {
   public  get richtingen(): Richting[] {
     return this._richtingen;
   }
+
+// REST
+addNewHoofdCompetentie(description: string): any {
+}
+addNewDeelComptentie(hId: number, description: string): any {
+}
+verwijderDeelCompetentie(hId: number, dId: number): any {
+}
+verwijderHoofdCompetentie(hId: number): any {
+}
+updateDeelComptentie(dId: number, description: string): any {
+}
+updateHoofdCompetentie(hId: number, description: string): any {
+}
 }

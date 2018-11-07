@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { LeerlingService } from 'src/app/services/leerling.service';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { Richting } from 'src/app/models/richting';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 import { Leerling } from 'src/app/models/leerling.model';
@@ -28,12 +28,14 @@ export class LeerlingenViewComponent implements OnInit {
   public richtingen: string[];
   public richtingForm = new FormControl();
   @Output() edit = new EventEmitter<Leerling>();
+  @Output() toekennenCompetenties = new EventEmitter<Leerling>();
 
   constructor(
     private _leerlingService: LeerlingService,
     private _filterNaam: LeerlingNaamFilterPipe,
     private _filterRichting: LeerlingRichtingFilterPipe) {
       this._leerlingen = this._leerlingService.leerlingen;
+      console.log(this._leerlingen);
       this.richtingen = this._leerlingen.map(l => l.richting.naam).filter((elem, pos, arr) => {
         return arr.indexOf(elem) === pos;
       });
@@ -125,6 +127,10 @@ export class LeerlingenViewComponent implements OnInit {
 
   public editLeerling(leerling: Leerling) {
     this.edit.emit(leerling);
+  }
+
+  public kenCompetentiesToe(leerling: Leerling) {
+    this.toekennenCompetenties.emit(leerling);
   }
 
   public verwijderLeerling(leerling: Leerling) {

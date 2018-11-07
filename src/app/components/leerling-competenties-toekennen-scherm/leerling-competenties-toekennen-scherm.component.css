@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    height: calc(100vh - 113px);
+    flex-direction: column;
+    /* height: 70vh; */
+    /* border-bottom: 1px solid lightgray; */
+
+    
+    /* margin-bottom: 2em;
+    border-radius: 1vw;
+
+    -webkit-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+    -moz-box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5);
+    box-shadow: 0px 11px 54px -10px rgb(0,0,0,0.5); */
+}
+
+.leerlingContainer {
+    flex: 1;
+    margin-top: 2em;
+    height: calc(100vh - 145px)
+}
+
+.leerlingCompetenties {
+    border-left: 1px solid lightgray;
+}
+
+/* QUICK FIX OM ALLES CENTERED TE HOUDEN */
+.empty {
+    visibility: hidden;
+}
+
+.buttonContainer {
+    flex: 0;
+    display: flex;
+    justify-content: space-around;
+
+    margin-top: 30px;
+}
+
+.mat-stroked-button {
+    height: 60px;
+    width: 180px;
+    font-size: 20px;
+}

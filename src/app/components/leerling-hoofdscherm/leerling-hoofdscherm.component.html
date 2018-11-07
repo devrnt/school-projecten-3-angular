@@ -1,6 +1,9 @@
 <mat-tab-group class="center" mat-align-tabs="center" [selectedIndex]="selectedTab" (selectedIndexChange)="changeTab($event)">
   <mat-tab label="Overzicht">
-    <app-leerlingen-view (edit)="editLeerling($event)"></app-leerlingen-view>
+    <app-leerlingen-view (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerlingen-view>
+  </mat-tab>
+  <mat-tab label="Toekennen competenties">
+      <app-leerling-competenties-toekennen-scherm [leerling]="selectedLeerling"></app-leerling-competenties-toekennen-scherm>
   </mat-tab>
   <mat-tab label="Aanpassen">
     <app-leerling-scherm [leerling]="selectedLeerling"></app-leerling-scherm>

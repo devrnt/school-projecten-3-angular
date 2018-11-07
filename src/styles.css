@@ -147,6 +147,10 @@
                                         supported by Chrome and Opera */
 }
 
+.content-block{
+    display: block;
+}
+
 .noMargingPaddingLeft {
     margin-left: 0px;
     padding-left: 0px;
