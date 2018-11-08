@@ -8,11 +8,28 @@ import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
   styleUrls: ['./deelcompetentie.component.css']
 })
 export class DeelcompetentieComponent implements OnInit {
-  @Input() public edit: boolean;
   @Input() public deelcompetentie: Deelcompetentie;
   @Input() public idHoofdcompetentie: Hoofdcompetentie;
-  constructor() { }
+
+  public _edit: boolean;
+
+  constructor() {
+    this.edit = false;
+  }
+
   ngOnInit() {
   }
 
+  set edit(bool: boolean) {
+    this._edit = bool;
+  }
+
+  get edit() {
+    return this._edit;
+  }
+
+  saveDescription() {
+    // SAVEN VIA FORM
+    this.edit = false;
+  }
 }

@@ -32,6 +32,7 @@
 .card_main{
     display: flex;
     cursor: pointer;
+    background-color: white;
 }
 
 .card_slider{
@@ -168,4 +169,39 @@ ul{
 @keyframes disappear {
     0%   {opacity: 1;}
     100% {opacity: 0;}
+}
+
+
+/* JONATHAN */
+.deelcompetentiesContainer {
+    padding: 25px;
+}
+
+.addDeelcompCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 40px;
+}
+
+
+.addDeelcompCard:hover {
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
+}
+
+.addDeelcompIcon {
+    /* color: rgb(131, 212, 131); */
+    font-size: 20px;
+}
+
+.descriptionInput {
+    width: 100%;
+    font-size: 0.8rem;
+    max-height: 66px;
+}
+
+.hoofdcompDescriptionWrapper {
+    height: 100%;
 }

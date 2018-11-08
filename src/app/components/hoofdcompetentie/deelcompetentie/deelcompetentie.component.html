@@ -1,7 +1,34 @@
-<div *ngIf="edit">
+<!-- <div *ngIf="edit">
     <textarea class="textarea" [(ngModel)]="deelcompetentie.description">
     </textarea>
 </div>
 <div *ngIf="!edit">
  {{deelcompetentie?.description}}
-</div>
+</div> -->
+
+<mat-card class="deelcompContainer">
+    <div *ngIf="!edit" class="description">
+        {{deelcompetentie?.description}}
+    </div>
+    <div *ngIf="edit" class="description">
+        <mat-form-field class="descriptionInput">
+            <textarea matInput value="{{deelcompetentie?.description}}"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="buttons">
+        <button *ngIf="!edit" mat-icon-button type="button"
+            class="editButton"
+            (click)="edit=true">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <button *ngIf="edit" mat-icon-button type="button"
+            class="saveButton"
+            (click)="saveDescription()">
+            <i class="fas fa-check"></i>
+        </button>
+        <button mat-icon-button type="button"
+            class="deleteButton">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </div>
+</mat-card>

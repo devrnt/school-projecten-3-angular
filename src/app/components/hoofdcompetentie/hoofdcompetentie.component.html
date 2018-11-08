@@ -1,5 +1,5 @@
 <div class="card_border" (mouseenter)="hover=true" (mouseleave)="hover=false">
-  <div (click)="toggle()" class="card_main" id="#{{id}}">
+  <div (click)="!edit && toggle()" class="card_main" id="#{{id}}">
     <div class="icon outer {{hoofdcompetentie.color}}">
       <div class="inner">
         <i class="fas fa-{{hoofdcompetentie.icon}} x2"></i>
@@ -7,41 +7,42 @@
     </div>
     <div class="text" href="#nav">
       <div class="title">
-        <h3 *ngIf="!edit" class="titletext">{{hoofdcompetentie.description}}</h3>
-        <textarea *ngIf="edit" class="titletext textarea bottomfix" [(ngModel)]="hoofdcompetentie.description"></textarea>
+        <h3 *ngIf="!edit" class="titletext">{{hoofdcompetentie?.description}}</h3>
+
+        <div *ngIf="edit" class="hoofdcompDescriptionWrapper">
+            <mat-form-field class="descriptionInput">
+                <textarea matInput value="{{hoofdcompetentie?.description}}"></textarea>
+            </mat-form-field>
+        </div>
+
+        <!-- <textarea *ngIf="edit" class="titletext textarea bottomfix" [(ngModel)]="hoofdcompetentie.description"></textarea> -->
       </div>
-      <i (click)="toggle()">
+      <i (click)="!edit && toggle()">
         <fa (click)="toggle()" class="slide_open_button" name="{{isOpen?'angle-up':'angle-down'}}" size="1x"></fa>
       </i>
     </div>
   </div>
   <div id="#{{id}}pannel" class="card_slider " [ngClass]="{slidedown:isOpen,slideup:!isOpen}">
     <div class="full">
-      <form *ngIf="edit">
-        <div *ngFor="let deelcompetentie of hoofdcompetentie.deelcompetenties; let i = index">
-            <app-deelcompetentie [edit]="true" [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie>
+      <div class="deelcompetentiesContainer">
+        <div contenteditable="false" *ngFor="let deelcompetentie of hoofdcompetentie.deelcompetenties">
+            <app-deelcompetentie [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie>
         </div>
-      </form>
-      <ul *ngIf="!edit">
-        <li contenteditable="false" *ngFor="let deelcompetentie of hoofdcompetentie.deelcompetenties">
-            <app-deelcompetentie [edit]="false" [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie>
-        </li>
-      </ul>
+        <mat-card class="addDeelcompCard">
+            <i class="addDeelcompIcon fas fa-plus"></i>
+        </mat-card>
+      </div>
+
       <div class="sliderbuttons2 full">
-        <div class="sliderbuttons3 third">
+        <div class="sliderbuttons3 half">
           <button cdkFocusInitial mat-button type="button" class="full sliderbuttons" (verwijder)="verwijderRichting($event)"
             (click)="openDialog()">
             <i class="deleteIcon fas fa-trash-alt f-red"></i>
           </button>
         </div>
-        <div class="sliderbuttons3 third radius {{showSelected()}}">
+        <div class="sliderbuttons3 half radius {{showSelected()}}">
           <button mat-button type="button" class="full sliderbuttons divider" (click)="toggleEdit()">
             <i class="deleteIcon fas fa-pen f-black " [ngClass]="{white: edit}"></i>
-          </button>
-        </div>
-        <div class="sliderbuttons3 third">
-          <button cdkFocusInitial mat-button type="button" class="full sliderbuttons divider" (click)="addNewDeelcompetentie()">
-            <i class="deleteIcon fas fa-plus f-green"></i>
           </button>
         </div>
       </div>

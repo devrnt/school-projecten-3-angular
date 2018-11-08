@@ -1,4 +1,4 @@
-.textarea{
+/* .textarea{
     width: 100%;
     padding: 15px;
     border: 0px;
@@ -12,4 +12,61 @@
     resize: none;
     outline-color: transparent;
     outline-style: none;
+} */
+
+.deelcompContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 5px 0 25px;
+    margin: 5px 0;
+}
+
+.description {
+    flex: 1;
+}
+
+.buttons {
+    flex: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.deleteButton {
+    visibility: hidden;
+    color: rgb(255,105,97);
+    flex: 0;
+}
+
+.editButton {
+    visibility: hidden;
+    color: #3f51b5;
+    flex: 0;
+}
+
+.saveButton {
+    visibility: hidden;
+    color: rgb(131, 212, 131);
+    flex: 0;
+}
+
+.deelcompContainer:hover .deleteButton {
+    visibility: visible;
+}
+
+.deelcompContainer:hover .editButton {
+    visibility: visible;
+}
+
+.deelcompContainer:hover .saveButton {
+    visibility: visible;
+}
+
+.deelcompContainer:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.descriptionInput {
+    width: 100%;
 }

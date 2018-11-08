@@ -4,13 +4,18 @@ import { HoofdcompetentieComponent } from 'src/app/components/hoofdcompetentie/h
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/deelcompetentie/deelcompetentie.component';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     AngularFontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     HoofdcompetentieComponent,
