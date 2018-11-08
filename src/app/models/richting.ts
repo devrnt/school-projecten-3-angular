@@ -4,7 +4,7 @@ import { MatChipTrailingIcon } from '@angular/material';
 import { Hoofdcompetentie } from './hoofdcompetentie.model';
 
 export class Richting {
-  private _id: string;
+  private _id: number;
   private _naam: string;
   private _desc: string;
   private _icon: Icon;
@@ -25,6 +25,7 @@ export class Richting {
     kleur?: Kleur,
     icon?: Icon
   ) {
+    this._id = id;
     this._naam = naam;
     this._leerkrachten = leerkrachten || [];
     this._leerlingenId = [];
@@ -57,9 +58,9 @@ export class Richting {
 
   /**
    * Getter id
-   * @return {string}
+   * @return {number}
    */
-  public get id(): string {
+  public get id(): number {
     return this._id;
   }
 

@@ -1,16 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Richting, Diploma, Kleur, Icon } from '../models/richting';
 import { User, UserType } from '../models/user';
 import { LeerlingService } from './leerling.service';
 import { LeerkrachtService } from './leerkracht.service';
 import { CompetentieService } from './competentie.service';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable()
-export class RichtingService {
-
+export class RichtingService implements OnInit {
+  public richting$: BehaviorSubject<Richting>;
+  public nieuweRichting$: BehaviorSubject<Richting>;
   private _richtingen: Richting[];
   private _geselecteerdeRichting: Richting;
+  private _geselecteerdeNieuweRichting: Richting;
   constructor(private _leerkrachtService: LeerkrachtService, private _competentieSevice: CompetentieService) {
+    this._geselecteerdeRichting = this.getNieuweRichting();
+    this._geselecteerdeNieuweRichting = this.getNieuweRichting();
+    this.richting$ = new BehaviorSubject(this.geselecteerdeRichting);
+    this.nieuweRichting$ = new BehaviorSubject(this.geselecteerdeRichting);
     this._richtingen = [];
     const leerkrachten = _leerkrachtService.leerkachten;
     this._richtingen = [
@@ -352,7 +359,7 @@ export class RichtingService {
     this._richtingen.slice(this._richtingen.findIndex(r => r.naam === naam));
   }
 
-  public getRichting(): Richting {
+  public getNieuweRichting(): Richting {
     return new Richting(
       -1,
       'Nieuwe richting',
@@ -364,8 +371,27 @@ export class RichtingService {
     Icon.plant);
   }
 
+  ngOnInit(): void {
+  }
+
   public  get richtingen(): Richting[] {
     return this._richtingen;
+  }
+
+  public  get geselecteerdeRichting$(): BehaviorSubject<Richting> {
+    return this.richting$;
+  }
+
+  public set geselecteerdeRichting(richting: Richting) {
+    this.richting$.next(richting);
+  }
+
+  public  get geselecteerdeNieuweRichting$(): BehaviorSubject<Richting> {
+    return this.nieuweRichting$;
+  }
+
+  public set geselecteerdeNieuweRichting(richting: Richting) {
+    this.nieuweRichting$.next(richting);
   }
 
 // REST

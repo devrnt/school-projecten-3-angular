@@ -2,37 +2,24 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Hoofdcompetentie, Modules } from 'src/app/models/hoofdcompetentie.model';
 
 @Pipe({
-    name: 'competentieDescriptionFilter',
+    name: 'competentieFilter',
     // Haal dit uit commentaar als je wil dat bij elke verandering in de app de zoekfunctie opnieuw wordt uitgevoerd
     // pure: false
 })
-export class CompetentieDescriptionFilterPipe implements PipeTransform {
-    transform(competenties: Hoofdcompetentie[], filterDescription: string): Hoofdcompetentie[] {
-        const gefilterdeCompetenties = new Array<Hoofdcompetentie>();
-        if (!filterDescription || filterDescription.length === 0) {
-            return competenties;
+export class CompetentieFilterPipe implements PipeTransform {
+    transform(competenties: Hoofdcompetentie[], filterDescription: string, filterModule: string): Hoofdcompetentie[] {
+        if (filterDescription && filterDescription.length > 0) {
+            competenties = competenties
+            .filter(c => (c.description !== undefined && c.description.toLowerCase()
+                .includes(filterDescription.toLowerCase().trim()))
+                || (c.deelcompetenties.some(dc => dc.description.toLowerCase().includes(filterDescription.toLocaleLowerCase().trim())))
+            );
         }
-        competenties
-            .forEach(comp => {
-                if (
-                    comp.description
-                    && comp.description.toLowerCase().includes(filterDescription.toLowerCase().trim())
-                    ) {
-                        if (!gefilterdeCompetenties.includes(comp)) {
-                            gefilterdeCompetenties.push(comp);
-                        }
-                } else {
-                    comp.deelcompetenties.forEach(deelcomp => {
-                        if (deelcomp.description.toLowerCase().includes(filterDescription.toLowerCase().trim())) {
-                            if (!gefilterdeCompetenties.includes(comp)) {
-                                gefilterdeCompetenties.push(comp);
-                            }
-                        }
-                    });
-                }
-            });
-
-        return gefilterdeCompetenties;
+        if (filterModule && filterModule.length > 0 && filterModule !== '---') {
+            competenties = competenties
+            .filter(hc => hc.module.includes(filterModule));
+        }
+        return competenties;
     }
 
 

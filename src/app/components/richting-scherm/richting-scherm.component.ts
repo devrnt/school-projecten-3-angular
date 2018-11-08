@@ -4,6 +4,7 @@ import { Hoofdcompetentie, Modules } from 'src/app/models/hoofdcompetentie.model
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
 import { Richting } from 'src/app/models/richting';
+import { RichtingService } from 'src/app/services/richting.service';
 
 @Component({
   selector: 'app-richting-scherm',
@@ -11,11 +12,18 @@ import { Richting } from 'src/app/models/richting';
   styleUrls: ['./richting-scherm.component.css']
 })
 export class RichtingSchermComponent implements OnInit {
-  @Input() public richting: Richting;
-  public nieuweCompetentie: Hoofdcompetentie;
+  @Input() public new: boolean;
+  private _nieuweRichting: Richting;
 
   constructor(
-    ) { }
+    private _richtingService: RichtingService
+    ) {
+      this._nieuweRichting = this._richtingService.getNieuweRichting();
+    }
+
+    public get nieuweRichting(): Richting {
+      return this.new ? this._nieuweRichting : undefined;
+    }
 
   ngOnInit() {
   }
