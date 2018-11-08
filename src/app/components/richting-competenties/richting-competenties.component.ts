@@ -4,9 +4,9 @@ import { Modules, Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
 import { Subject } from 'rxjs';
-import { CompetentieDescriptionFilterPipe } from 'src/app/pipes/richting/competentie-description-filter.pipe';
+import { CompetentieFilterPipe } from 'src/app/pipes/richting/competentie-description-filter.pipe';
 import { distinctUntilChanged, defaultIfEmpty, sampleTime, debounceTime } from 'rxjs/operators';
-import { CompetentieModuleFilterPipe } from 'src/app/pipes/richting/competentie-module-filter.pipe';
+import { RichtingService } from 'src/app/services/richting.service';
 
 @Component({
   selector: 'app-richting-competenties',
@@ -14,58 +14,75 @@ import { CompetentieModuleFilterPipe } from 'src/app/pipes/richting/competentie-
   styleUrls: ['./richting-competenties.component.css']
 })
 export class RichtingCompetentiesComponent implements OnInit {
+  @Input() public richting: Richting;
   public modules = new Array<string>();
-  public beschrijving: '';
-  public competenties: Hoofdcompetentie[];
-  public module: '';
+  public beschrijving = '';
+  public module = '';
+  private _selected = '';
   private dialogRef: MatDialogRef<CompetentieDialogComponent>;
   private _hoofdcompetenties: Hoofdcompetentie[];
-  public hoofdcompetentiesFiltered: Hoofdcompetentie[];
-  private _hoofdcompetentiesFilteredOpDescription: Hoofdcompetentie[];
-  private _hoofdcompetentiesFilteredOpModule: Hoofdcompetentie[];
+  private _hoofdcompetentiesFiltered: Hoofdcompetentie[];
   public filterHoofdcompetentieBeschrijving$ = new Subject<string>();
   public filterHoofdcompetentieModule$ = new Subject<string>();
-  private _richting: Richting;
-  @Input()
-    set richting(richtingFromParent: Richting) {
-      this._richting = richtingFromParent;
-      this._richting ? this._hoofdcompetenties = this._richting.competenties : this._hoofdcompetenties = [];
-      this.hoofdcompetentiesFiltered = this._hoofdcompetenties;
-      this._hoofdcompetentiesFilteredOpDescription = this.hoofdcompetentiesFiltered;
-      this._hoofdcompetentiesFilteredOpModule = this.hoofdcompetentiesFiltered;
-    }
+  @Input() public new: boolean;
 
-    get richting(): Richting {
-      this.filterHoofdcompetentieBeschrijving$
-        .pipe(
-          distinctUntilChanged()
-        )
-        .subscribe(besch => {
-          this._hoofdcompetentiesFilteredOpDescription = this._filterDescription.transform(this._hoofdcompetenties, besch);
-          this.hoofdcompetentiesFiltered =
-            this.verwijderDubbels(this._hoofdcompetentiesFilteredOpDescription, this._hoofdcompetentiesFilteredOpModule);
-        });
+  get hoofdcompetentiesFiltered(): Hoofdcompetentie[] {
+    return this._hoofdcompetentiesFiltered;
+  }
 
-        this.filterHoofdcompetentieModule$
-          .pipe(
-            distinctUntilChanged()
-          )
-          .subscribe(mod => {
-            console.log('Dit is hetgeen dat binnenkomt bij module', mod);
-            this._hoofdcompetentiesFilteredOpModule = this._filterModule.transform(this._hoofdcompetenties, mod);
-            this.hoofdcompetentiesFiltered =
-              this.verwijderDubbels(this._hoofdcompetentiesFilteredOpDescription, this._hoofdcompetentiesFilteredOpModule);
-          });
-      return this._richting;
-    }
+  set hoofdcompetentiesFiltered(comp: Hoofdcompetentie[]) {
+    this._hoofdcompetentiesFiltered = comp;
+  }
+
+  get selected(): string {
+    return this._selected;
+  }
+
+  public get icon(): string {
+    return this.richting ? this.richting.icon : '';
+  }
+
+  public get kleur(): string {
+    return this.richting ? this.richting.kleur : '';
+  }
+
+  set selected(value: string) {
+    console.log(value);
+    this._selected = value;
+    this.hoofdcompetentiesFiltered = this._filter.transform(this.richting.competenties, this.beschrijving, this._selected);
+  }
 
   constructor(
+    public _richtingService: RichtingService,
     public dialog: MatDialog,
-    private _filterDescription: CompetentieDescriptionFilterPipe,
-    private _filterModule: CompetentieModuleFilterPipe) {  }
+    private _filter: CompetentieFilterPipe,
+  ) {
+    this.hoofdcompetentiesFiltered = [];
+    this.modules = Object.values(Modules);
+  }
 
   ngOnInit() {
-    this.modules = Object.values(Modules);
+    if (this.new) {
+      this._richtingService.geselecteerdeNieuweRichting$.subscribe(r => {
+        this.richting = r;
+        this.hoofdcompetentiesFiltered = this.richting ? this.richting.competenties : [];
+      });
+    } else {
+      this._richtingService.richting$.subscribe( r => {
+        this.richting = r;
+        console.log(r);
+        this.hoofdcompetentiesFiltered = this.richting ? this.richting.competenties : [];
+      });
+    }
+    this.filterHoofdcompetentieBeschrijving$
+      .pipe(
+        distinctUntilChanged()
+      )
+      .subscribe(besch => {
+        console.log(this.selected);
+        this.hoofdcompetentiesFiltered = this._filter.transform(this.richting.competenties, besch, this.selected);
+        console.log(this.hoofdcompetentiesFiltered);
+      });
   }
 
   openDialog(): void {
@@ -79,25 +96,12 @@ export class RichtingCompetentiesComponent implements OnInit {
     this.dialogRef.afterClosed().subscribe(result => {
       let teller = 6;
       this.richting.addNieuweHoofdcompetentie(new Hoofdcompetentie(
-            `hoofdcompetentie${++teller}`,
-            result.beschrijving,
-            [],
-            this.richting.icon,
-            this.richting.kleur,
-            Modules.module1));
+        `hoofdcompetentie${++teller}`,
+        result.beschrijving,
+        [],
+        this.richting.icon,
+        this.richting.kleur,
+        Modules.module1));
     });
   }
-
-  private verwijderDubbels(oudeLijstCompetenties: Hoofdcompetentie[], nieuweLijstCompetenties: Hoofdcompetentie[]): Hoofdcompetentie[] {
-    const newList = new Array<Hoofdcompetentie>();
-    oudeLijstCompetenties.forEach(oud => {
-      nieuweLijstCompetenties.forEach(nieuw => {
-        if (oud === nieuw) {
-          newList.push(oud);
-        }
-      });
-    });
-    return newList;
-  }
-
 }

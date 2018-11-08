@@ -1,8 +1,8 @@
-import { CompetentieDescriptionFilterPipe } from './competentie-description-filter.pipe';
+import { CompetentieFilterPipe } from './competentie-description-filter.pipe';
 
-describe('CompetentieDescriptionFilterPipe', () => {
+describe('CompetentieFilterPipe', () => {
   it('create an instance', () => {
-    const pipe = new CompetentieDescriptionFilterPipe();
+    const pipe = new CompetentieFilterPipe();
     expect(pipe).toBeTruthy();
   });
 });

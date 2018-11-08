@@ -80,6 +80,11 @@
     display: flex;
 }
 
+.createbutton{
+    background-color: #3f51b5
+}
+
+
 @media (max-width:576px){
     .richting-details {
         border-right: 0;

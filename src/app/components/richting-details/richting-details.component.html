@@ -1,12 +1,12 @@
 <div class="richting-details">
-  <div class="icon outer {{richting.kleur}}">
+  <div class="icon outer {{kleur}}">
     <div class="inner">
-      <i class="fas fa-{{richting.icon}} x2"></i>
+      <i class="fas fa-{{icon}} x2"></i>
     </div>
   </div>
   <form class="richtingNaamForm">
     <mat-form-field class="half paddingRight">
-      <mat-select placeholder="Icon" [(value)]="richting.icon" class="selectLeerkracht">
+      <mat-select placeholder="Icon" [(value)]="icon" class="selectLeerkracht">
           <mat-option>---</mat-option>
           <mat-option *ngFor="let icon of icons" [value]="icon">
               <i class="fas fa-{{icon}} x1"></i>&nbsp;&nbsp;{{icon}}
@@ -14,7 +14,7 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field class="half paddingLeft">
-        <mat-select placeholder="Kleur" [(value)]="richting.kleur" class="selectLeerkracht">
+        <mat-select placeholder="Kleur" [(value)]="kleur" class="selectLeerkracht">
             <mat-option>---</mat-option>
             <mat-option *ngFor="let kleur of kleuren" [value]="kleur">
               {{kleur}}
@@ -22,12 +22,12 @@
           </mat-select>
       </mat-form-field>
     <mat-form-field class="input">
-      <input matInput placeholder="Naam van de richting" value="{{richting.naam}}">
+      <input matInput placeholder="Naam van de richting" value="{{naam}}">
     </mat-form-field>
   </form>
   <mat-list class="scrollDiv">
     <h2 mat-subheader>Leerkrachten</h2>
-    <div *ngFor='let leerkracht of richting.leerkrachten; let i = index;' class="leerkrachtDiv">
+    <div *ngFor='let leerkracht of leerkrachten; let i = index;' class="leerkrachtDiv">
       <mat-list-item role="listitem" class="listitem">
         <i class="fas fa-genderless"></i>
         &nbsp;&nbsp;&nbsp;&nbsp;{{leerkracht.voornaam}} {{leerkracht.achternaam}}
@@ -52,5 +52,10 @@
         <i class="fas fa-plus-circle"></i>
       </button>
     </div>
+  </div>
+  <div *ngIf="new">
+    <button mat-button class="full createbutton white">
+      <i class="fas fa-scholar"></i> Create
+    </button>
   </div>
 </div>

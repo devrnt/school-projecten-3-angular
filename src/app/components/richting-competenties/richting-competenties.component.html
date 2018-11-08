@@ -13,8 +13,8 @@
       </mat-form-field>
       <mat-form-field class="moduleSelect half">
         <mat-select placeholder="Filter op module" [(value)]="selected" (ng-model)="module">
-          <mat-option (onSelectionChange)='filterHoofdcompetentieModule$.next($event.source.value)'>---</mat-option>
-          <mat-option *ngFor="let module of modules" [value]="module" (onSelectionChange)='filterHoofdcompetentieModule$.next($event.source.value)'>{{module}}</mat-option>
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let module of modules" [value]="module">{{module}}</mat-option>
         </mat-select>
       </mat-form-field>
     </form>

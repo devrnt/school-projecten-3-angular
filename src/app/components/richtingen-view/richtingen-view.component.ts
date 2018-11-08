@@ -20,8 +20,6 @@ export class RichtingenViewComponent implements OnInit {
   public numberOfColumns: number;
   public columns: Richting[][];
 
-  @Output() edit = new EventEmitter<Richting>();
-
   constructor(private _richtingService: RichtingService, private _filter: RichtingFilterPipe) {
     this._richtingen = this._richtingService.richtingen;
     this._richtingenFiltered = this.richtingen;
@@ -79,7 +77,7 @@ export class RichtingenViewComponent implements OnInit {
   }
 
   public editRichting(richting: Richting) {
-    this.edit.emit(richting);
+    this._richtingService.geselecteerdeRichting = richting;
   }
 
   public verwijderRichting(richting: Richting) {
