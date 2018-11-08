@@ -78,6 +78,7 @@ ul{
 .sliderbuttons{
     border: 0px;
     padding: 0.5rem;
+    min-width: 0px !important;
 }
 
 .sliderbuttons2{
