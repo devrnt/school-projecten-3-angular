@@ -7,6 +7,7 @@ import { Leerling } from 'src/app/models/leerling.model';
 export class LeerlingRichtingFilterPipe implements PipeTransform {
 
   transform(leerlingen: Leerling[], filterRichting: string): Leerling[] {
+    console.log(filterRichting);
     if (!filterRichting || filterRichting.length === 0 || filterRichting === '---')  {
       return leerlingen;
     }

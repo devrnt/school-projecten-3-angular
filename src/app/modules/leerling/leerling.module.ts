@@ -20,7 +20,6 @@ import {
   MatRadioModule,
   MatCheckboxModule
 } from '@angular/material';
-import { LeerlingNaamFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LeerlingConfirmDeleteComponent } from 'src/app/components/leerling/leerling-confirm-delete/leerling-confirm-delete.component';
 import { LeerlingHoofdschermComponent } from 'src/app/components/leerling-hoofdscherm/leerling-hoofdscherm.component';
@@ -33,6 +32,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LeerlingCompetentiesToekennenComponent } from 'src/app/components/leerling-competenties-toekennen/leerling-competenties-toekennen.component';
 // tslint:disable-next-line:max-line-length
 import { LeerlingCompetentiesToekennenSchermComponent } from 'src/app/components/leerling-competenties-toekennen-scherm/leerling-competenties-toekennen-scherm.component';
+import { LeerlingFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 
 @NgModule({
   imports: [
@@ -78,7 +78,7 @@ import { LeerlingCompetentiesToekennenSchermComponent } from 'src/app/components
     LeerlingCompetentiesToekennenComponent,
     LeerlingCompetentiesToekennenSchermComponent
   ],
-  providers: [LeerlingService, LeerlingNaamFilterPipe, LeerlingRichtingFilterPipe],
+  providers: [LeerlingService, LeerlingFilterPipe],
   entryComponents: [LeerlingConfirmDeleteComponent]
 })
 export class LeerlingModule {}

@@ -16,7 +16,8 @@ export class LeerlingService {
   constructor(
     private _http: HttpClient,
     private _richtingService: RichtingService,
-    private _competentieService: CompetentieService) {
+    private _competentieService: CompetentieService
+  ) {
 
     const informatica = _richtingService.richtingen[0];
     const haarzorg = _richtingService.richtingen[1];

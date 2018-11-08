@@ -7,12 +7,14 @@ export class User {
   private _type: UserTypeBehaviour; // strategy pattern waarschijnlijk gebruiken hier
 
   constructor(
+    id: number,
     voornaam: string,
     achternaam: string,
     email: string,
     passwoord: string,
     type: UserType
   ) {
+    this._id = id;
     this._voornaam = voornaam;
     this._achternaam = achternaam;
     this._email = email;

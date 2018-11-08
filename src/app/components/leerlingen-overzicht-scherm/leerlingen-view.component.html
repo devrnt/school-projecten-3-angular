@@ -11,9 +11,8 @@
             id="filter" name="filter">
         </mat-form-field>
         <mat-form-field class="col-5 noMargingPaddingLeft">
-          <mat-select placeholder="Richting" [formControl]="richtingForm">
-            <mat-option (onSelectionChange)='filterRichtingLeerling$.next($event.source.value)'>---</mat-option>
-            <mat-option *ngFor="let richting of richtingen" (onSelectionChange)='filterRichtingLeerling$.next($event.source.value)'
+          <mat-select multiple placeholder="Richting" [formControl]="richtingForm" [(value)]="richtingFilterValue">
+            <mat-option *ngFor="let richting of richtingen"
               [value]="richting">{{richting}}</mat-option>
           </mat-select>
         </mat-form-field>

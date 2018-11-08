@@ -13,7 +13,6 @@ import { Subject } from 'rxjs';
 export class RichtingDetailsComponent implements OnInit {
 
   @Input() public new: boolean;
-  public alleLeerkrachten: User[];
   public kleuren: Kleur[];
   public icons: Icon[];
   @Input() public richting: Richting;
@@ -58,6 +57,10 @@ export class RichtingDetailsComponent implements OnInit {
     return this.richting ? this.richting.leerkrachten : [];
   }
 
+  public get alleLeerkrachten(): User[] {
+    return this._leerkrachtService.leerkachten;
+  }
+
 
   ngOnInit() {
     if (this.new) {
@@ -70,8 +73,10 @@ export class RichtingDetailsComponent implements OnInit {
   }
 
   addLeerkracht(leerkracht: User) {
-    this.richting.leerkrachten.push(leerkracht);
-    this.saveChanges();
+    if (this.richting.leerkrachten.every(l => l.id !== leerkracht.id)) {
+      this.richting.leerkrachten.push(leerkracht);
+      this.saveChanges();
+    }
   }
 
   deleteLeerkracht(i: number) {

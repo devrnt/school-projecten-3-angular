@@ -4,7 +4,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 import { Richting } from 'src/app/models/richting';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 import { Leerling } from 'src/app/models/leerling.model';
-import { LeerlingNaamFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
+import { LeerlingFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe';
 import { FormControl } from '@angular/forms';
 import { LeerlingRichtingFilterPipe } from 'src/app/pipes/leerling/leerling-richting-filter.pipe';
 
@@ -32,8 +32,8 @@ export class LeerlingenViewComponent implements OnInit {
 
   constructor(
     private _leerlingService: LeerlingService,
-    private _filterNaam: LeerlingNaamFilterPipe,
-    private _filterRichting: LeerlingRichtingFilterPipe) {
+    private _filterNaam: LeerlingFilterPipe
+  ) {
       this._leerlingen = this._leerlingService.leerlingen;
       console.log(this._leerlingen);
       this.richtingen = this._leerlingen.map(l => l.richting.naam).filter((elem, pos, arr) => {
@@ -41,30 +41,18 @@ export class LeerlingenViewComponent implements OnInit {
       });
       // console.log(this._leerlingen);
       this._leerlingenFiltered = this._leerlingen;
-      this._leerlingenOpNaamGefilterd = this._leerlingen;
-      this._leerlingenOpRichtingGefilterd = this._leerlingen;
       this.filterNaamLeerling$
         .pipe(
           distinctUntilChanged()
         )
         .subscribe(naam => {
-          console.log('Hier werkt da wel zeker?', naam);
           this.filterLeerlingenNaam = naam;
-          this._leerlingenOpNaamGefilterd = this._filterNaam.transform(this._leerlingen, this.filterLeerlingenNaam);
+          this._leerlingenFiltered =
+          this._filterNaam.transform(this._leerlingen, this.filterLeerlingenNaam, this.filterLeerlingenRichting);
+          console.log(this._leerlingenFiltered);
           this.orderItems();
         });
 
-      this.filterRichtingLeerling$
-        .pipe(
-          distinctUntilChanged()
-        )
-        .subscribe(richting => {
-          console.log('het zou hier moeten komen dan: ', richting);
-          this.filterLeerlingenRichting = richting;
-          this._leerlingenOpRichtingGefilterd = this._filterRichting.transform(this._leerlingen, this.filterLeerlingenRichting);
-          console.log(this._leerlingenOpRichtingGefilterd);
-          this.orderItems();
-        });
       this.numberOfColumns = 1;
       this.columns = [[], [], [], []];
       this.orderItems();
@@ -73,20 +61,6 @@ export class LeerlingenViewComponent implements OnInit {
 
   public get leerlingen() {
     return this._leerlingen;
-  }
-
-  private verwijderDubbels(oudeLijstLeerlingen: Leerling[], nieuweLijstLeerlingen: Leerling[]): Leerling[] {
-    const newList = new Array<Leerling>();
-    oudeLijstLeerlingen.forEach(oud => {
-      nieuweLijstLeerlingen.forEach(nieuw => {
-        if (oud === nieuw) {
-          newList.push(oud);
-        }
-      });
-    });
-
-    return newList;
-
   }
 
   @HostListener('window:resize', ['$event'])
@@ -119,7 +93,6 @@ export class LeerlingenViewComponent implements OnInit {
 
     // divides richtingen between the columns
     this.columns = [[], [], [], []];
-    this._leerlingenFiltered = this.verwijderDubbels(this._leerlingenOpNaamGefilterd, this._leerlingenOpRichtingGefilterd);
     for (let index = 0; index < this._leerlingenFiltered.length; index++) {
       this.columns[index % this.numberOfColumns].push(this._leerlingenFiltered[index]);
     }

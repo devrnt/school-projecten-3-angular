@@ -6,11 +6,11 @@ export class LeerkrachtService {
   private _leerkachten: User[];
   constructor() {
     this._leerkachten = [
-      new User('Tom', 'De Barman', 'tom@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
-      new User('An', 'De Temmerman', 'an@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
-      new User('Felix', 'Steels', 'felix@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
-      new User('Jan', 'De Meester', 'jan.demeester@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
-      new User('Sofie', 'De Juf', 'jan.dejuf@gmail.com', 'WACHTWOORD2', UserType.Leerkracht)
+      new User(1, 'Tom', 'De Barman', 'tom@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
+      new User(2, 'An', 'De Temmerman', 'an@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
+      new User(3, 'Felix', 'Steels', 'felix@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
+      new User(4, 'Jan', 'De Meester', 'jan.demeester@gmail.com', 'WACHTWOORD', UserType.Leerkracht),
+      new User(6, 'Sofie', 'De Juf', 'jan.dejuf@gmail.com', 'WACHTWOORD2', UserType.Leerkracht)
     ];
   }
 
