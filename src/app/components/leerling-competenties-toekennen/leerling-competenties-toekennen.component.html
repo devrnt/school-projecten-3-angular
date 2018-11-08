@@ -4,17 +4,17 @@
     <td mat-cell *matCellDef="let hoofdcompetentie">{{hoofdcompetentie.description}}</td>
   </ng-container>
   <ng-container matColumnDef='Beoordeling'>
-    <th mat-header-cell *matHeaderCellDef>Beoordeling</th>
+    <th mat-header-cell *matHeaderCellDef>Beoordeling (O, V, G, ZG, N/A)</th>
     <td mat-cell *matCellDef="let hoofdcompetentie">
-      <mat-radio-group class="">
-        <mat-radio-button *ngFor="let keuze of keuzesBeoordeling" [value]="keuze" (change)="hoofdcompetentieBeoordelen($event, hoofdcompetentie)">{{keuze}}</mat-radio-button>
+      <mat-radio-group class="radioButtonLabelBeneden">
+        <mat-radio-button class="radioButtonLabelBeneden" *ngFor="let keuze of keuzesBeoordeling" [value]="keuze" (change)="hoofdcompetentieBeoordelen($event, hoofdcompetentie)"></mat-radio-button>
       </mat-radio-group>
     </td>
   </ng-container>
   <ng-container matColumnDef='Behaald'>
     <th mat-header-cell *matHeaderCellDef>Behaald</th>
     <td mat-cell *matCellDef="let hoofdcompetentie">
-      <mat-checkbox (change)="behaalHoofdcompetentie($event, hoofdcompetentie)">Behaald</mat-checkbox>
+      <mat-checkbox (change)="behaalHoofdcompetentie($event, hoofdcompetentie)"></mat-checkbox>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

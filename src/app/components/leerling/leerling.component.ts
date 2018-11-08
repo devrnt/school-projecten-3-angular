@@ -14,7 +14,6 @@ export class LeerlingComponent implements OnInit {
   @Input() public leerling: Leerling;
   @Input() public isOpen: boolean;
   @Output() public verwijder = new EventEmitter<Leerling>();
-  @Output() public edit = new EventEmitter<Leerling>();
   @Output() public toekennenCompetenties = new EventEmitter<Leerling>();
 
   public hover: boolean;
@@ -35,10 +34,6 @@ export class LeerlingComponent implements OnInit {
 
   public animationdone(): boolean {
     return waitfor1s();
-  }
-
-  public editRichting() {
-    this.edit.emit(this.leerling);
   }
 
   public kenCompetentiesToe() {
