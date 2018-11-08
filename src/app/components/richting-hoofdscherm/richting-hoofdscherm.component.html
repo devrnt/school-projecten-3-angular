@@ -2,7 +2,7 @@
   <mat-tab label="Overzicht">
     <app-richting-overzicht-scherm (edit)="editRichting($event)"></app-richting-overzicht-scherm>
   </mat-tab>
-  <mat-tab label="Aanpassen">
+  <mat-tab label="Aanpassen" *ngIf="selectedRichting">
     <app-richting-scherm [richting]="selectedRichting"></app-richting-scherm>
   </mat-tab>
   <mat-tab label="Nieuw">

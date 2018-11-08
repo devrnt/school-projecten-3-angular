@@ -30,14 +30,14 @@
             Werkgever: {{leerling.werkgever?.naam||"Geen"}}
           </li>
     </ul>
-    <div class="sliderbuttons2">
-      <button cdkFocusInitial mat-button type="button" class="sliderbuttons" (verwijder)="verwijderRichting($event)">
+    <div class="sliderbuttons2 full">
+      <button cdkFocusInitial mat-button type="button" class="third sliderbuttons" (verwijder)="verwijderRichting($event)">
           <i class="deleteIcon fas fa-trash-alt f-red"></i>
       </button>
-      <button cdkFocusInitial mat-button type="button" class="sliderbuttons" (click)="kenCompetentiesToe()">
+      <button cdkFocusInitial mat-button type="button" class="third sliderbuttons" (click)="kenCompetentiesToe()">
         <i class="deleteIcon fas fa-clipboard-list"></i>
       </button>
-      <button mat-button type="button" class="sliderbuttons divider" (click)="editRichting()">
+      <button mat-button type="button" class="third sliderbuttons divider" (click)="editRichting()">
           <i class="deleteIcon fas fa-pen f-black"></i>
       </button>
       </div>

@@ -2,10 +2,10 @@
   <mat-tab label="Overzicht">
     <app-leerlingen-view (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerlingen-view>
   </mat-tab>
-  <mat-tab label="Toekennen competenties">
+  <mat-tab label="Toekennen competenties" *ngIf="selectedLeerling">
       <app-leerling-competenties-toekennen-scherm [leerling]="selectedLeerling"></app-leerling-competenties-toekennen-scherm>
   </mat-tab>
-  <mat-tab label="Aanpassen">
+  <mat-tab label="Aanpassen" *ngIf="selectedLeerling">
     <app-leerling-scherm [leerling]="selectedLeerling"></app-leerling-scherm>
   </mat-tab>
   <mat-tab label="Nieuw">
