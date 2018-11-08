@@ -10,8 +10,9 @@ export class LeerlingDeelcompetentie {
   private _beoordeling: Beoordeling;
   private _deelcompetentie: Deelcompetentie;
 
-  constructor(id: number) {
+  constructor(id: number, deelcomp: Deelcompetentie) {
     this._id = id;
+    this._deelcompetentie = deelcomp;
     this._beoordeling = Beoordeling['N/A'];
     this._behaald = false;
   }

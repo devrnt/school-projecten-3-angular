@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { CompetentieService } from './competentie.service';
 import { map } from 'rxjs/operators';
 import { LeerlingHoofdcompetentie } from '../models/leerling-hoofdcompetentie.model';
+import { LeerlingDeelcompetentie } from '../models/leerling-deelcompetentie.model';
 
 @Injectable()
 export class LeerlingService {
@@ -41,9 +42,10 @@ export class LeerlingService {
     leerling2.competenties = [];
     leerling2.projecten = [];
     // tslint:disable-next-line:max-line-length
-    leerling2.behaaldeHoofdcompetenties.push(new LeerlingHoofdcompetentie(321));
-    leerling2.behaaldeHoofdcompetenties.find(bc => bc.id === 321).hoofdcompetentie =
-      this._competentieService.hoofdcompetenties.find(hc => hc.description.includes('werkpost'));
+    leerling2.behaaldeHoofdcompetenties.push(new LeerlingHoofdcompetentie(1, this._competentieService.hoofdcompetenties.find(hc => hc.description.includes('werkpost'))));
+    // tslint:disable-next-line:max-line-length
+    leerling2.behaaldeHoofdcompetenties.find(bh => bh.id === 1).leerlingDeelcompetenties = [new LeerlingDeelcompetentie(1, this._competentieService.hoofdcompetenties.find(hc => hc.description.includes('werkpost')).deelcompetenties.find(dc => dc.description.includes(' ')))];
+
 
     const leerling3 = new Leerling('abc789');
     leerling3.voornaam = 'Renata';
@@ -54,9 +56,8 @@ export class LeerlingService {
     leerling3.geboortedatum = new Date(1997, 3, 3);
     leerling3.competenties = this._competentieService.hoofdcompetenties;
     leerling3.projecten = [];
-    leerling3.behaaldeHoofdcompetenties.push(new LeerlingHoofdcompetentie(322));
-    leerling3.behaaldeHoofdcompetenties.find(bc => bc.id === 322).hoofdcompetentie =
-      this._competentieService.hoofdcompetenties.find(hc => hc.description.includes('werkpost'));
+    // tslint:disable-next-line:max-line-length
+    leerling3.behaaldeHoofdcompetenties.push(new LeerlingHoofdcompetentie(2, this._competentieService.hoofdcompetenties.find(hc => hc.description.includes('werkpost'))));
 
     const leerling4 = new Leerling('def123');
     leerling4.voornaam = 'Oceana';

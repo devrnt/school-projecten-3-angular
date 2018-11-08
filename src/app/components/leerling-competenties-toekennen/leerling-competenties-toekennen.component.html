@@ -1,22 +1,40 @@
-<table mat-table [dataSource]="dataSource.data" class="mat-elevation-z8">
-  <ng-container matColumnDef="Hoofdcompetentie">
+<table mat-table [dataSource]="dataSource.data" multiTemplateDataRows>
+  <ng-container matColumnDef="Hoofdcompetentie" class="hoofdcompetentieKolom">
     <th mat-header-cell *matHeaderCellDef>Hoofdcompetentie</th>
-    <td mat-cell *matCellDef="let hoofdcompetentie">{{hoofdcompetentie.description}}</td>
+    <td mat-cell *matCellDef="let hoofdcompetentie" class="hoofdcompetentieKolomCell">{{hoofdcompetentie.hoofdcompetentie.description}}</td>
   </ng-container>
-  <ng-container matColumnDef='Beoordeling'>
-    <th mat-header-cell *matHeaderCellDef>Beoordeling (O, V, G, ZG, N/A)</th>
-    <td mat-cell *matCellDef="let hoofdcompetentie">
+  <ng-container matColumnDef='Beoordeling' class="beoordelingKolom">
+    <th mat-header-cell *matHeaderCellDef class="beoordelingKolomHeader">Beoordeling<br>(O - V - G - ZG - N/A)</th>
+    <td mat-cell *matCellDef="let hoofdcompetentie" class="beoordelingKolomCell">
       <mat-radio-group class="radioButtonLabelBeneden">
         <mat-radio-button class="radioButtonLabelBeneden" *ngFor="let keuze of keuzesBeoordeling" [value]="keuze" (change)="hoofdcompetentieBeoordelen($event, hoofdcompetentie)"></mat-radio-button>
       </mat-radio-group>
     </td>
   </ng-container>
-  <ng-container matColumnDef='Behaald'>
-    <th mat-header-cell *matHeaderCellDef>Behaald</th>
-    <td mat-cell *matCellDef="let hoofdcompetentie">
+  <ng-container matColumnDef='Behaald' class="behaaldKolom">
+    <th mat-header-cell *matHeaderCellDef class="behaaldKolomHeader">Behaald</th>
+    <td mat-cell *matCellDef="let hoofdcompetentie" class="behaaldKolomCell">
       <mat-checkbox (change)="behaalHoofdcompetentie($event, hoofdcompetentie)"></mat-checkbox>
     </td>
   </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row;columns: displayedColumns;"></tr>
+
+  <ng-container matColumnDef="Deelcompetentie">
+    <td mat-cell *matCellDef="let deelcompetentie" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail" [@detailExpand]="deelcompetentie == expandedElement ? 'expanded' : 'collapsed'">
+        <div *ngFor='let deelcomp of behaaldeLeerlingDeelcompetenties'>
+          <div>
+            {{deelcomp.description}}
+          </div>
+          <!-- <mat-radio-group class="radioButtonLabelBeneden">
+            <mat-radio-button class="radioButtonLabelBeneden" *ngFor="let keuze of keuzesBeoordeling" [value]="keuze" (change)="deelcompetentieBeoordelen($event, deelcompetentie)"></mat-radio-button>
+          </mat-radio-group> -->
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <!-- <tr mat-row *matRowDef="let row;columns: columnsToDisplay;" class="hoofdcompetentie-row" ></tr> -->
+  <tr mat-row *matRowDef="let row;columns: columnsToDisplay;" class="hoofdcompetentie-row" [class.example-expanded-row]="expandedElement === row" (click)="klapHoofdcompetentieOpen(row)"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['Deelcompetentie']" class="example-detail-row"></tr>
 </table>
