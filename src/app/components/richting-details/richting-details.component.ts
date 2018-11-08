@@ -42,12 +42,12 @@ export class RichtingDetailsComponent implements OnInit {
 
   public set icon(val: Icon) {
     this.richting.icon = val;
-    this._richtingService.geselecteerdeNieuweRichting = this.richting;
+    this.saveChanges();
   }
 
   public set kleur(val: Kleur) {
     this.richting.kleur = val;
-    this._richtingService.geselecteerdeNieuweRichting = this.richting;
+    this.saveChanges();
   }
 
   public get naam(): string {
@@ -71,12 +71,20 @@ export class RichtingDetailsComponent implements OnInit {
 
   addLeerkracht(leerkracht: User) {
     this.richting.leerkrachten.push(leerkracht);
-    this._richtingService.geselecteerdeNieuweRichting = this.richting;
+    this.saveChanges();
   }
 
   deleteLeerkracht(i: number) {
     this.richting.leerkrachten.splice(i, 1);
-    this._richtingService.geselecteerdeNieuweRichting = this.richting;
+    this.saveChanges();
+  }
+
+  public saveChanges() {
+    if (this.new) {
+      this._richtingService.geselecteerdeNieuweRichting = this.richting;
+    } else {
+      this._richtingService.geselecteerdeRichting = this.richting;
+    }
   }
 
 }
