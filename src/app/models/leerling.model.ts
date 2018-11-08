@@ -199,10 +199,7 @@ export class Leerling {
     leerling._geboorteDatum = json.geboorteDatum;
     leerling._intresses = json.intresses;
     leerling._richting = new Richting(json.richting.id).naam = json.richting.naam;
-    json.competenties.map( c => {
-      // to do
-    });
-    leerling._competenties = [];
+    leerling._competenties = json.competenties.map(c => LeerlingHoofdcompetentie.fromJSON(c)) || [];
     return leerling;
   }
 
