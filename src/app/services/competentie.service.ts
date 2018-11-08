@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class CompetentieService {
 
   private _hoofdcompetenties: Hoofdcompetentie[];
+  private _behaaldeHoofdcompetenties: Hoofdcompetentie[];
 
   constructor(
     private _http: HttpClient
@@ -59,35 +60,43 @@ export class CompetentieService {
       new Deelcompetentie('deelcompetentie3', 'Werkt het kapsel bij indien nodig')
     ];
 
+    const hoofdcompetentie1 = new Hoofdcompetentie(
+      'hoofdcompetentie1',
+      'Ruimt de werkpost op en maakt hem schoon',
+      deelcompetenties1,
+      Icon.scissors,
+      Kleur.red,
+      Modules.module1);
+
+    const hoofdcompetentie2 = new Hoofdcompetentie(
+      'hoofdcompetentie2',
+      'Neemt deel aan de organisatie van het kapsalon',
+      deelcompetenties2,
+      Icon.scissors,
+      Kleur.red,
+      Modules.module1);
+
+    const hoofdcompetentie3 = new Hoofdcompetentie(
+      'hoofdcompetentie3',
+      'Bereidt de werkpost voor',
+      deelcompetenties3,
+      Icon.scissors,
+      Kleur.red,
+      Modules.module1);
+
+    const hoofdcompetentie4 = new Hoofdcompetentie(
+      'hoofdcompetentie4',
+      'Bereidt voor op de toe te passen technieken',
+      deelcompetenties4,
+      Icon.scissors,
+      Kleur.red,
+      Modules.module2);
+
     this._hoofdcompetenties = [
-      new Hoofdcompetentie(
-          'hoofdcompetentie1',
-          'Ruimt de werkpost op en maakt hem schoon',
-          deelcompetenties1,
-          Icon.scissors,
-          Kleur.red,
-          Modules.module1),
-      new Hoofdcompetentie(
-          'hoofdcompetentie2',
-          'Neemt deel aan de organisatie van het kapsalon',
-          deelcompetenties2,
-          Icon.scissors,
-          Kleur.red,
-          Modules.module1),
-      new Hoofdcompetentie(
-          'hoofdcompetentie3',
-          'Bereidt de werkpost voor',
-          deelcompetenties3,
-          Icon.scissors,
-          Kleur.red,
-          Modules.module1),
-      new Hoofdcompetentie(
-          'hoofdcompetentie4',
-          'Bereidt voor op de toe te passen technieken',
-          deelcompetenties4,
-          Icon.scissors,
-          Kleur.red,
-          Modules.module2),
+      hoofdcompetentie1,
+      hoofdcompetentie2,
+      hoofdcompetentie3,
+      hoofdcompetentie4,
       new Hoofdcompetentie(
           'hoofdcompetentie5',
           'Adviseert de klant',
@@ -102,10 +111,20 @@ export class CompetentieService {
           Kleur.red,
           Modules.module3)
     ];
+
+    this._behaaldeHoofdcompetenties = [
+      hoofdcompetentie1,
+      hoofdcompetentie2,
+      // hoofdcompetentie3,
+      // hoofdcompetentie4
+    ];
   }
 
-  public  get hoofdcompetenties(): Hoofdcompetentie[] {
+  public get hoofdcompetenties(): Hoofdcompetentie[] {
     return this._hoofdcompetenties;
   }
 
+  public get behaaldeHoofdcompetenties(): Hoofdcompetentie[] {
+    return this._behaaldeHoofdcompetenties;
+  }
 }

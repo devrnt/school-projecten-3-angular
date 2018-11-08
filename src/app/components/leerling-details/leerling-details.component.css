@@ -1,0 +1,26 @@
+.leerling-details {
+    padding: 0 15px;
+}
+
+.icon {
+    display: grid;
+    text-align: center;
+    align-content: center;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px auto;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.input {
+    width: 100%;
+}
+
+.geslachtButtons {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+

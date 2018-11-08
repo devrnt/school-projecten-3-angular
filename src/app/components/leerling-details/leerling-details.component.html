@@ -1,0 +1,40 @@
+<div class="leerling-details">
+  <img class="icon fas fa-{{leerling.icon}} {{leerling.richting.kleur}} x2" src="../../../assets/images/{{leerling.geslacht}}.png">
+  <form class="richtingNaamForm">
+
+    <div class="geslachtButtons">
+      <mat-button-toggle-group [(value)]="leerling.geslacht">
+        <mat-button-toggle value="boy">
+          <i class="fas fa-mars"></i>
+        </mat-button-toggle>
+        <mat-button-toggle value="girl">
+            <i class="fas fa-venus"></i>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <mat-form-field class="input">
+      <input matInput placeholder="Voornaam" [(value)]="leerling.voornaam">
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Achternaam" value="{{leerling.achternaam}}">
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Email" value="{{leerling.email}}">
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput [matDatepicker]="picker"
+      [value]="leerling.geboortedatum" placeholder="Geboortedatum">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-select placeholder="Richting" [(value)]="leerling.richting">
+        <mat-option>---</mat-option>
+        <mat-option *ngFor="let richting of alleRichtingen" [value]="richting">
+          {{richting.naam}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>

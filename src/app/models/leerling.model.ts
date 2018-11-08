@@ -9,12 +9,19 @@ export class Leerling {
   private _achternaam: string;
   private _competenties: Hoofdcompetentie[];
   private _email: string;
+  private _geboortedatum: Date;
   private _richting: Richting;
   private _projecten: Hoofdcompetentie[];
   private _geslacht: Geslacht;
   private _stage: User;
   private _werkgever: User;
   private _intresses: string;
+  private _behaaldeHoofdcompetenties: LeerlingHoofdcompetentie[];
+
+  constructor(id: string) {
+    this._id = id;
+    this.behaaldeHoofdcompetenties = [];
+  }
 
   /**
    * Getter intresses
@@ -33,9 +40,6 @@ export class Leerling {
   }
   private _geboorteDatum: Date;
 
-  constructor(id: string) {
-    this._id = id;
-  }
   /**
    * Getter voornaam
    * @return {string}
@@ -77,6 +81,14 @@ export class Leerling {
   }
 
   /**
+   * Getter geboortedatum
+   * @return {Date}
+   */
+  public get geboortedatum(): Date {
+    return this._geboortedatum;
+  }
+
+  /**
    * Getter richting
    * @return {Richting}
    */
@@ -86,7 +98,7 @@ export class Leerling {
 
   /**
    * Getter projecten
-   * @return {Activiteit[]}
+   * @return {Hoofdcompetentie[]}
    */
   public get projecten(): Hoofdcompetentie[] {
     return this._projecten;
@@ -114,6 +126,14 @@ export class Leerling {
    */
   public get werkgever(): User {
     return this._werkgever;
+  }
+
+  /**
+   * Getter behaaldeHoofdcompetenties
+   * @return {LeerlingHoofdcompetentie[]}
+   */
+  public get behaaldeHoofdcompetenties(): LeerlingHoofdcompetentie[] {
+    return this._behaaldeHoofdcompetenties;
   }
 
   /**
@@ -146,6 +166,14 @@ export class Leerling {
    */
   public set email(value: string) {
     this._email = value;
+  }
+
+  /**
+   * Setter email
+   * @param {Date} value
+   */
+  public set geboortedatum(value: Date) {
+    this._geboortedatum = value;
   }
 
   /**
@@ -186,6 +214,14 @@ export class Leerling {
    */
   public set werkgever(value: User) {
     this._werkgever = value;
+  }
+
+  /**
+   * Setter behaaldeHoofdcompetenties
+   * @param {LeerlingHoofdcompetentie[]} value
+   */
+  public set behaaldeHoofdcompetenties(value: LeerlingHoofdcompetentie[]) {
+    this._behaaldeHoofdcompetenties = value;
   }
 
   public static fromJSON(json: any): Leerling {

@@ -1,0 +1,80 @@
+.containerDing {
+    flex: 1;
+    padding: 0 15px;
+    height: 100%;
+    /* border: 1px solid lightgray; */
+}
+
+.headerContainer {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1em;
+    /* margin: 0.7em 0.7em 0 0.7em; */
+}
+
+.competentiesHeader {
+    flex: 0;
+    font-family: "roboto";
+    font-weight: 300;
+    font-size: 1.7em;
+    padding: 0 1em 0 0;
+}
+
+.competentiesContainer {
+    height: calc(100% - 100px);
+    overflow: auto;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.competentieNaamFilter {
+    flex: 1;
+    min-width: 0;
+}
+
+.competentiePadding{
+    padding-bottom: 1rem;
+}
+
+.addCompetentieButton{
+    height: 86px;
+    margin-bottom: 1rem;
+    padding: initial;
+    box-shadow: 0 4px 8px 0 rgba(234, 233, 233, 0.01), 0 6px 20px 0 rgb(228, 228, 228);
+    text-align: center;
+    display: table-cell;
+    border: 0px;
+    vertical-align: middle;
+}
+
+.filterInput {
+    width: 100%;
+    min-width: 0;
+}
+
+.filterInputField {
+    min-width: 0;
+}
+
+.moduleSelect {
+    flex: 0;
+    padding-left: 1em;
+}
+
+@media (max-width:992px){
+    .headerContainer {
+        flex-wrap: wrap;
+    }
+    .competentiesHeader {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    .competentieNaamFilter {
+        width: 50%;
+        min-width: 50%;
+    }
+    .moduleSelect {
+        width: 50%;
+        min-width: 50%;
+    }
+  }

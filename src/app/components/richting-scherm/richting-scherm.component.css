@@ -23,22 +23,3 @@
 .richtingCompetenties {
     border-left: 1px solid lightgray;
 }
-
-/* QUICK FIX OM ALLES CENTERED TE HOUDEN */
-.empty {
-    visibility: hidden;
-}
-
-.buttonContainer {
-    flex: 0;
-    display: flex;
-    justify-content: space-around;
-
-    margin-top: 30px;
-}
-
-.mat-stroked-button {
-    height: 60px;
-    width: 180px;
-    font-size: 20px;
-}
