@@ -1,5 +1,13 @@
 table {
     width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(234, 233, 233, 0.01), 0 6px 20px 0 rgb(228, 228, 228);
+    font-family: Raleway;
+}
+
+.hoofdcompetentie-header, thead {
+    background-color: lightgrey;
+    font-weight: bold;
 }
 
 .hoofdcompetentieKolom {
@@ -34,4 +42,5 @@ tr.hoofdcompetentie-row:not(.example-expanded-row):active {
 
 .deelcompetentiesContainer {
     padding: 25px;
+    width: 100%;
 }
