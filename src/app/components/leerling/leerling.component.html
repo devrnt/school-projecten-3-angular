@@ -31,7 +31,7 @@
           </li>
     </ul>
     <div class="sliderbuttons2 full">
-      <button cdkFocusInitial mat-button type="button" class="half sliderbuttons" (verwijder)="verwijderRichting($event)">
+      <button cdkFocusInitial mat-button type="button" class="half sliderbuttons" (click)="openDialog()" (verwijder)="verwijderRichting($event)">
           <i class="deleteIcon fas fa-trash-alt f-red"></i>
       </button>
       <button cdkFocusInitial mat-button type="button" class="half sliderbuttons divider" (click)="kenCompetentiesToe()">

@@ -14,8 +14,8 @@ import { LeerlingRichtingFilterPipe } from 'src/app/pipes/leerling/leerling-rich
   styleUrls: ['./leerlingen-view.component.css']
 })
 export class LeerlingenViewComponent implements OnInit {
-  public filterLeerlingenNaam: string;
-  public filterLeerlingenRichting: string;
+  private _naamFilterValue: string;
+  private _richtingFilterValue: string[] = [];
   public filterNaamLeerling$ = new Subject<string>();
   public filterRichtingLeerling$ = new Subject<string>();
   private _leerlingen:  Leerling[];
@@ -32,10 +32,9 @@ export class LeerlingenViewComponent implements OnInit {
 
   constructor(
     private _leerlingService: LeerlingService,
-    private _filterNaam: LeerlingFilterPipe
+    private _filter: LeerlingFilterPipe
   ) {
       this._leerlingen = this._leerlingService.leerlingen;
-      console.log(this._leerlingen);
       this.richtingen = this._leerlingen.map(l => l.richting.naam).filter((elem, pos, arr) => {
         return arr.indexOf(elem) === pos;
       });
@@ -46,10 +45,9 @@ export class LeerlingenViewComponent implements OnInit {
           distinctUntilChanged()
         )
         .subscribe(naam => {
-          this.filterLeerlingenNaam = naam;
+          this._naamFilterValue = naam;
           this._leerlingenFiltered =
-          this._filterNaam.transform(this._leerlingen, this.filterLeerlingenNaam, this.filterLeerlingenRichting);
-          console.log(this._leerlingenFiltered);
+          this._filter.transform(this._leerlingen, this._naamFilterValue, this._richtingFilterValue);
           this.orderItems();
         });
 
@@ -62,6 +60,25 @@ export class LeerlingenViewComponent implements OnInit {
   public get leerlingen() {
     return this._leerlingen;
   }
+
+  public set naamFilterValue(val: string) {
+    this._naamFilterValue = val;
+  }
+
+  public get naamFilterValue(): string {
+    return this._naamFilterValue;
+  }
+
+  public get richtingFilterValue(): string[] {
+    return this._richtingFilterValue;
+  }
+
+  public set richtingFilterValue(val: string[]) {
+    this._richtingFilterValue = val;
+    this._leerlingenFiltered =  this._filter.transform(this._leerlingen, this._naamFilterValue, this._richtingFilterValue);
+    this.orderItems();
+  }
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -107,7 +124,8 @@ export class LeerlingenViewComponent implements OnInit {
   }
 
   public verwijderLeerling(leerling: Leerling) {
-    this._leerlingenFiltered = this._leerlingen.filter(r => r.id !== leerling.id);
+    this._leerlingen = this._leerlingen.filter(r => r.id !== leerling.id);
+    this._leerlingenFiltered = this._filter.transform(this._leerlingen, this._naamFilterValue, this._richtingFilterValue);
     this.orderItems();
   }
 
