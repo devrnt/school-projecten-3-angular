@@ -10,6 +10,7 @@ import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
 export class DeelcompetentieComponent implements OnInit {
   @Input() public deelcompetentie: Deelcompetentie;
   @Input() public idHoofdcompetentie: Hoofdcompetentie;
+  @Input() public modify: boolean;
 
   public _edit: boolean;
 

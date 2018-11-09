@@ -5,9 +5,7 @@
   <mat-tab label="Toekennen competenties" *ngIf="selectedLeerling">
       <app-leerling-competenties-toekennen-scherm [leerling]="selectedLeerling"></app-leerling-competenties-toekennen-scherm>
   </mat-tab>
-  <mat-tab label="Aanpassen" *ngIf="selectedLeerling">
-    <app-leerling-scherm [leerling]="selectedLeerling"></app-leerling-scherm>
-  </mat-tab>
   <mat-tab label="Nieuw">
+      <app-leerling-scherm [leerling]="nieuweLeerling"></app-leerling-scherm>
   </mat-tab>
 </mat-tab-group>

@@ -1,9 +1,9 @@
 <div class="leerling-details">
-  <img class="icon fas fa-{{leerling.icon}} {{leerling.richting.kleur}} x2" src="../../../assets/images/{{leerling.geslacht}}.png">
+  <img class="icon fas fa-{{icon}} {{kleur}} x2" src="../../../assets/images/{{leerling.geslacht}}.png">
   <form class="richtingNaamForm">
 
     <div class="geslachtButtons">
-      <mat-button-toggle-group [(value)]="leerling.geslacht">
+      <mat-button-toggle-group [(value)]="geslacht">
         <mat-button-toggle value="boy">
           <i class="fas fa-mars"></i>
         </mat-button-toggle>
@@ -14,13 +14,13 @@
     </div>
 
     <mat-form-field class="input">
-      <input matInput placeholder="Voornaam" [(value)]="leerling.voornaam">
+      <input matInput placeholder="Voornaam" [(value)]="voornaam">
     </mat-form-field>
     <mat-form-field class="input">
-      <input matInput placeholder="Achternaam" value="{{leerling.achternaam}}">
+      <input matInput placeholder="Achternaam" value="{{achternaam}}">
     </mat-form-field>
     <mat-form-field class="input">
-      <input matInput placeholder="Email" value="{{leerling.email}}">
+      <input matInput placeholder="Email" value="{{email}}">
     </mat-form-field>
     <mat-form-field class="input">
       <input matInput [matDatepicker]="picker"

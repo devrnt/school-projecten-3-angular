@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Leerling } from 'src/app/models/leerling.model';
-import { Richting } from 'src/app/models/richting';
+import { Leerling, Geslacht } from 'src/app/models/leerling.model';
+import { Richting, Icon, Kleur } from 'src/app/models/richting';
 import { RichtingService } from 'src/app/services/richting.service';
 
 @Component({
@@ -19,6 +19,46 @@ export class LeerlingDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.alleRichtingen = this._richtingService.richtingen;
+  }
+
+  public set geslacht(geslacht: Geslacht) {
+    this.leerling.geslacht = geslacht;
+  }
+
+  public set richting(richting: Richting) {
+    this.leerling.richting = richting;
+  }
+
+  public get icon(): Icon {
+    return this.leerling ? this.leerling.richting ? this.leerling.richting.icon : Icon.cogs : Icon.cogs;
+  }
+
+  public get voornaam(): string {
+    return this.leerling ? this.leerling.voornaam : '';
+  }
+
+  public get achternaam(): string {
+    return this.leerling ? this.leerling.achternaam : '';
+  }
+
+  public get kleur(): Kleur {
+    return this.leerling ? this.leerling.richting ? this.leerling.richting.kleur : Kleur.white : Kleur.white;
+  }
+
+  public get geslacht(): Geslacht {
+    return this.leerling ? this.leerling.geslacht : Geslacht.Man;
+  }
+
+  public get email(): string {
+    return this.leerling ? this.leerling.email : '';
+  }
+
+  public get geboortedatum(): Date {
+    return this.leerling ? this.leerling.geboorteDatum : new Date();
+  }
+
+  public get competenties(): Icon {
+    return this.leerling ? this.leerling.richting.icon : Icon.cogs;
   }
 
 }

@@ -18,6 +18,7 @@ export class HoofdcompetentieComponent implements OnInit {
   @Input() public isOpen: boolean;
   public edit: boolean;
   public hover: boolean;
+  @Input() public modify = true;
   // public hoofdcompetentieform: FormGroup;
 
   constructor(

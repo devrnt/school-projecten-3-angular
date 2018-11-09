@@ -15,7 +15,7 @@
             <textarea matInput value="{{deelcompetentie?.description}}"></textarea>
         </mat-form-field>
     </div>
-    <div class="buttons">
+    <div *ngIf="modify" class="buttons">
         <button *ngIf="!edit" mat-icon-button type="button"
             class="editButton"
             (click)="edit=true">

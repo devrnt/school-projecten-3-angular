@@ -141,4 +141,13 @@ export class LeerlingService {
     });
   }
 
+  public nieuweLeerling(): Leerling {
+    const l = new Leerling('mock');
+    l.competenties = [];
+    l.behaaldeHoofdcompetenties = [];
+    l.geslacht = Geslacht.Vrouw;
+    l.geboortedatum = new Date('01/01/2000');
+    return l;
+  }
+
 }

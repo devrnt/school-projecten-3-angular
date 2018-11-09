@@ -169,7 +169,7 @@ export class Leerling {
   }
 
   /**
-   * Setter email
+   * Setter geboorteDatum
    * @param {Date} value
    */
   public set geboortedatum(value: Date) {

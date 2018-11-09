@@ -1,6 +1,6 @@
 <div class="containerDing">
   <div class="headerContainer">
-    <h2 class="competentiesHeader">Behaalde competenties</h2>
+    <h2 class="competentiesHeader">Te Behalen Competenties</h2>
     <form class="competentieNaamFilter">
       <mat-form-field class="filterInput half">
         <span matPrefix>
@@ -22,5 +22,10 @@
     <app-hoofdcompetentie class="full competentiePadding" 
       *ngFor="let competentie of hoofdCompetenties"
       [hoofdcompetentie]=competentie></app-hoofdcompetentie>
+  </div>
+  <div>
+    <button mat-button class="full white createbutton">
+        <i class="fas fa-plus"></i><i class="fas fa-user"></i> Nieuwe Leerling
+    </button>
   </div>
 </div>

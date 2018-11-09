@@ -21,16 +21,23 @@
 }
 
 .competentiesContainer {
-    height: calc(100% - 100px);
+    height: calc(100% - 200px);
     overflow: auto;
     padding: 20px;
     padding-top: 0px;
+    border-bottom: 1px solid lightgray;
 }
 
 .competentieNaamFilter {
     flex: 1;
     min-width: 0;
 }
+
+.createbutton{
+    background-color: rgb(31, 31, 184);
+    padding: 0.5rem;
+}
+
 
 .competentiePadding{
     padding-bottom: 1rem;

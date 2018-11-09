@@ -26,14 +26,14 @@
     <div class="full">
       <div class="deelcompetentiesContainer">
         <div contenteditable="false" *ngFor="let deelcompetentie of hoofdcompetentie.deelcompetenties">
-            <app-deelcompetentie [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie>
+            <app-deelcompetentie [modify]=modify [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie>
         </div>
-        <mat-card class="addDeelcompCard">
+        <mat-card *ngIf="modify" class="addDeelcompCard">
             <i class="addDeelcompIcon fas fa-plus"></i>
         </mat-card>
       </div>
 
-      <div class="sliderbuttons2 full">
+      <div *ngIf="modify" class="sliderbuttons2 full">
         <div class="sliderbuttons3 half">
           <button cdkFocusInitial mat-button type="button" class="full sliderbuttons" (verwijder)="verwijderRichting($event)"
             (click)="openDialog()">
