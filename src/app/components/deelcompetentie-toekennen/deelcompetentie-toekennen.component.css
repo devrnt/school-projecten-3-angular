@@ -18,7 +18,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 180%;
+    min-width: inherit;
+    font-weight: 350;
 
     padding: 8px 5px 8px 5px;
     margin: 5px -10px;

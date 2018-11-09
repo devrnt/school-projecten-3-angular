@@ -26,26 +26,11 @@
               <app-deelcompetentie-toekennen [deelcompetentie]=deelcompetentie [idHoofdcompetentie]=hoofdcompetentie></app-deelcompetentie-toekennen>
           </div>
         </div>
-        
-              <!-- <div class="sliderbuttons2 full">
-                <div class="sliderbuttons3 half">
-                  <button cdkFocusInitial mat-button type="button" class="full sliderbuttons" (verwijder)="verwijderRichting($event)"
-                    (click)="openDialog()">
-                    <i class="deleteIcon fas fa-trash-alt f-red"></i>
-                  </button>
-                </div>
-                <div class="sliderbuttons3 half radius {{showSelected()}}">
-                  <button mat-button type="button" class="full sliderbuttons divider" (click)="toggleEdit()">
-                    <i class="deleteIcon fas fa-pen f-black " [ngClass]="{white: edit}"></i>
-                  </button>
-                </div>
-              </div> -->
       </div>
     </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <!-- <tr mat-row *matRowDef="let row;columns: columnsToDisplay;" class="hoofdcompetentie-row" ></tr> -->
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay" class="hoofdcompetentie-header"></tr>
   <tr mat-row *matRowDef="let row;columns: columnsToDisplay;" class="hoofdcompetentie-row" [class.example-expanded-row]="expandedElement === row" (click)="klapHoofdcompetentieOpen(row)"></tr>
   <tr mat-row *matRowDef="let row; columns: ['Deelcompetentie']" class="example-detail-row"></tr>
 </table>
