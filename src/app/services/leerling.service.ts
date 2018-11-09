@@ -135,7 +135,9 @@ export class LeerlingService {
     this._http.get(this._url)
     .pipe(map((list: any[]): Leerling[] => list.map(Leerling.fromJSON)))
     .subscribe(res => {
-      this._leerlingen = res;
+      // res.forEach(
+      //   l => this._leerlingen.push(l)
+      // );
     });
   }
 

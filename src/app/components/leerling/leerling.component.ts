@@ -41,7 +41,6 @@ export class LeerlingComponent implements OnInit {
   }
 
   public verwijderRichting(verwijder: string) {
-    console.log('verwijder2');
     this.verwijder.emit(this.leerling);
   }
 
