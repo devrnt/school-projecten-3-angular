@@ -6,6 +6,7 @@ import { Beoordeling } from 'src/app/models/beoordeling.model';
 import { LeerlingHoofdcompetentie } from 'src/app/models/leerling-hoofdcompetentie.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { LeerlingDeelcompetentie } from 'src/app/models/leerling-deelcompetentie.model';
+import { Deelcompetentie } from 'src/app/models/deelcompetentie.model';
 
 @Component({
   selector: 'app-leerling-competenties-toekennen',
@@ -20,12 +21,13 @@ import { LeerlingDeelcompetentie } from 'src/app/models/leerling-deelcompetentie
   ],
 })
 export class LeerlingCompetentiesToekennenComponent implements OnInit, OnChanges {
-  public dataSource: MatTableDataSource<LeerlingHoofdcompetentie>;
-  public aantalKeerGeprobeerd: number;
+  public dataSource: MatTableDataSource<Hoofdcompetentie>;
+  private aantalKeerHoofdcompetentieBeoordeeld: number;
+  private aantalKeerDeelcompetentieBeoordeeld: number;
   public keuzesBeoordeling: string[] = Object.values(Beoordeling).splice(0, 5);
   public behaald = false;
-  public expandedElement: LeerlingHoofdcompetentie;
-  public behaaldeLeerlingDeelcompetenties: LeerlingDeelcompetentie[];
+  public expandedElement: Hoofdcompetentie;
+  public behaaldeLeerlingDeelcompetenties: Deelcompetentie[];
   private _leerling: Leerling;
   @Input()
   public set leerling(llnFromParent: Leerling) {
@@ -39,28 +41,37 @@ export class LeerlingCompetentiesToekennenComponent implements OnInit, OnChanges
   constructor() { }
 
   ngOnInit() {
-    this.aantalKeerGeprobeerd = 0;
+    this.aantalKeerHoofdcompetentieBeoordeeld = 0;
+    this.aantalKeerDeelcompetentieBeoordeeld = 0;
     this.behaaldeLeerlingDeelcompetenties = [];
   }
 
   ngOnChanges() {
     this._leerling ?
-      this.dataSource = new MatTableDataSource(this._leerling.behaaldeHoofdcompetenties) :
+      this.dataSource = new MatTableDataSource(this._leerling.competenties) :
       this.dataSource = new MatTableDataSource();
   }
 
-  public hoofdcompetentieBeoordelen(beoordeling: MatRadioChange, hoofdcompetentie: LeerlingHoofdcompetentie) {
+  public hoofdcompetentieBeoordelen(beoordeling: MatRadioChange, hoofdcomp: Hoofdcompetentie) {
     // TO DO: beoordelingen nog bijvoegen
-    hoofdcompetentie.leerlingDeelcompetenties.forEach(dc => { dc.beoordeling = beoordeling.value; });
+    this.leerling.behaaldeHoofdcompetenties.push(new LeerlingHoofdcompetentie(++this.aantalKeerHoofdcompetentieBeoordeeld, hoofdcomp));
+    const behaaldeLeerlingHoofdcompetentie = this.leerling.behaaldeHoofdcompetenties.find(bhc => bhc.hoofdcompetentie === hoofdcomp);
+    hoofdcomp.deelcompetenties.forEach(deelcomp => {
+      behaaldeLeerlingHoofdcompetentie.leerlingDeelcompetenties
+        .push(new LeerlingDeelcompetentie(++this.aantalKeerDeelcompetentieBeoordeeld, deelcomp).beoordeling = beoordeling.value);
+    });
   }
 
-  public behaalHoofdcompetentie(selection: any, hoofdcompetentie: LeerlingHoofdcompetentie) {
-    hoofdcompetentie.behaald = selection;
-    hoofdcompetentie.leerlingDeelcompetenties.forEach(dc => dc.behaald = selection);
+  public behaalHoofdcompetentie(selection: any, hoofdcomp: Hoofdcompetentie) {
+    const behaaldeLeerlingHoofdcompetentie = this.leerling.behaaldeHoofdcompetenties.find(bhc => bhc.hoofdcompetentie === hoofdcomp);
+    if (behaaldeLeerlingHoofdcompetentie !== null) {
+      behaaldeLeerlingHoofdcompetentie.behaald = selection;
+      behaaldeLeerlingHoofdcompetentie.leerlingDeelcompetenties.forEach(bdc => bdc.behaald = selection);
+    }
   }
 
-  public klapHoofdcompetentieOpen(hoofdcomp: LeerlingHoofdcompetentie) {
+  public klapHoofdcompetentieOpen(hoofdcomp: Hoofdcompetentie) {
     this.expandedElement = hoofdcomp;
-    this.behaaldeLeerlingDeelcompetenties = hoofdcomp.leerlingDeelcompetenties;
+    this.behaaldeLeerlingDeelcompetenties = hoofdcomp.deelcompetenties;
   }
 }

@@ -5,6 +5,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/deelcompetentie/deelcompetentie.component';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { DeelcompetentieToekennenComponent } from 'src/app/components/deelcompetentie-toekennen/deelcompetentie-toekennen.component';
 
 @NgModule({
   imports: [
@@ -19,11 +20,13 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } fr
   ],
   exports: [
     HoofdcompetentieComponent,
-    DeelcompetentieComponent
+    DeelcompetentieComponent,
+    DeelcompetentieToekennenComponent
   ],
   declarations: [
     HoofdcompetentieComponent,
-    DeelcompetentieComponent
+    DeelcompetentieComponent,
+    DeelcompetentieToekennenComponent
   ]
 })
 export class SharedModule { }

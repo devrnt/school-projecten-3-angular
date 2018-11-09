@@ -1,0 +1,33 @@
+/* .textarea{
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+    resize: none;
+}
+
+.textarea:focus{
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+    resize: none;
+    outline-color: transparent;
+    outline-style: none;
+} */
+
+.deelcompContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 180%;
+
+    padding: 8px 5px 8px 5px;
+    margin: 5px -10px;
+}
+
+.description {
+    flex: 1;
+}
+
+.deelcompContainer:hover {
+    background-color: rgb(243, 243, 243);
+}
