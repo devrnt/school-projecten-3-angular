@@ -7,6 +7,9 @@ import { Leerling } from 'src/app/models/leerling.model';
   styleUrls: ['./leerling-competenties-toekennen-scherm.component.css']
 })
 export class LeerlingCompetentiesToekennenSchermComponent implements OnInit {
+  /**
+  * De geselecteerde leerling die je meekrijgt van de parent component
+  */
   @Input() leerling: Leerling;
   constructor() { }
 

@@ -8,7 +8,13 @@ import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
   styleUrls: ['./deelcompetentie-toekennen.component.css']
 })
 export class DeelcompetentieToekennenComponent implements OnInit {
+  /**
+  * Dit is deelcompetentie dat je doorkrijgt van de parent component
+  */
   @Input() public deelcompetentie: Deelcompetentie;
+  /**
+  * Dit is de Hoofdcompetentie dat je meekrijgt van de parent component
+  */
   @Input() public idHoofdcompetentie: Hoofdcompetentie;
 
   constructor() {
