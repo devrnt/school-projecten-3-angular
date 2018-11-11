@@ -14,44 +14,96 @@ import { RichtingService } from 'src/app/services/richting.service';
   styleUrls: ['./richting-competenties.component.css']
 })
 export class RichtingCompetentiesComponent implements OnInit {
+  /**
+  * De geslecteerde richting die van de parent component afkomstig is
+  */
   @Input() public richting: Richting;
+  /**
+  * Een property die de modules van de richtingen bijhoudt
+  */
   public modules = new Array<string>();
+  /**
+  * Een property die de filter op beschrijving bijhoudt
+  */
   public beschrijving = '';
-  public module = '';
+  /**
+  * Een property die bijhoudt wat geselecteerd door de gebruiker is van de module
+  */
   private _selected = '';
+  /**
+  * Een property die de dialog bijhoudt
+  */
   private dialogRef: MatDialogRef<CompetentieDialogComponent>;
-  private _hoofdcompetenties: Hoofdcompetentie[];
+  /**
+  * Een property die de gefilterde hoofdcompetenties bijhoudt
+  */
   private _hoofdcompetentiesFiltered: Hoofdcompetentie[];
+  /**
+  * Subject om te luisteren naar de input van de beschrijving van een competentie zodat er opnieuw gefilterd kan worden op richting
+  */
   public filterHoofdcompetentieBeschrijving$ = new Subject<string>();
+  /**
+  * Subject om te luisteren naar de input van de module van een competentie zodat er opnieuw gefilterd kan worden op richting
+  */
   public filterHoofdcompetentieModule$ = new Subject<string>();
   @Input() public new: boolean;
 
+  /**
+  * Getter hoofdcompetentiesFiltered
+  * @return {Hoofdcompetentie[]}
+  */
   get hoofdcompetentiesFiltered(): Hoofdcompetentie[] {
     return this._hoofdcompetentiesFiltered;
   }
 
+  /**
+  * Setter hoofdcompetentiesFiltered
+  * @param {Hoofdcompetentie[]} gefilterdeHoofdcompetenties
+  */
   set hoofdcompetentiesFiltered(comp: Hoofdcompetentie[]) {
     this._hoofdcompetentiesFiltered = comp;
   }
 
+  /**
+  * Getter selected
+  * @return {string}
+  */
   get selected(): string {
     return this._selected;
   }
 
+  /**
+  * Getter icon
+  * @return {string}
+  */
   public get icon(): string {
     return this.richting ? this.richting.icon : '';
   }
 
+  /**
+  * getter kleur
+  * @return {string}
+  */
   public get kleur(): string {
     return this.richting ? this.richting.kleur : '';
   }
 
+  /**
+  * Setter selected
+  * @param {string} selectedModule
+  */
   set selected(value: string) {
     console.log(value);
     this._selected = value;
     this.hoofdcompetentiesFiltered = this._filter.transform(this.richting.competenties, this.beschrijving, this._selected);
   }
 
+  /**
+  * Constructor van RichtingCompetentiesComponent
+  * @param {RichtingService} richtingService
+  * @param {MatDialog} dialog
+  * @param {CompetentieFilterPipe} filterOpCompetenties
+  */
   constructor(
     public _richtingService: RichtingService,
     public dialog: MatDialog,
@@ -61,6 +113,9 @@ export class RichtingCompetentiesComponent implements OnInit {
     this.modules = Object.values(Modules);
   }
 
+  /**
+  * Hier wordt ook geluisterd naar het subject dat op beide filters staat
+  */
   ngOnInit() {
     if (this.new) {
       this._richtingService.geselecteerdeNieuweRichting$.subscribe(r => {
@@ -85,6 +140,10 @@ export class RichtingCompetentiesComponent implements OnInit {
       });
   }
 
+  /**
+  * Een methode die de dialog opent, instelt hoe groot deze moet zijn en de data meegeeft.
+  * Hier wordt er ook bepaald wat er moet gebeuren als de dialog gesloten wordt
+  */
   openDialog(): void {
     this.dialogRef = this.dialog.open(CompetentieDialogComponent, {
       width: '950px',

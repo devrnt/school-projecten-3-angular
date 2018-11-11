@@ -42,6 +42,9 @@ export class LeerlingComponent implements OnInit {
    ngOnInit() {
   }
 
+  /**
+  * Een methode die de dialog opent, instelt op het juiste breedte en de leerling meegeeft
+  */
   openDialog(): void {
     const dialogRef = this.dialog.open(LeerlingConfirmDeleteComponent, {
       width: '400px',

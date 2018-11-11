@@ -12,14 +12,41 @@ import { RichtingFilterPipe } from '../../pipes/richting/richting-filter.pipe';
   styleUrls: ['./richtingen-view.component.css']
 })
 export class RichtingenViewComponent implements OnInit {
+  /**
+  * Property om de filter van de naam van de richting bij te houden
+  */
   public filterRichtingenNaam: string;
+  /**
+  * Subject om te luisteren naar de input van de richting zodat er opnieuw gefilterd kan worden op richting
+  */
   public filterRichting$ = new Subject<string>();
+  /**
+  * Property om de orriginele lijst van richtingen bij te houden
+  */
   private _richtingen: Richting[];
+  /**
+  * Property om de gefilterde richtingen bij te houden
+  */
   private _richtingenFiltered: Richting[];
+  /**
+  * Property om de innerWidth bij te houden
+  */
   public innerWidth: any;
+  /**
+  * Property om het aantal kolommen dat getoond moet worden bij te houden afhankelijk van de grootte van het scherm
+  */
   public numberOfColumns: number;
+  /**
+  * Property om de kolommen van de richtingen bij te houden
+  */
   public columns: Richting[][];
 
+  /**
+  * Constructor van RichtingenViewComponent
+  * Hier wordt ook geluisterd naar het subject dat op de filter van richting staat
+  * @param {RichtingService} richtingService
+  * @param {RichtingFilterPipe} richtingFilterPipe
+  */
   constructor(private _richtingService: RichtingService, private _filter: RichtingFilterPipe) {
     this._richtingen = this._richtingService.richtingen;
     this._richtingenFiltered = this.richtingen;
@@ -37,10 +64,17 @@ export class RichtingenViewComponent implements OnInit {
     this.columns = [[], [], [], []];
   }
 
+  /**
+  * Getter richtingen
+  * @return {Richting[]}
+  */
   public get richtingen() {
     return this._richtingen;
   }
 
+  /**
+  * Dit is een methode die opgeroepen wordt telkens de gebruiker het scherm van formaat wijzigt. De methode orderItems wordt aangeroepen.
+  */
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
@@ -76,10 +110,18 @@ export class RichtingenViewComponent implements OnInit {
     }
   }
 
+  /**
+  * Dit is een methode die de eventemitter triggert om de richting aan te passen
+  * @param {Richting} geselecteerdeRichting
+  */
   public editRichting(richting: Richting) {
     this._richtingService.geselecteerdeRichting = richting;
   }
 
+  /**
+  * Methode om een richting te verwijderen uit de gefilterde lijst van richtingen
+  * @param {Richting} richtingDieUitLijstMoetVerwijderdWorden
+  */
   public verwijderRichting(richting: Richting) {
     this._richtingen = this._richtingen.filter(r => r.naam !== richting.naam);
     this._richtingenFiltered = this.richtingen;

@@ -183,6 +183,7 @@ export class LeerlingenViewComponent implements OnInit {
 
   /**
   * Dit is een methode die de eventemitter triggert om de leerling aan te passen
+  * @param {Leerling} geselecteerdeLeerling
   */
   public editLeerling(leerling: Leerling) {
     this.edit.emit(leerling);
@@ -190,6 +191,7 @@ export class LeerlingenViewComponent implements OnInit {
 
   /**
   * Dit is een methode die de eventemitter triggert om de competenties die beoordeeld zijn aan de leerling
+  * * @param {Leerling} geselecteerdeLeerling
   */
   public kenCompetentiesToe(leerling: Leerling) {
     this.toekennenCompetenties.emit(leerling);

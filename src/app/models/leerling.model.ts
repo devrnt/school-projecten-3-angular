@@ -18,6 +18,10 @@ export class Leerling {
   private _intresses: string;
   private _behaaldeHoofdcompetenties: LeerlingHoofdcompetentie[];
 
+  /**
+   * Constructor Leerling
+   * @param {string} id
+   */
   constructor(id: string) {
     this._id = id;
     this.behaaldeHoofdcompetenties = [];

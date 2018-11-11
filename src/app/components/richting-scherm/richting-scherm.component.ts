@@ -12,18 +12,33 @@ import { RichtingService } from 'src/app/services/richting.service';
   styleUrls: ['./richting-scherm.component.css']
 })
 export class RichtingSchermComponent implements OnInit {
+  /**
+  * Dit is de boolean die je meekrijgt van de parent component om te weten of er een nieuwe richting gemaakt moet worden of niet
+  */
   @Input() public new: boolean;
+  /**
+  * Property om de nieuwe richting die gemaakt is bij te houden
+  */
   private _nieuweRichting: Richting;
 
+  /**
+  * Constructor van RichtingSchermComponent
+  * @param {RichtingService} richtingService
+  */
   constructor(
     private _richtingService: RichtingService
     ) {
       this._nieuweRichting = this._richtingService.getNieuweRichting();
     }
 
-    public get nieuweRichting(): Richting {
-      return this.new ? this._nieuweRichting : undefined;
-    }
+
+  /**
+  * Getter nieuweRichting
+  * @return {Richting}
+  */
+  public get nieuweRichting(): Richting {
+    return this.new ? this._nieuweRichting : undefined;
+  }
 
   ngOnInit() {
   }

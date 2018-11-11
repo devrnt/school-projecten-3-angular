@@ -6,6 +6,15 @@ export class User {
   private _passwoord: string;
   private _type: UserTypeBehaviour; // strategy pattern waarschijnlijk gebruiken hier
 
+  /**
+   * Constructor van User
+   * @param {number} id
+   * @param {string} voornaam
+   * @param {string} achternaam
+   * @param {string} email
+   * @param {string} passwoord
+   * @param {UserType} type
+   */
   constructor(
     id: number,
     voornaam: string,

@@ -8,6 +8,11 @@ export class Deelcompetentie {
   private _behaald: boolean;
   private _beoordeling: Beoordeling;
 
+  /**
+   * Constructor Deelcompetentie
+   * @param {string} id
+   * @param {string} description
+   */
   constructor(id: string, description: string) {
     this._id = id;
     this._description = description;

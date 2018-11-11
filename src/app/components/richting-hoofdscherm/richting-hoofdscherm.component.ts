@@ -9,11 +9,23 @@ import { RichtingenViewComponent } from '../richtingen-view/richtingen-view.comp
   styleUrls: ['./richting-hoofdscherm.component.css']
 })
 export class RichtingHoofdschermComponent implements OnInit {
-
+  /**
+  * Property om de geselecteerde tab bij te houden
+  */
   public selectedTab: number;
+  /**
+  * Property om alle richtingen bij te houden
+  */
   public richtingen: Richting[];
+  /**
+  * Property om de geselecteerde richting bij te houden
+  */
   public selected: Richting;
 
+  /**
+  * Constructor van RichtingHoofdschermComponent
+  * @param {RichtingService} richtingService
+  */
   constructor(private _richtingService: RichtingService) {
     this.selectedTab = 0;
   }
@@ -28,14 +40,26 @@ export class RichtingHoofdschermComponent implements OnInit {
     });
   }
 
+  /**
+  * Getter selectedRichting
+  * @return {Richting}
+  */
   public get selectedRichting(): Richting {
     return this._richtingService.geselecteerdeRichting;
   }
 
+  /**
+  * Setter selectedRichting
+  * @param {Richting} geselecteerdeRichting
+  */
   public set selectedRichting(richting: Richting) {
     this._richtingService.geselecteerdeRichting = richting;
   }
 
+  /**
+  * Methode om de juiste tab in te stellen
+  * @param {number} index
+  */
   public changeTab(index: number) {
     this.selectedTab = index;
     console.log(this.selectedTab);

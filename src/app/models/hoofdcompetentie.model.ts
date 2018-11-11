@@ -13,6 +13,15 @@ export class Hoofdcompetentie {
   private _behaald: boolean;
   private _module: Modules;
 
+  /**
+   * Constructor van Hoofdcompetentie
+   * @param {string} id
+   * @param {string} description
+   * @param {Deelcompetentie[]} deelcompetenties
+   * @param {Icon} icon
+   * @param {Kleur} color
+   * @param {Modules} module
+   */
   constructor(id: string, description: string, deelcompetenties: Deelcompetentie[], icon: Icon, color: Kleur, module: Modules) {
     this._id = id;
     this._deelcompetenties = deelcompetenties;

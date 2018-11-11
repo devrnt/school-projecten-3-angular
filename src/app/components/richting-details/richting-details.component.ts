@@ -11,12 +11,28 @@ import { Subject } from 'rxjs';
   styleUrls: ['./richting-details.component.css']
 })
 export class RichtingDetailsComponent implements OnInit {
-
+  /**
+  * De boolean die je meekrijgt van de parent component om te weten of er een nieuwe richting gemaakt wordt, of deze moet aangepast worden
+  */
   @Input() public new: boolean;
+  /**
+  * Property om de kleuren bij te houden waar de gebruiker uit kan kiezen
+  */
   public kleuren: Kleur[];
+  /**
+  * Property om de icons bij te houden waar de gebruiker uit kan kiezen
+  */
   public icons: Icon[];
+  /**
+  * De geselecteerde richting die je doorkrijgt van de parent component in het geval deze moet aangepast worden
+  */
   @Input() public richting: Richting;
 
+  /**
+  * Constructor RichtingDetailsComponent
+  * @param {RichtingService} RichtingService
+  * @param {LeerkrachtService} leerkrachtService
+  */
   constructor(
     private _richtingService: RichtingService,
     private _leerkrachtService: LeerkrachtService
@@ -31,36 +47,63 @@ export class RichtingDetailsComponent implements OnInit {
       ];
   }
 
+  /**
+  * Getter icon
+  * @return {Icon}
+  */
   public get icon(): Icon {
     return this.richting ? this.richting.icon : Icon.plug;
   }
 
+  /**
+  * Getter kleur
+  * @return {Kleur}
+  */
   public get kleur(): Kleur {
     return this.richting ? this.richting.kleur : Kleur.white;
   }
 
+  /**
+  * Setter icon
+  * @param {Icon} icon
+  */
   public set icon(val: Icon) {
     this.richting.icon = val;
     this.saveChanges();
   }
 
+  /**
+  * Setter kleur
+  * @param {Kleur} kleur
+  */
   public set kleur(val: Kleur) {
     this.richting.kleur = val;
     this.saveChanges();
   }
 
+  /**
+  * Getter naam
+  * @return {string}
+  */
   public get naam(): string {
     return this.richting ? this.richting.naam : '';
   }
 
+  /**
+  * Getter leerkrachten
+  * @return {User[]}
+  */
   public get leerkrachten(): User[] {
     return this.richting ? this.richting.leerkrachten : [];
   }
 
+  /**
+  * Getter alleLeerkrachten
+  * @return {USer[]}
+  */
   public get alleLeerkrachten(): User[] {
     return this._leerkrachtService.leerkachten;
   }
-
 
   ngOnInit() {
     if (this.new) {
@@ -72,6 +115,10 @@ export class RichtingDetailsComponent implements OnInit {
     }
   }
 
+  /**
+  * Methode om een nieuwe leerkracht toe te voegen aan een richting
+  * @param {User} leerkracht
+  */
   addLeerkracht(leerkracht: User) {
     if (this.richting.leerkrachten.every(l => l.id !== leerkracht.id)) {
       this.richting.leerkrachten.push(leerkracht);
@@ -79,11 +126,18 @@ export class RichtingDetailsComponent implements OnInit {
     }
   }
 
+  /**
+  * Methode om een leerkracht te verwijderen van een richting
+  * @param {number} idLeerkracht
+  */
   deleteLeerkracht(i: number) {
     this.richting.leerkrachten.splice(i, 1);
     this.saveChanges();
   }
 
+  /**
+  * Methode om de wijzigingen die gemaakt zijn op te slaan of de nieuwe richting die aangemaakt is op te slaan
+  */
   public saveChanges() {
     if (this.new) {
       this._richtingService.geselecteerdeNieuweRichting = this.richting;

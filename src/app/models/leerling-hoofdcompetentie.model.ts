@@ -10,6 +10,11 @@ export class LeerlingHoofdcompetentie {
   private _hoofdcompetentie: Hoofdcompetentie;
   private _leerlingDeelcompetenties: LeerlingDeelcompetentie[];
 
+  /**
+   * Constructor LeerlingHoofdcompetentie
+   * @param {number} id
+   * @param {Hoofdcompetentie} hoofdcomp
+   */
   constructor(id: number, hoofdcomp: Hoofdcompetentie) {
     this._id = id;
     this._hoofdcompetentie = hoofdcomp;
@@ -75,16 +80,13 @@ export class LeerlingHoofdcompetentie {
 
   /**
    * Setter hoofdcompetentie
-
    * @param {Hoofdcompetentie} value
    */
-
    public set hoofdcompetentie(value: Hoofdcompetentie) {
     this._hoofdcompetentie = value;
   }
 
   static fromJSON(json: any): LeerlingHoofdcompetentie {
-
     return null;
   }
 

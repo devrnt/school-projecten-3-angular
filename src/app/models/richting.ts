@@ -15,6 +15,17 @@ export class Richting {
   private _werkgevers: User[];
   private _diploma: Diploma;
 
+  /**
+   * Constructor van Richting
+   * @param {number} id
+   * @param {string} naam
+   * @param {User[]} leerkrachten
+   * @param {Hoofdcompetentie[]} competenties
+   * @param {User[]} werkgevers
+   * @param {Diploma} diploma
+   * @param {Kleur} kleur
+   * @param {Icon} icon
+   */
   constructor(
     id: number,
     naam?: string,
@@ -177,6 +188,10 @@ export class Richting {
     }
   }
 
+  /**
+   * Methode om een nieuwe hoofdcompetentie toe te voegen
+   * @param {Hoofdcompetentie} hoofdcomp
+   */
   public addNieuweHoofdcompetentie(hoofdcomp: Hoofdcompetentie) {
     this._competenties.push(hoofdcomp);
   }
