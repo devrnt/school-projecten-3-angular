@@ -1,4 +1,4 @@
-import { User } from './user';
+import { User } from './user.model';
 import { Leerling } from './leerling.model';
 import { MatChipTrailingIcon } from '@angular/material';
 import { Hoofdcompetentie } from './hoofdcompetentie.model';
@@ -189,6 +189,14 @@ export class Richting {
   }
 
   /**
+     * Setter diploma
+     * @param {Diploma} diploma
+     */
+    public set diploma(value: Diploma) {
+      this._diploma = value;
+    }
+
+  /**
    * Methode om een nieuwe hoofdcompetentie toe te voegen
    * @param {Hoofdcompetentie} hoofdcomp
    */
@@ -196,11 +204,20 @@ export class Richting {
     this._competenties.push(hoofdcomp);
   }
 
+  /**
+   * Setter competenties
+   * @param {Hoofdcompetentie[]} value
+   */
+  public set competenties(value: Hoofdcompetentie[]) {
+    this._competenties = value;
+  }
+
+
 
 }
 
 export enum Diploma {
-  BSO = 'BSO', TSO = 'TSO', ASO = 'ASO', Duaal = 'Leren en werken', Geen = 'Geen'
+  BSO = 'BSO', TSO = 'TSO', Duaal = 'Leren en werken', ASO = 'ASO', Geen = 'Geen'
 }
 
 export enum Kleur {

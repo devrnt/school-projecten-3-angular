@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, UserType } from '../models/user';
+import { User, UserType } from '../models/user.model';
 
 @Injectable()
 export class LeerkrachtService {

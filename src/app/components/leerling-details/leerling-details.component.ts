@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Leerling, Geslacht } from 'src/app/models/leerling.model';
-import { Richting, Icon, Kleur } from 'src/app/models/richting';
+import { Richting, Icon, Kleur } from 'src/app/models/richting.model';
 import { RichtingService } from 'src/app/services/richting.service';
+import { LeerlingService } from 'src/app/services/leerling.service';
 
 @Component({
   selector: 'app-leerling-details',
@@ -23,11 +24,17 @@ export class LeerlingDetailsComponent implements OnInit {
   * @param {RichtingService} richtingService
   */
   constructor(
-    private _richtingService: RichtingService
+    private _richtingService: RichtingService,
+    private _leerlingService: LeerlingService
   ) { }
 
   ngOnInit() {
     this.alleRichtingen = this._richtingService.richtingen;
+  }
+
+  public maakNieuweLeerling(): void {
+    this._leerlingService.maakNieuweLeerling();
+    this.leerling = this._leerlingService.nieuweLeerling();
   }
 
   /**
@@ -51,6 +58,8 @@ export class LeerlingDetailsComponent implements OnInit {
   * @return {Icon}
   */
   public get icon(): Icon {
+    console.log(this.leerling.voornaam);
+    console.log(this.leerling);
     return this.leerling ? this.leerling.richting ? this.leerling.richting.icon : Icon.cogs : Icon.cogs;
   }
 

@@ -1,6 +1,6 @@
 import { Hoofdcompetentie } from './hoofdcompetentie.model';
-import { User } from './user';
-import { Richting } from './richting';
+import { User } from './user.model';
+import { Richting } from './richting.model';
 import { LeerlingHoofdcompetentie } from './leerling-hoofdcompetentie.model';
 
 export class Leerling {

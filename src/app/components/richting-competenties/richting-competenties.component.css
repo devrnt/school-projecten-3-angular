@@ -21,10 +21,22 @@
 }
 
 .competentiesContainer {
-    height: calc(100% - 82px);
+    height: calc(100% - 82px - 56px);
     overflow: auto;
     padding: 20px;
     padding-top: 0px;
+}
+
+@media (max-width: 992px) {
+    .competentiesContainer {
+        height: calc(100% - 82px - 56px);
+    }
+}
+
+@media (min-width: 993px) {
+    .competentiesContainer {
+        height: calc(100% - 82px);
+    }
 }
 
 .competentieNaamFilter {

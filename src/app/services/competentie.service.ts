@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hoofdcompetentie } from '../models/hoofdcompetentie.model';
 import { Deelcompetentie } from '../models/deelcompetentie.model';
-import { Icon, Kleur } from '../models/richting';
+import { Icon, Kleur } from '../models/richting.model';
 import { Modules } from '../models/hoofdcompetentie.model';
 import { HttpClient } from '@angular/common/http';
 
@@ -61,7 +61,7 @@ export class CompetentieService {
     ];
 
     const hoofdcompetentie1 = new Hoofdcompetentie(
-      'hoofdcompetentie1',
+      1,
       'Ruimt de werkpost op en maakt hem schoon',
       deelcompetenties1,
       Icon.scissors,
@@ -69,7 +69,7 @@ export class CompetentieService {
       Modules.module1);
 
     const hoofdcompetentie2 = new Hoofdcompetentie(
-      'hoofdcompetentie2',
+      2,
       'Neemt deel aan de organisatie van het kapsalon',
       deelcompetenties2,
       Icon.scissors,
@@ -77,7 +77,7 @@ export class CompetentieService {
       Modules.module1);
 
     const hoofdcompetentie3 = new Hoofdcompetentie(
-      'hoofdcompetentie3',
+      3,
       'Bereidt de werkpost voor',
       deelcompetenties3,
       Icon.scissors,
@@ -85,7 +85,7 @@ export class CompetentieService {
       Modules.module1);
 
     const hoofdcompetentie4 = new Hoofdcompetentie(
-      'hoofdcompetentie4',
+      4,
       'Bereidt voor op de toe te passen technieken',
       deelcompetenties4,
       Icon.scissors,
@@ -98,18 +98,19 @@ export class CompetentieService {
       hoofdcompetentie3,
       hoofdcompetentie4,
       new Hoofdcompetentie(
-          'hoofdcompetentie5',
-          'Adviseert de klant',
-          deelcompetenties5,
-          Icon.scissors,
-          Kleur.red,
-          Modules.module3),
-      new Hoofdcompetentie('hoofdcompetentie6',
-          'Toont het kapsel aan de klant',
-          deelcompetenties6,
-          Icon.scissors,
-          Kleur.red,
-          Modules.module3)
+        5,
+        'Adviseert de klant',
+        deelcompetenties5,
+        Icon.scissors,
+        Kleur.red,
+        Modules.module3),
+      new Hoofdcompetentie(
+        6,
+        'Toont het kapsel aan de klant',
+        deelcompetenties6,
+        Icon.scissors,
+        Kleur.red,
+        Modules.module3)
     ];
 
     this._behaaldeHoofdcompetenties = [

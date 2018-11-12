@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Richting } from 'src/app/models/richting';
+import { Richting } from 'src/app/models/richting.model';
 import { Modules, Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
@@ -46,6 +46,9 @@ export class RichtingCompetentiesComponent implements OnInit {
   * Subject om te luisteren naar de input van de module van een competentie zodat er opnieuw gefilterd kan worden op richting
   */
   public filterHoofdcompetentieModule$ = new Subject<string>();
+  /**
+  * Een property die weergeeft of het over nieuwe of reeds gepersisteerde competenties gaat
+  */
   @Input() public new: boolean;
 
   /**
@@ -119,11 +122,16 @@ export class RichtingCompetentiesComponent implements OnInit {
   ngOnInit() {
     if (this.new) {
       this._richtingService.geselecteerdeNieuweRichting$.subscribe(r => {
-        this.richting = r;
-        this.hoofdcompetentiesFiltered = this.richting ? this.richting.competenties : [];
+        if (r) {
+          this.richting = r;
+        } else {
+          this.richting = this._richtingService.getNieuweRichting();
+          console.log(this.richting);
+        }
+          this.hoofdcompetentiesFiltered =  this.richting.competenties;
       });
     } else {
-      this._richtingService.richting$.subscribe( r => {
+      this._richtingService.richting$.subscribe(r => {
         this.richting = r;
         console.log(r);
         this.hoofdcompetentiesFiltered = this.richting ? this.richting.competenties : [];
@@ -153,14 +161,27 @@ export class RichtingCompetentiesComponent implements OnInit {
     });
 
     this.dialogRef.afterClosed().subscribe(result => {
-      let teller = 6;
-      this.richting.addNieuweHoofdcompetentie(new Hoofdcompetentie(
-        `hoofdcompetentie${++teller}`,
+      if (result) {
+        let teller = 6;
+        this._richtingService.addNewHoofdCompetentie(new Hoofdcompetentie(
+        ++teller,
         result.beschrijving,
         [],
         this.richting.icon,
         this.richting.kleur,
-        Modules.module1));
+        Modules.module1), this.new);
+      }
     });
+  }
+
+  /**
+  * Hulpmethode om de wijzigingen die gemaakt zijn op te slaan of de nieuwe richting die aangemaakt is op te slaan
+  */
+  public saveChanges() {
+    if (this.new) {
+      this._richtingService.geselecteerdeNieuweRichting = this.richting;
+    } else {
+      this._richtingService.geselecteerdeRichting = this.richting;
+    }
   }
 }

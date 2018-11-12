@@ -7,22 +7,30 @@
   <form class="richtingNaamForm">
     <mat-form-field class="half paddingRight">
       <mat-select placeholder="Icon" [(value)]="icon" class="selectLeerkracht">
-          <mat-option>---</mat-option>
-          <mat-option *ngFor="let icon of icons" [value]="icon">
-              <i class="fas fa-{{icon}} x1"></i>&nbsp;&nbsp;{{icon}}
-          </mat-option>
-        </mat-select>
+        <mat-option>---</mat-option>
+        <mat-option *ngFor="let icon of icons" [value]="icon">
+          <i class="fas fa-{{icon}} x1"></i>&nbsp;&nbsp;{{icon}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field class="half paddingLeft">
-        <mat-select placeholder="Kleur" [(value)]="kleur" class="selectLeerkracht">
-            <mat-option>---</mat-option>
-            <mat-option *ngFor="let kleur of kleuren" [value]="kleur">
-              {{kleur}}
-            </mat-option>
-          </mat-select>
-      </mat-form-field>
+      <mat-select placeholder="Kleur" [(value)]="kleur" class="selectLeerkracht">
+        <mat-option>---</mat-option>
+        <mat-option *ngFor="let kleur of kleuren" [value]="kleur">
+          {{kleur}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <mat-form-field class="input">
-      <input matInput placeholder="Naam van de richting" value="{{naam}}">
+      <input matInput placeholder="Naam van de richting" [(ngModel)]="naam" name=naam maxlength="110">
+    </mat-form-field>
+    <mat-form-field class="full paddingRight">
+      <mat-select placeholder="Diploma" [(value)]="diploma" class="selectLeerkracht">
+        <mat-option>---</mat-option>
+        <mat-option *ngFor="let diploma of diplomas" [value]="diploma">
+          {{diploma}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
   <mat-list class="scrollDiv">
@@ -55,7 +63,7 @@
   </div>
   <div *ngIf="new">
     <button mat-button class="full createbutton white">
-      <i class="fas fa-scholar"></i>  Richting Maken
+      <i class="fas fa-scholar"></i> Richting Maken
     </button>
   </div>
 </div>

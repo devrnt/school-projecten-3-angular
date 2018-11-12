@@ -3,6 +3,7 @@ import { Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
 import { MatDialog } from '@angular/material';
 import { delay } from 'q';
 import { RichtingService } from 'src/app/services/richting.service';
+import { Kleur, Icon } from 'src/app/models/richting.model';
 
 @Component({
   selector: 'app-hoofdcompetentie',
@@ -15,9 +16,14 @@ export class HoofdcompetentieComponent implements OnInit {
   */
   @Input() public hoofdcompetentie: Hoofdcompetentie;
   /**
-  * Dit is een boolean dat je meerkijgt van de parent om te weten of de card uitgeklapt kan worden
+  * Dit is een boolean die je meerkijgt van de parent om te weten of de card uitgeklapt kan worden
   */
   @Input() public isOpen: boolean;
+   /**
+  * Dit is een boolean die je meerkijgt van de parent om
+  * te weten of de card moet opgeslagen worden on change (reeds bestaande) of on save (nieuwe)
+  */
+ @Input() public new: boolean;
   /**
   * Dit is de boolean om te weten of de gebruiker mag veranderen
   */
@@ -30,7 +36,6 @@ export class HoofdcompetentieComponent implements OnInit {
   * Dit is de boolean om te weten of de gebruiker mag veranderen die je doorkrijgt van de parent component
   */
   @Input() public modify = true;
-  // public hoofdcompetentieform: FormGroup;
 
   /**
   * Dit is de constructor van HoofdcompetentieComponent
@@ -48,6 +53,7 @@ export class HoofdcompetentieComponent implements OnInit {
     // formstuff goes here
 
   }
+
 
   /**
   * Een methode om de isOpen boolean te veranderen
@@ -93,8 +99,8 @@ export class HoofdcompetentieComponent implements OnInit {
 * Een methode om een hoofdcompetentie te verwijderen
 * @param {number} hoofdcompetentieId
 */
-public verwijderHoofdCompetentie(hId: number) {
-  this._richtingService.verwijderHoofdCompetentie(hId);
+public verwijderHoofdCompetentie() {
+  this._richtingService.verwijderHoofdCompetentie(this.hoofdcompetentie.id, this.new);
  }
 
 /**
@@ -107,20 +113,12 @@ public verwijderDeelCompetentie(hId: number, dId: number) {
 }
 
 /**
-* Een methode om een nieuwe hoofdcompetentie toe te voegen
+* Een methode om een nieuwe deelcompetentie toe te voegen
 * @param {number} hoofdcompetentieId
 * @param {string} beschrijving
 */
 public addNewDeelcompetentie(hId: number, description: string) {
   this._richtingService.addNewDeelComptentie(hId, description);
-}
-
-/**
-* Een methode om een nieuwe hoofdcompetentie toe te voegen
-* @param {string} beschrijving
-*/
-public addNewHoofdCompetentie(description: string) {
-  this._richtingService.addNewHoofdCompetentie(description);
 }
 
 /**

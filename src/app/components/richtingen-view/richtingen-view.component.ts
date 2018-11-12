@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/
 import { LeerlingService } from 'src/app/services/leerling.service';
 import { RichtingService } from 'src/app/services/richting.service';
 import { Subject } from 'rxjs';
-import { Richting } from 'src/app/models/richting';
+import { Richting } from 'src/app/models/richting.model';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 import { RichtingFilterPipe } from '../../pipes/richting/richting-filter.pipe';
 

@@ -7,9 +7,11 @@ import { CompetentieService } from './competentie.service';
 import { map } from 'rxjs/operators';
 import { LeerlingHoofdcompetentie } from '../models/leerling-hoofdcompetentie.model';
 import { LeerlingDeelcompetentie } from '../models/leerling-deelcompetentie.model';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class LeerlingService {
+
   private _leerlingen: Leerling[];
   private _url = 'api/leerlingen';
 
@@ -139,6 +141,11 @@ export class LeerlingService {
       //   l => this._leerlingen.push(l)
       // );
     });
+  }
+
+  maakNieuweLeerling(): Subject<Leerling> {
+    this._http.post(this._url, this.nieuweLeerling);
+    return null;
   }
 
   public nieuweLeerling(): Leerling {

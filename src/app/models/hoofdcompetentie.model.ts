@@ -1,6 +1,6 @@
 import { Beoordeling } from './beoordeling.model';
 import { Deelcompetentie } from './deelcompetentie.model';
-import { Icon, Kleur } from './richting';
+import { Icon, Kleur } from './richting.model';
 
 // activiteit == hoofdcompetentie
 export class Hoofdcompetentie {
@@ -22,7 +22,7 @@ export class Hoofdcompetentie {
    * @param {Kleur} color
    * @param {Modules} module
    */
-  constructor(id: string, description: string, deelcompetenties: Deelcompetentie[], icon: Icon, color: Kleur, module: Modules) {
+  constructor(id: number, description: string, deelcompetenties: Deelcompetentie[], icon: Icon, color: Kleur, module: Modules) {
     this._id = id;
     this._deelcompetenties = deelcompetenties;
     this._description = description;

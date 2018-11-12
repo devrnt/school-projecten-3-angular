@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Richting } from 'src/app/models/richting';
+import { Richting } from 'src/app/models/richting.model';
 import { delay } from 'q';
 import { MatDialog } from '@angular/material';
 import { RichtingConfirmDeleteComponent } from './richting-confirm-delete/richting-confirm-delete.component';

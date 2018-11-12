@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { RichtingService } from 'src/app/services/richting.service';
-import { Richting, Kleur, Icon } from '../../models/richting';
-import { User, UserType } from '../../models/user';
+import { Richting, Kleur, Icon, Diploma } from '../../models/richting.model';
+import { User, UserType } from '../../models/user.model';
 import { LeerkrachtService } from '../../services/leerkracht.service';
 import { Subject } from 'rxjs';
 
@@ -24,6 +24,10 @@ export class RichtingDetailsComponent implements OnInit {
   */
   public icons: Icon[];
   /**
+  * Property om de de diplomas bij te houden waar de gebruiker uit kan kiezen
+  */
+  public diplomas: Diploma[];
+  /**
   * De geselecteerde richting die je doorkrijgt van de parent component in het geval deze moet aangepast worden
   */
   @Input() public richting: Richting;
@@ -37,14 +41,17 @@ export class RichtingDetailsComponent implements OnInit {
     private _richtingService: RichtingService,
     private _leerkrachtService: LeerkrachtService
   ) {
-      this.kleuren = [
-        Kleur.black, Kleur.blue, Kleur.brown, Kleur.green, Kleur.yellow, Kleur.orange, Kleur.red,
-        Kleur.purple, Kleur.white
-      ];
-      this.icons = [
-        Icon.bliksem, Icon.building, Icon.car, Icon.child, Icon.cogs, Icon.computer,
-        Icon.doctor, Icon.flask, Icon.food, Icon.laptop, Icon.medkit, Icon.paint, Icon.scissors
-      ];
+    this.kleuren = [
+      Kleur.black, Kleur.blue, Kleur.brown, Kleur.green, Kleur.yellow, Kleur.orange, Kleur.red,
+      Kleur.purple, Kleur.white
+    ];
+    this.icons = [
+      Icon.bliksem, Icon.building, Icon.car, Icon.child, Icon.cogs, Icon.computer,
+      Icon.doctor, Icon.flask, Icon.food, Icon.laptop, Icon.medkit, Icon.paint, Icon.scissors
+    ];
+    this.diplomas = [
+      Diploma.ASO, Diploma.BSO, Diploma.Duaal, Diploma.TSO, Diploma.Geen
+    ];
   }
 
   /**
@@ -61,6 +68,15 @@ export class RichtingDetailsComponent implements OnInit {
   */
   public get kleur(): Kleur {
     return this.richting ? this.richting.kleur : Kleur.white;
+  }
+
+  /**
+  * Setter naam
+  * @param {string} naam
+  */
+  public set naam(val: string) {
+    this.richting.naam = val;
+    this.saveChanges();
   }
 
   /**
@@ -81,12 +97,29 @@ export class RichtingDetailsComponent implements OnInit {
     this.saveChanges();
   }
 
+   /**
+  * Setter diploma
+  * @param {Diploma} diploma
+  */
+ public set diploma(val: Diploma) {
+  this.richting.diploma = val;
+  this.saveChanges();
+}
+
   /**
   * Getter naam
   * @return {string}
   */
   public get naam(): string {
     return this.richting ? this.richting.naam : '';
+  }
+
+  /**
+  * Getter diploma
+  * @return {Diploma}
+  */
+  public get diploma(): Diploma {
+    return this.richting ? this.richting.diploma : Diploma.Geen;
   }
 
   /**
@@ -109,7 +142,7 @@ export class RichtingDetailsComponent implements OnInit {
     if (this.new) {
       this.richting = this._richtingService.getNieuweRichting();
     } else {
-      this._richtingService.richting$.subscribe( r => {
+      this._richtingService.richting$.subscribe(r => {
         this.richting = r;
       });
     }
@@ -136,7 +169,7 @@ export class RichtingDetailsComponent implements OnInit {
   }
 
   /**
-  * Methode om de wijzigingen die gemaakt zijn op te slaan of de nieuwe richting die aangemaakt is op te slaan
+  * Hulpmethode om de wijzigingen die gemaakt zijn op te slaan of de nieuwe richting die aangemaakt is op te slaan
   */
   public saveChanges() {
     if (this.new) {

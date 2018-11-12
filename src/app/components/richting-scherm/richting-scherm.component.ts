@@ -3,7 +3,7 @@ import { Beoordeling } from 'src/app/models/beoordeling.model';
 import { Hoofdcompetentie, Modules } from 'src/app/models/hoofdcompetentie.model';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
-import { Richting } from 'src/app/models/richting';
+import { Richting } from 'src/app/models/richting.model';
 import { RichtingService } from 'src/app/services/richting.service';
 
 @Component({
@@ -29,6 +29,7 @@ export class RichtingSchermComponent implements OnInit {
     private _richtingService: RichtingService
     ) {
       this._nieuweRichting = this._richtingService.getNieuweRichting();
+      console.log(this._nieuweRichting);
     }
 
 

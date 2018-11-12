@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LeerlingService } from './services/leerling.service';
 import { RichtingService } from './services/richting.service';
-import { Richting } from './models/richting';
+import { Richting } from './models/richting.model';
 import { Router, RouterEvent } from '@angular/router';
 
 export enum Route {

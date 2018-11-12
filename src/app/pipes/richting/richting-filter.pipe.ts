@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Richting, Diploma } from '../../models/richting';
+import { Richting, Diploma } from '../../models/richting.model';
 
 @Pipe({
   name: 'richtingFilter',

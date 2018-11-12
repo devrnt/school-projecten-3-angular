@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Richting } from 'src/app/models/richting';
+import { Richting } from 'src/app/models/richting.model';
 
 @Component({
   selector: 'app-richting-overzicht-scherm',

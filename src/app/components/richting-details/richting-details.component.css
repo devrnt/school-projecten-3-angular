@@ -17,9 +17,10 @@
 }
 
 .scrollDiv{
-    max-height: 12rem;
+    max-height: 9rem;
     overflow: auto;
 }
+
 
 .input {
     width: 100%;

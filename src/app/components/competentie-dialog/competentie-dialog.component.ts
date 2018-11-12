@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Richting, Icon } from 'src/app/models/richting';
+import { Richting, Icon } from 'src/app/models/richting.model';
 
 export class DialogData {
 }

@@ -1,10 +1,12 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Richting, Diploma, Kleur, Icon } from '../models/richting';
-import { User, UserType } from '../models/user';
+import { Richting, Diploma, Kleur, Icon } from '../models/richting.model';
+import { User, UserType } from '../models/user.model';
 import { LeerlingService } from './leerling.service';
 import { LeerkrachtService } from './leerkracht.service';
 import { CompetentieService } from './competentie.service';
 import { Subject, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Hoofdcompetentie } from '../models/hoofdcompetentie.model';
 
 @Injectable()
 export class RichtingService implements OnInit {
@@ -13,9 +15,13 @@ export class RichtingService implements OnInit {
   private _richtingen: Richting[];
   private _geselecteerdeRichting: Richting;
   private _geselecteerdeNieuweRichting: Richting;
-  constructor(private _leerkrachtService: LeerkrachtService, private _competentieSevice: CompetentieService) {
+  private _url = 'api/richtingen';
+  constructor(
+    private _leerkrachtService: LeerkrachtService,
+    private _competentieSevice: CompetentieService,
+    private _http: HttpClient
+    ) {
     this._geselecteerdeRichting = this.getNieuweRichting();
-    this._geselecteerdeNieuweRichting = this.getNieuweRichting();
     this.richting$ = new BehaviorSubject(this.geselecteerdeRichting);
     this.nieuweRichting$ = new BehaviorSubject(this.geselecteerdeRichting);
     this._richtingen = [];
@@ -359,6 +365,11 @@ export class RichtingService implements OnInit {
     this._richtingen.slice(this._richtingen.findIndex(r => r.naam === naam));
   }
 
+  /**
+   * methode die een nieuwe 'empty' richting object terug geeft met defaultwaarden
+   * Gebruik deze wanneer je een nieuwe richting wilt aanmaken.
+   * @return {Richting}
+   */
   public getNieuweRichting(): Richting {
     return new Richting(
       -1,
@@ -374,34 +385,92 @@ export class RichtingService implements OnInit {
   ngOnInit(): void {
   }
 
+   /**
+   * Getter richtingen, geeft alle richtingen
+   * @return {Richting[]}
+   */
   public  get richtingen(): Richting[] {
     return this._richtingen;
   }
 
+   /**
+   * Getter geselecteerdeRichting$, geeft een subject terug waarop men kan subscriben
+   * om veranderingen van/in de geselecteerde richting te observeren
+   * @return {BehaviorSubject<Richting>}
+   */
   public  get geselecteerdeRichting$(): BehaviorSubject<Richting> {
     return this.richting$;
   }
 
-  public set geselecteerdeRichting(richting: Richting) {
+   /**
+   * Setter geselecteerdeRichting$, roep deze aan wanneer je een wijzing van geselecteerderichting wilt
+   * persisteren en doorspelen aan alle observers
+   * @return {BehaviorSubject<Richting>}
+   */
+    public set geselecteerdeRichting(richting: Richting) {
     this.richting$.next(richting);
+    this._geselecteerdeRichting = richting;
   }
 
+   /**
+   * Getter geselecteerdeNieuweRichting$, geeft een subject terug waarop men kan subscriben
+   * om veranderingen van/in de geselecteerdeNieuweRichting te observeren
+   * @return {BehaviorSubject<Richting>}
+   */
   public  get geselecteerdeNieuweRichting$(): BehaviorSubject<Richting> {
     return this.nieuweRichting$;
   }
 
+  /**
+   * Setter geselecteerdeRichting$, roep deze aan wanneer je een wijzing van geselecteerderichting wilt
+   *  doorspelen aan alle observers, deze methode persisteert niet (zie maakNieuweRichting()
+   * @return {BehaviorSubject<Richting>}
+   */
   public set geselecteerdeNieuweRichting(richting: Richting) {
     this.nieuweRichting$.next(richting);
+    this._geselecteerdeNieuweRichting = richting;
   }
 
 // REST
-addNewHoofdCompetentie(description: string): any {
+
+
+maakNieuweRichting(): void {
+ this._http.post(this._url, this._geselecteerdeNieuweRichting).pipe().subscribe(r => {
+    this._richtingen.push();
+ });
+}
+verwijderRichting(richtig: Richting) {
+
+}
+updateRichting(richting: Richting) {
+
+}
+
+addNewHoofdCompetentie(hoofdCompetentie: Hoofdcompetentie, newRichting: boolean): any {
+  console.log(this._geselecteerdeNieuweRichting);
+  if (newRichting) {
+    this._geselecteerdeNieuweRichting.competenties.push(hoofdCompetentie);
+    this.geselecteerdeNieuweRichting$.next(this._geselecteerdeNieuweRichting);
+  } else {
+    this._geselecteerdeRichting.competenties.push(hoofdCompetentie);
+    this.geselecteerdeRichting$.next(this._geselecteerdeRichting);
+  }
 }
 addNewDeelComptentie(hId: number, description: string): any {
 }
 verwijderDeelCompetentie(hId: number, dId: number): any {
 }
-verwijderHoofdCompetentie(hId: number): any {
+verwijderHoofdCompetentie(hId: number, newcomp: boolean): any {
+  console.log(this._geselecteerdeRichting);
+  if (!newcomp) {
+    this._geselecteerdeRichting.competenties
+    = this._geselecteerdeRichting.competenties.filter(c => c.id !== hId);
+    this.geselecteerdeRichting$.next(this._geselecteerdeRichting);
+  } else {
+    this._geselecteerdeNieuweRichting.competenties =
+    this._geselecteerdeNieuweRichting.competenties.filter(c => c.id !== hId);
+    this.geselecteerdeNieuweRichting$.next(this._geselecteerdeNieuweRichting);
+  }
 }
 updateDeelComptentie(dId: number, description: string): any {
 }
