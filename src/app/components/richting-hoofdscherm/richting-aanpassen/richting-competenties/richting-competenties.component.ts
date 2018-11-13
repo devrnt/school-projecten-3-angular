@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Richting } from 'src/app/models/richting.model';
 import { Modules, Hoofdcompetentie } from 'src/app/models/hoofdcompetentie.model';
 import { MatDialogRef, MatDialog } from '@angular/material';
-import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
 import { Subject } from 'rxjs';
 import { CompetentieFilterPipe } from 'src/app/pipes/richting/competentie-description-filter.pipe';
 import { distinctUntilChanged, defaultIfEmpty, sampleTime, debounceTime } from 'rxjs/operators';
 import { RichtingService } from 'src/app/services/richting.service';
+import { CompetentieDialogComponent } from './competentie-dialog/competentie-dialog.component';
 
 @Component({
   selector: 'app-richting-competenties',

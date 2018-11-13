@@ -2,16 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Beoordeling } from 'src/app/models/beoordeling.model';
 import { Hoofdcompetentie, Modules } from 'src/app/models/hoofdcompetentie.model';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { CompetentieDialogComponent } from '../competentie-dialog/competentie-dialog.component';
 import { Richting } from 'src/app/models/richting.model';
 import { RichtingService } from 'src/app/services/richting.service';
 
 @Component({
-  selector: 'app-richting-scherm',
-  templateUrl: './richting-scherm.component.html',
-  styleUrls: ['./richting-scherm.component.css']
+  selector: 'app-richting-aanpassen',
+  templateUrl: './richting-aanpassen.component.html',
+  styleUrls: ['./richting-aanpassen.component.css']
 })
-export class RichtingSchermComponent implements OnInit {
+export class RichtingAanpassenComponent implements OnInit {
   /**
   * Dit is de boolean die je meekrijgt van de parent component om te weten of er een nieuwe richting gemaakt moet worden of niet
   */

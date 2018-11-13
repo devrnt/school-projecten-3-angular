@@ -1,11 +1,11 @@
 <mat-tab-group class="center" mat-align-tabs="center" [selectedIndex]="selectedTab" (selectedIndexChange)="changeTab($event)">
   <mat-tab label="Overzicht">
-    <app-richting-overzicht-scherm></app-richting-overzicht-scherm>
+    <app-richtingen-overzicht></app-richtingen-overzicht>
   </mat-tab>
   <mat-tab label="Aanpassen" *ngIf="selected">
-    <app-richting-scherm [new]=false></app-richting-scherm>
+    <app-richting-aanpassen [new]=false></app-richting-aanpassen>
   </mat-tab>
   <mat-tab label="Nieuw">
-    <app-richting-scherm [new]=true></app-richting-scherm>
+    <app-richting-aanpassen [new]=true></app-richting-aanpassen>
   </mat-tab>
 </mat-tab-group>

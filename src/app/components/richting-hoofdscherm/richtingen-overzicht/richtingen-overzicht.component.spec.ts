@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RichtingComponent } from '../richting/richting.component';
 
+import { RichtingenOverzichtComponent } from './richtingen-overzicht.component';
 
-describe('RichtingComponent', () => {
-  let component: RichtingComponent;
-  let fixture: ComponentFixture<RichtingComponent>;
+describe('RichtingenViewComponent', () => {
+  let component: RichtingenOverzichtComponent;
+  let fixture: ComponentFixture<RichtingenOverzichtComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RichtingComponent ]
+      declarations: [ RichtingenOverzichtComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RichtingComponent);
+    fixture = TestBed.createComponent(RichtingenOverzichtComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

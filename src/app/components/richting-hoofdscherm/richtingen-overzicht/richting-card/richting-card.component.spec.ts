@@ -1,16 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
- import { RichtingComponent } from './richting.component';
+ import { RichtingCardComponent } from './richting-card.component';
  describe('RichtingComponent', () => {
-  let component: RichtingComponent;
-  let fixture: ComponentFixture<RichtingComponent>;
+  let component: RichtingCardComponent;
+  let fixture: ComponentFixture<RichtingCardComponent>;
    beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RichtingComponent ]
+      declarations: [ RichtingCardComponent ]
     })
     .compileComponents();
   }));
    beforeEach(() => {
-    fixture = TestBed.createComponent(RichtingComponent);
+    fixture = TestBed.createComponent(RichtingCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

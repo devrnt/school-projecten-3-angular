@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { RichtingService } from 'src/app/services/richting.service';
-import { Richting, Kleur, Icon, Diploma } from '../../models/richting.model';
-import { User, UserType } from '../../models/user.model';
-import { LeerkrachtService } from '../../services/leerkracht.service';
 import { Subject } from 'rxjs';
+import { Kleur, Icon, Diploma, Richting } from 'src/app/models/richting.model';
+import { LeerkrachtService } from 'src/app/services/leerkracht.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-richting-details',

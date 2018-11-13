@@ -4,14 +4,14 @@ import { RichtingService } from 'src/app/services/richting.service';
 import { Subject } from 'rxjs';
 import { Richting } from 'src/app/models/richting.model';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
-import { RichtingFilterPipe } from '../../pipes/richting/richting-filter.pipe';
+import { RichtingFilterPipe } from 'src/app/pipes/richting/richting-filter.pipe';
 
 @Component({
-  selector: 'app-richtingen-view',
-  templateUrl: './richtingen-view.component.html',
-  styleUrls: ['./richtingen-view.component.css']
+  selector: 'app-richtingen-overzicht',
+  templateUrl: './richtingen-overzicht.component.html',
+  styleUrls: ['./richtingen-overzicht.component.css']
 })
-export class RichtingenViewComponent implements OnInit {
+export class RichtingenOverzichtComponent implements OnInit {
   /**
   * Property om de filter van de naam van de richting bij te houden
   */

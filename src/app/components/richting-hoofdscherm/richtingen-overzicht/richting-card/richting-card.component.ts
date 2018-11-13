@@ -4,11 +4,11 @@ import { delay } from 'q';
 import { MatDialog } from '@angular/material';
 import { RichtingConfirmDeleteComponent } from './richting-confirm-delete/richting-confirm-delete.component';
  @Component({
-  selector: 'app-richting',
-  templateUrl: './richting.component.html',
-  styleUrls: ['./richting.component.css']
+  selector: 'app-richting-card',
+  templateUrl: './richting-card.component.html',
+  styleUrls: ['./richting-card.component.css']
 })
-export class RichtingComponent implements OnInit {
+export class RichtingCardComponent implements OnInit {
   /**
   * Dit is de geselecteerde richting die je meekrijgt van de parentcomponent
   */

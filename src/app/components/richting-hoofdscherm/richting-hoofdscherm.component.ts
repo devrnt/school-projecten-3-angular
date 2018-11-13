@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Richting } from 'src/app/models/richting.model';
 import { RichtingService } from 'src/app/services/richting.service';
-import { RichtingenViewComponent } from '../richtingen-view/richtingen-view.component';
 
 @Component({
   selector: 'app-richting-hoofdscherm',

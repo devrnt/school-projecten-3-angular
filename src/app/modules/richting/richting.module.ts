@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RichtingenViewComponent } from 'src/app/components/richtingen-view/richtingen-view.component';
-import { RichtingComponent } from 'src/app/components/richting/richting.component';
 import {
   MatExpansionModule,
   MatInputModule,
@@ -16,19 +14,24 @@ import {
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LeerkrachtService } from 'src/app/services/leerkracht.service';
-import { RichtingDetailsComponent } from 'src/app/components/richting-details/richting-details.component';
-import { RichtingCompetentiesComponent } from 'src/app/components/richting-competenties/richting-competenties.component';
 import { RichtingService } from 'src/app/services/richting.service';
-import { RichtingOverzichtSchermComponent } from 'src/app/components/richting-overzicht-scherm/richting-overzicht-scherm.component';
-import { RichtingSchermComponent } from 'src/app/components/richting-scherm/richting-scherm.component';
 import { RichtingFilterPipe } from 'src/app/pipes/richting/richting-filter.pipe';
 import { CompetentieFilterPipe } from 'src/app/pipes/richting/competentie-description-filter.pipe';
 import { RichtingHoofdschermComponent } from 'src/app/components/richting-hoofdscherm/richting-hoofdscherm.component';
-import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/richting-confirm-delete/richting-confirm-delete.component';
-import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { DeelcompetentieComponent } from 'src/app/components/deelcompetentie/deelcompetentie.component';
+import { RichtingCardComponent } from 'src/app/components/richting-hoofdscherm/richtingen-overzicht/richting-card/richting-card.component';
+import { RichtingenOverzichtComponent } from 'src/app/components/richting-hoofdscherm/richtingen-overzicht/richtingen-overzicht.component';
+// tslint:disable-next-line:max-line-length
+import { RichtingDetailsComponent } from 'src/app/components/richting-hoofdscherm/richting-aanpassen/richting-details/richting-details.component';
+// tslint:disable-next-line:max-line-length
+import { RichtingCompetentiesComponent } from 'src/app/components/richting-hoofdscherm/richting-aanpassen/richting-competenties/richting-competenties.component';
+import { RichtingAanpassenComponent } from 'src/app/components/richting-hoofdscherm/richting-aanpassen/richting-aanpassen.component';
+// tslint:disable-next-line:max-line-length
+import { RichtingConfirmDeleteComponent } from 'src/app/components/richting-hoofdscherm/richtingen-overzicht/richting-card/richting-confirm-delete/richting-confirm-delete.component';
+// tslint:disable-next-line:max-line-length
+import { CompetentieDialogComponent } from 'src/app/components/richting-hoofdscherm/richting-aanpassen/richting-competenties/competentie-dialog/competentie-dialog.component';
+
 
 
 @NgModule({
@@ -49,25 +52,23 @@ import { DeelcompetentieComponent } from 'src/app/components/deelcompetentie/dee
     SharedModule
   ],
   declarations: [
-    RichtingComponent,
-    RichtingenViewComponent,
+    RichtingCardComponent,
+    RichtingenOverzichtComponent,
     RichtingDetailsComponent,
     RichtingCompetentiesComponent,
-    RichtingSchermComponent,
+    RichtingAanpassenComponent,
     RichtingFilterPipe,
     CompetentieFilterPipe,
-    RichtingOverzichtSchermComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
     CompetentieDialogComponent
   ],
   exports: [
-    RichtingComponent,
-    RichtingenViewComponent,
+    RichtingCardComponent,
+    RichtingenOverzichtComponent,
     RichtingDetailsComponent,
     RichtingCompetentiesComponent,
-    RichtingOverzichtSchermComponent,
-    RichtingSchermComponent,
+    RichtingAanpassenComponent,
     RichtingHoofdschermComponent,
     RichtingConfirmDeleteComponent,
     CompetentieDialogComponent
