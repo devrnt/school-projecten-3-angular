@@ -26,7 +26,7 @@
         <i class="fas fa-plus x1dot5 white"></i>&nbsp;&nbsp;<i class="fas fa-{{richting?.icon}} x2 white"></i>
       </button>
     </mat-card>
-    <app-hoofdcompetentie class="full competentiePadding" *ngFor="let competentie of hoofdcompetentiesFiltered"
-      [hoofdcompetentie]=competentie [new]=new></app-hoofdcompetentie>
+    <app-hoofdcompetentie-card class="full competentiePadding" *ngFor="let competentie of hoofdcompetentiesFiltered"
+      [hoofdcompetentie]=competentie [new]=new></app-hoofdcompetentie-card>
   </div>
 </div>

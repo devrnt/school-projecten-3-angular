@@ -6,11 +6,11 @@ import { RichtingService } from 'src/app/services/richting.service';
 import { Kleur, Icon } from 'src/app/models/richting.model';
 
 @Component({
-  selector: 'app-hoofdcompetentie',
-  templateUrl: './hoofdcompetentie.component.html',
-  styleUrls: ['./hoofdcompetentie.component.css']
+  selector: 'app-hoofdcompetentie-card',
+  templateUrl: './hoofdcompetentie-card.component.html',
+  styleUrls: ['./hoofdcompetentie-card.component.css']
 })
-export class HoofdcompetentieComponent implements OnInit {
+export class HoofdcompetentieCardComponent implements OnInit {
   /**
   * Dit is hoofdcompetentie dat je doorkrijgt van de parent component
   */

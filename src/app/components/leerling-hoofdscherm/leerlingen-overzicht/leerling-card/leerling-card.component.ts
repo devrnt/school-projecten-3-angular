@@ -2,9 +2,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Richting } from 'src/app/models/richting.model';
 import { delay } from 'q';
 import { MatDialog } from '@angular/material';
-import { LeerlingConfirmDeleteComponent } from './leerling-confirm-delete/leerling-confirm-delete.component';
 import { Leerling } from 'src/app/models/leerling.model';
 import { FormControl } from '@angular/forms';
+import { LeerlingConfirmDeleteComponent } from './leerling-confirm-delete/leerling-confirm-delete.component';
+
  @Component({
   selector: 'app-leerling-card',
   templateUrl: './leerling-card.component.html',

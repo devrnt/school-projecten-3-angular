@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HoofdcompetentieComponent } from './hoofdcompetentie.component';
+import { HoofdcompetentieCardComponent } from './hoofdcompetentie-card.component';
 
 describe('HoofdcompetentieComponent', () => {
-  let component: HoofdcompetentieComponent;
-  let fixture: ComponentFixture<HoofdcompetentieComponent>;
+  let component: HoofdcompetentieCardComponent;
+  let fixture: ComponentFixture<HoofdcompetentieCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HoofdcompetentieComponent ]
+      declarations: [ HoofdcompetentieCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HoofdcompetentieComponent);
+    fixture = TestBed.createComponent(HoofdcompetentieCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

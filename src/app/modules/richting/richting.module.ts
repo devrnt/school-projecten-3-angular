@@ -28,7 +28,7 @@ import { RichtingConfirmDeleteComponent } from 'src/app/components/richting/rich
 import { CompetentieDialogComponent } from 'src/app/components/competentie-dialog/competentie-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { DeelcompetentieComponent } from 'src/app/components/hoofdcompetentie/deelcompetentie/deelcompetentie.component';
+import { DeelcompetentieComponent } from 'src/app/components/deelcompetentie/deelcompetentie.component';
 
 
 @NgModule({
