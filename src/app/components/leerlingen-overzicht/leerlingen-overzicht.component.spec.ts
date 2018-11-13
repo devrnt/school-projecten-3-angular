@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeerlingSchermComponent } from './leerling-scherm.component';
+import { LeerlingenOverzichtComponent } from './leerlingen-overzicht.component';
 
-describe('LeerlingSchermComponent', () => {
-  let component: LeerlingSchermComponent;
-  let fixture: ComponentFixture<LeerlingSchermComponent>;
+describe('RichtingenViewComponent', () => {
+  let component: LeerlingenOverzichtComponent;
+  let fixture: ComponentFixture<LeerlingenOverzichtComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LeerlingSchermComponent ]
+      declarations: [ LeerlingenOverzichtComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LeerlingSchermComponent);
+    fixture = TestBed.createComponent(LeerlingenOverzichtComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,16 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { LeerlingComponent } from './leerling.component';
+import { LeerlingCardComponent } from './leerling-card.component';
  describe('LeerlingComponent', () => {
-  let component: LeerlingComponent;
-  let fixture: ComponentFixture<LeerlingComponent>;
+  let component: LeerlingCardComponent;
+  let fixture: ComponentFixture<LeerlingCardComponent>;
    beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LeerlingComponent ]
+      declarations: [ LeerlingCardComponent ]
     })
     .compileComponents();
   }));
    beforeEach(() => {
-    fixture = TestBed.createComponent(LeerlingComponent);
+    fixture = TestBed.createComponent(LeerlingCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

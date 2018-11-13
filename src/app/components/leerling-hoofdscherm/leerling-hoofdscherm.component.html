@@ -1,11 +1,18 @@
 <mat-tab-group class="center" mat-align-tabs="center" [selectedIndex]="selectedTab" (selectedIndexChange)="changeTab($event)">
   <mat-tab label="Overzicht">
-    <app-leerlingen-view (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerlingen-view>
+    <app-leerlingen-overzicht (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerlingen-overzicht>
   </mat-tab>
   <mat-tab label="Toekennen competenties" *ngIf="selectedLeerling">
       <app-leerling-competenties-toekennen-scherm [leerling]="selectedLeerling"></app-leerling-competenties-toekennen-scherm>
   </mat-tab>
   <mat-tab label="Nieuw">
-      <app-leerling-scherm [leerling]="nieuweLeerling"></app-leerling-scherm>
+      <!-- <app-leerling-scherm [leerling]="nieuweLeerling"></app-leerling-scherm> -->
+      <div class="container">
+          <div class="row justify-content-md-center">
+              <app-leerling-details [leerling]="nieuweLeerling" class="
+                col-md-8">
+              </app-leerling-details>
+          </div>
+      </div>
   </mat-tab>
 </mat-tab-group>

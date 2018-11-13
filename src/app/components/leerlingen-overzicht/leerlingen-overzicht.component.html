@@ -20,26 +20,26 @@
       <div class="row scrollbox">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <div *ngFor='let leerling of columns[0]' class="col-12 padding_bottom">
-            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
-              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling>
+            <app-leerling-card (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
+              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling-card>
           </div>
         </div>
         <div *ngIf='numberOfColumns>=2' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <div *ngFor='let leerling of columns[1]' class="col-12 padding_bottom">
-            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
-              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling>
+            <app-leerling-card (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
+              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling-card>
           </div>
         </div>
         <div *ngIf='numberOfColumns>=3' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <div *ngFor='let leerling of columns[2]' class="col-12 padding_bottom">
-            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
-              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling>
+            <app-leerling-card (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
+              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling-card>
           </div>
         </div>
         <div *ngIf='numberOfColumns==4' class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <div *ngFor='let leerling of columns[3]' class="col-12 padding_bottom">
-            <app-leerling (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
-              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling>
+            <app-leerling-card (verwijder)="verwijderLeerling($event)" [leerling]=leerling 
+              (toekennenCompetenties)="kenCompetentiesToe($event)" (edit)="editLeerling($event)"></app-leerling-card>
           </div>
         </div>
       </div>

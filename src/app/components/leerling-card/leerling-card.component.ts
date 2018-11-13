@@ -6,11 +6,11 @@ import { LeerlingConfirmDeleteComponent } from './leerling-confirm-delete/leerli
 import { Leerling } from 'src/app/models/leerling.model';
 import { FormControl } from '@angular/forms';
  @Component({
-  selector: 'app-leerling',
-  templateUrl: './leerling.component.html',
-  styleUrls: ['./leerling.component.css']
+  selector: 'app-leerling-card',
+  templateUrl: './leerling-card.component.html',
+  styleUrls: ['./leerling-card.component.css']
 })
-export class LeerlingComponent implements OnInit {
+export class LeerlingCardComponent implements OnInit {
   /**
   * Dit is de geselecteerde leerling die je meekrijgt van de parentcomponent
   */

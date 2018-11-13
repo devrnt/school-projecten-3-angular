@@ -7,11 +7,11 @@ import { LeerlingFilterPipe } from 'src/app/pipes/leerling/leerling-filter.pipe'
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-leerlingen-view',
-  templateUrl: './leerlingen-view.component.html',
-  styleUrls: ['./leerlingen-view.component.css']
+  selector: 'app-leerlingen-overzicht',
+  templateUrl: './leerlingen-overzicht.component.html',
+  styleUrls: ['./leerlingen-overzicht.component.css']
 })
-export class LeerlingenViewComponent implements OnInit {
+export class LeerlingenOverzichtComponent implements OnInit {
   /**
   * Property om de filter van de naam bij te houden
   */
