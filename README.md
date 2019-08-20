@@ -1,45 +1,18 @@
 # Talentcoach
+Our second school project was seperated in a backend, frontend and a mobile application part. The frontend is made in `Angular`.
+This project was our final project and was very advanced. We had to keep contact with our customer by ourself.
+
+In Belgium we have a school platform called `Smartschool` in the Flanders, this platform is used by teachers to publish their school grades, upload tasks, keep in touch by email...
+
+This project was to create an alternative for Smartschool, it was more focused on giving ratings and set a capability to 'accomplished'.
+
+The teachers were able to login on the Angular web application and manage their classes, students, give ratings...
+
+### Dependencies
+* angular material
+* font awesome icons
+* bootstrap
+* poppper
+* jquery
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
-
-
-## Dependencies
-angular material
-
-font awesome icons
-
-bootstrap
-
-poppper
-
-jquery
-
-how to manually install:
-
-npm install --save @angular/material @angular/cdk @angular/animations
-
-npm install --save font-awesome angular-font-awesome
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
