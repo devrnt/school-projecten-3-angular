@@ -1,4 +1,4 @@
-# Talentcoach
+# School Project 3 - Talentcoach - Frontend
 Our second school project was seperated in a backend, frontend and a mobile application part. The frontend is made in `Angular`.
 This project was our final project and was very advanced. We had to keep contact with our customer by ourself.
 
